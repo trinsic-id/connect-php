@@ -80,6 +80,24 @@ class GoogleWalletProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "mobile_drivers_license"
+     */
+    public function testPropertyMobileDriversLicense()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "id_pass"
+     */
+    public function testPropertyIdPass()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "raw_mdl_output"
      */
     public function testPropertyRawMdlOutput()

@@ -438,7 +438,7 @@ class CreateHostedProviderSessionRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets browser_languages
      *
-     * @param string[]|null $browser_languages Preferences for languages to show first in the Hosted UI. If left empty, the Hosted UI defaults to the user's navigator languages. If no preferred language is available, the Hosted UI falls back to English.
+     * @param string[]|null $browser_languages Preferences for languages to show first in the Hosted UI and supported provider launch flows. If left empty, the Hosted UI defaults to the user's navigator languages. If no preferred language is available, the Hosted UI falls back to English.
      *
      * @return self
      */

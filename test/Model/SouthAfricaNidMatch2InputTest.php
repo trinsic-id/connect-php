@@ -132,13 +132,4 @@ class SouthAfricaNidMatch2InputTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
-
-    /**
-     * Test attribute "phone_number"
-     */
-    public function testPropertyPhoneNumber()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
 }

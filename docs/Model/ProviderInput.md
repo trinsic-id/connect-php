@@ -4,7 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**kenya_nid_match_biometric_2** | [**\Trinsic\Api\Model\KenyaNidBiometric2Input**](KenyaNidBiometric2Input.md) | Input for the &#x60;kenya-nid-match-biometric-2&#x60; provider | [optional]
 **indonesia_nik_lookup** | [**\Trinsic\Api\Model\IndonesiaNikInput**](IndonesiaNikInput.md) | Input for the &#x60;indonesia-nik-lookup&#x60; provider | [optional]
 **china_resident_id_match** | [**\Trinsic\Api\Model\ChinaResidentIdMatchInput**](ChinaResidentIdMatchInput.md) | Input for the &#x60;china-resident-id-match&#x60; provider | [optional]
 **indonesia_dukcapil_match** | [**\Trinsic\Api\Model\IndonesiaDukcapilMatchInput**](IndonesiaDukcapilMatchInput.md) | Input for the &#x60;indonesia-dukcapil-match&#x60; provider | [optional]
@@ -15,13 +14,11 @@ Name | Type | Description | Notes
 **kenya_nid_lookup_2** | [**\Trinsic\Api\Model\KenyaNidLookup2Input**](KenyaNidLookup2Input.md) | Input for the &#x60;kenya-nid-lookup-2&#x60; provider | [optional]
 **south_africa_nid_lookup_2** | [**\Trinsic\Api\Model\SouthAfricaNidLookup2Input**](SouthAfricaNidLookup2Input.md) | Input for the &#x60;south-africa-nid-lookup-2&#x60; provider | [optional]
 **south_africa_nid_match_2** | [**\Trinsic\Api\Model\SouthAfricaNidMatch2Input**](SouthAfricaNidMatch2Input.md) | Input for the &#x60;south-africa-nid-match-2&#x60; provider | [optional]
-**south_africa_nid_match_biometric_2** | [**\Trinsic\Api\Model\SouthAfricaNidBiometric2Input**](SouthAfricaNidBiometric2Input.md) | Input for the &#x60;south-africa-nid-match-biometric-2&#x60; provider | [optional]
 **nigeria_nin_lookup_2** | [**\Trinsic\Api\Model\NigeriaNinLookup2Input**](NigeriaNinLookup2Input.md) | Input for the &#x60;nigeria-nin-lookup-2&#x60; provider | [optional]
 **cote_divoire_nid_lookup_2** | [**\Trinsic\Api\Model\CoteDIvoireNidLookup2Input**](CoteDIvoireNidLookup2Input.md) | Input for the &#x60;cote-divoire-nid-lookup-2&#x60; provider | [optional]
 **zimbabwe_nid_lookup_2** | [**\Trinsic\Api\Model\ZimbabweNidLookup2Input**](ZimbabweNidLookup2Input.md) | Input for the &#x60;zimbabwe-nid-lookup-2&#x60; provider | [optional]
 **nigeria_nin_match_2** | [**\Trinsic\Api\Model\NigeriaNinMatch2Input**](NigeriaNinMatch2Input.md) | Input for the &#x60;nigeria-nin-match-2&#x60; provider | [optional]
 **uganda_nid_match_2** | [**\Trinsic\Api\Model\UgandaNidMatch2Input**](UgandaNidMatch2Input.md) | Input for the &#x60;uganda-nid-match-2&#x60; provider | [optional]
-**nigeria_nin_match_biometric_2** | [**\Trinsic\Api\Model\NigeriaNinBiometric2Input**](NigeriaNinBiometric2Input.md) | Input for the &#x60;nigeria-nin-match-biometric-2&#x60; provider | [optional]
 **nigeria_nin_lookup** | [**\Trinsic\Api\Model\NigeriaNinInput**](NigeriaNinInput.md) | Input for the &#x60;nigeria-nin-lookup&#x60; provider | [optional]
 **india_digilocker_aadhaar_match** | [**\Trinsic\Api\Model\AadhaarInput**](AadhaarInput.md) | Input for the &#x60;india-digilocker-aadhaar-match&#x60; provider | [optional]
 **india_pan_lookup** | [**\Trinsic\Api\Model\IndiaPanLookupInput**](IndiaPanLookupInput.md) | Input for the &#x60;india-pan-lookup&#x60; provider | [optional]

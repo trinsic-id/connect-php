@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**remember_me_id** | **string** | A Yoti-generated unique ID for this individual, consistent across repeat shares and different for each Relying Party. | [optional]
+**yoti_remember_me_id** | **string** | A Yoti-generated unique ID for this individual, consistent across repeat shares and different for each Relying Party. | [optional]
 **email** | **string** | The email address of the individual | [optional]
 **given_name** | **string** | The given name of the individual. This can correspond to first and middle names in English. | [optional]
 **family_name** | **string** | The family name of the individual | [optional]

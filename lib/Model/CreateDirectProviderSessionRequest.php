@@ -520,7 +520,7 @@ class CreateDirectProviderSessionRequest implements ModelInterface, ArrayAccess,
     /**
      * Sets browser_languages
      *
-     * @param string[]|null $browser_languages Preferences for languages to show first if the session falls back to the Trinsic-hosted UI. If left empty, the Hosted UI defaults to the user's navigator languages. If no preferred language is available, the Hosted UI falls back to English. This only will be used if the session falls back to the Trinsic-hosted UI.
+     * @param string[]|null $browser_languages Preferences for languages to show first in supported provider launch flows and, if the session falls back, in the Trinsic-hosted UI. If left empty, the Hosted UI defaults to the user's navigator languages. If no preferred language is available, the Hosted UI falls back to English.
      *
      * @return self
      */

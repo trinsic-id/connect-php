@@ -80,6 +80,24 @@ class FranceIdentiteProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "pid"
+     */
+    public function testPropertyPid()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "age_verification"
+     */
+    public function testPropertyAgeVerification()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "raw18013_output"
      */
     public function testPropertyRaw18013Output()

@@ -58,6 +58,8 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $openAPITypes = [
+        'mobile_drivers_license' => '\Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential',
+        'digital_id' => '\Trinsic\Api\Model\AppleWalletDigitalIdCredential',
         'raw_mdl_output' => '\Trinsic\Api\Model\MdlOutput'
     ];
 
@@ -69,6 +71,8 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'mobile_drivers_license' => null,
+        'digital_id' => null,
         'raw_mdl_output' => null
     ];
 
@@ -78,6 +82,8 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'mobile_drivers_license' => true,
+        'digital_id' => true,
         'raw_mdl_output' => false
     ];
 
@@ -167,6 +173,8 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $attributeMap = [
+        'mobile_drivers_license' => 'mobileDriversLicense',
+        'digital_id' => 'digitalId',
         'raw_mdl_output' => 'rawMdlOutput'
     ];
 
@@ -176,6 +184,8 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $setters = [
+        'mobile_drivers_license' => 'setMobileDriversLicense',
+        'digital_id' => 'setDigitalId',
         'raw_mdl_output' => 'setRawMdlOutput'
     ];
 
@@ -185,6 +195,8 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      * @var string[]
      */
     protected static $getters = [
+        'mobile_drivers_license' => 'getMobileDriversLicense',
+        'digital_id' => 'getDigitalId',
         'raw_mdl_output' => 'getRawMdlOutput'
     ];
 
@@ -245,6 +257,8 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('mobile_drivers_license', $data ?? [], null);
+        $this->setIfExists('digital_id', $data ?? [], null);
         $this->setIfExists('raw_mdl_output', $data ?? [], null);
     }
 
@@ -292,6 +306,74 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets mobile_drivers_license
+     *
+     * @return \Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential|null
+     */
+    public function getMobileDriversLicense()
+    {
+        return $this->container['mobile_drivers_license'];
+    }
+
+    /**
+     * Sets mobile_drivers_license
+     *
+     * @param \Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential|null $mobile_drivers_license A standard 18013-5 Mobile Driver's License credential, retrieved from the individual's wallet.
+     *
+     * @return self
+     */
+    public function setMobileDriversLicense($mobile_drivers_license)
+    {
+        if (is_null($mobile_drivers_license)) {
+            array_push($this->openAPINullablesSetToNull, 'mobile_drivers_license');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mobile_drivers_license', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['mobile_drivers_license'] = $mobile_drivers_license;
+
+        return $this;
+    }
+
+    /**
+     * Gets digital_id
+     *
+     * @return \Trinsic\Api\Model\AppleWalletDigitalIdCredential|null
+     */
+    public function getDigitalId()
+    {
+        return $this->container['digital_id'];
+    }
+
+    /**
+     * Sets digital_id
+     *
+     * @param \Trinsic\Api\Model\AppleWalletDigitalIdCredential|null $digital_id An Apple Wallet Digital ID credential (`org.iso.23220.photoid.1`), retrieved from the individual's wallet.
+     *
+     * @return self
+     */
+    public function setDigitalId($digital_id)
+    {
+        if (is_null($digital_id)) {
+            array_push($this->openAPINullablesSetToNull, 'digital_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('digital_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['digital_id'] = $digital_id;
+
+        return $this;
+    }
 
     /**
      * Gets raw_mdl_output

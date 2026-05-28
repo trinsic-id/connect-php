@@ -62,7 +62,16 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_name' => 'string',
         'date_of_birth' => '\DateTime',
         'hashed_national_register_number' => 'string',
-        'national_register_number' => 'string'
+        'national_register_number' => 'string',
+        'email' => 'string',
+        'phone_number' => 'string',
+        'gender' => 'string',
+        'nationality' => 'string',
+        'birth_place' => 'string',
+        'document_number' => 'string',
+        'identity_document_expiration_date' => '\DateTime',
+        'language' => 'string',
+        'address' => '\Trinsic\Api\Model\ItsmeAddress'
     ];
 
     /**
@@ -77,7 +86,16 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_name' => null,
         'date_of_birth' => 'date',
         'hashed_national_register_number' => null,
-        'national_register_number' => null
+        'national_register_number' => null,
+        'email' => null,
+        'phone_number' => null,
+        'gender' => null,
+        'nationality' => null,
+        'birth_place' => null,
+        'document_number' => null,
+        'identity_document_expiration_date' => 'date',
+        'language' => null,
+        'address' => null
     ];
 
     /**
@@ -90,7 +108,16 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_name' => false,
         'date_of_birth' => false,
         'hashed_national_register_number' => true,
-        'national_register_number' => true
+        'national_register_number' => true,
+        'email' => true,
+        'phone_number' => true,
+        'gender' => true,
+        'nationality' => true,
+        'birth_place' => true,
+        'document_number' => true,
+        'identity_document_expiration_date' => true,
+        'language' => true,
+        'address' => true
     ];
 
     /**
@@ -183,7 +210,16 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_name' => 'lastName',
         'date_of_birth' => 'dateOfBirth',
         'hashed_national_register_number' => 'hashedNationalRegisterNumber',
-        'national_register_number' => 'nationalRegisterNumber'
+        'national_register_number' => 'nationalRegisterNumber',
+        'email' => 'email',
+        'phone_number' => 'phoneNumber',
+        'gender' => 'gender',
+        'nationality' => 'nationality',
+        'birth_place' => 'birthPlace',
+        'document_number' => 'documentNumber',
+        'identity_document_expiration_date' => 'identityDocumentExpirationDate',
+        'language' => 'language',
+        'address' => 'address'
     ];
 
     /**
@@ -196,7 +232,16 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_name' => 'setLastName',
         'date_of_birth' => 'setDateOfBirth',
         'hashed_national_register_number' => 'setHashedNationalRegisterNumber',
-        'national_register_number' => 'setNationalRegisterNumber'
+        'national_register_number' => 'setNationalRegisterNumber',
+        'email' => 'setEmail',
+        'phone_number' => 'setPhoneNumber',
+        'gender' => 'setGender',
+        'nationality' => 'setNationality',
+        'birth_place' => 'setBirthPlace',
+        'document_number' => 'setDocumentNumber',
+        'identity_document_expiration_date' => 'setIdentityDocumentExpirationDate',
+        'language' => 'setLanguage',
+        'address' => 'setAddress'
     ];
 
     /**
@@ -209,7 +254,16 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
         'last_name' => 'getLastName',
         'date_of_birth' => 'getDateOfBirth',
         'hashed_national_register_number' => 'getHashedNationalRegisterNumber',
-        'national_register_number' => 'getNationalRegisterNumber'
+        'national_register_number' => 'getNationalRegisterNumber',
+        'email' => 'getEmail',
+        'phone_number' => 'getPhoneNumber',
+        'gender' => 'getGender',
+        'nationality' => 'getNationality',
+        'birth_place' => 'getBirthPlace',
+        'document_number' => 'getDocumentNumber',
+        'identity_document_expiration_date' => 'getIdentityDocumentExpirationDate',
+        'language' => 'getLanguage',
+        'address' => 'getAddress'
     ];
 
     /**
@@ -274,6 +328,15 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('date_of_birth', $data ?? [], null);
         $this->setIfExists('hashed_national_register_number', $data ?? [], null);
         $this->setIfExists('national_register_number', $data ?? [], null);
+        $this->setIfExists('email', $data ?? [], null);
+        $this->setIfExists('phone_number', $data ?? [], null);
+        $this->setIfExists('gender', $data ?? [], null);
+        $this->setIfExists('nationality', $data ?? [], null);
+        $this->setIfExists('birth_place', $data ?? [], null);
+        $this->setIfExists('document_number', $data ?? [], null);
+        $this->setIfExists('identity_document_expiration_date', $data ?? [], null);
+        $this->setIfExists('language', $data ?? [], null);
+        $this->setIfExists('address', $data ?? [], null);
     }
 
     /**
@@ -472,6 +535,312 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['national_register_number'] = $national_register_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets email
+     *
+     * @return string|null
+     */
+    public function getEmail()
+    {
+        return $this->container['email'];
+    }
+
+    /**
+     * Sets email
+     *
+     * @param string|null $email The individual's email address.
+     *
+     * @return self
+     */
+    public function setEmail($email)
+    {
+        if (is_null($email)) {
+            array_push($this->openAPINullablesSetToNull, 'email');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('email', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['email'] = $email;
+
+        return $this;
+    }
+
+    /**
+     * Gets phone_number
+     *
+     * @return string|null
+     */
+    public function getPhoneNumber()
+    {
+        return $this->container['phone_number'];
+    }
+
+    /**
+     * Sets phone_number
+     *
+     * @param string|null $phone_number The individual's phone number in international format.
+     *
+     * @return self
+     */
+    public function setPhoneNumber($phone_number)
+    {
+        if (is_null($phone_number)) {
+            array_push($this->openAPINullablesSetToNull, 'phone_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['phone_number'] = $phone_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string|null
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string|null $gender The individual's gender.              Possible values: - Male - Female - Unknown - Not Applicable
+     *
+     * @return self
+     */
+    public function setGender($gender)
+    {
+        if (is_null($gender)) {
+            array_push($this->openAPINullablesSetToNull, 'gender');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gender', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gender'] = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Gets nationality
+     *
+     * @return string|null
+     */
+    public function getNationality()
+    {
+        return $this->container['nationality'];
+    }
+
+    /**
+     * Sets nationality
+     *
+     * @param string|null $nationality The individual's nationality as an ISO 3166-1 alpha-3 code.
+     *
+     * @return self
+     */
+    public function setNationality($nationality)
+    {
+        if (is_null($nationality)) {
+            array_push($this->openAPINullablesSetToNull, 'nationality');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nationality', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['nationality'] = $nationality;
+
+        return $this;
+    }
+
+    /**
+     * Gets birth_place
+     *
+     * @return string|null
+     */
+    public function getBirthPlace()
+    {
+        return $this->container['birth_place'];
+    }
+
+    /**
+     * Sets birth_place
+     *
+     * @param string|null $birth_place The individual's place of birth.
+     *
+     * @return self
+     */
+    public function setBirthPlace($birth_place)
+    {
+        if (is_null($birth_place)) {
+            array_push($this->openAPINullablesSetToNull, 'birth_place');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birth_place', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['birth_place'] = $birth_place;
+
+        return $this;
+    }
+
+    /**
+     * Gets document_number
+     *
+     * @return string|null
+     */
+    public function getDocumentNumber()
+    {
+        return $this->container['document_number'];
+    }
+
+    /**
+     * Sets document_number
+     *
+     * @param string|null $document_number The document number
+     *
+     * @return self
+     */
+    public function setDocumentNumber($document_number)
+    {
+        if (is_null($document_number)) {
+            array_push($this->openAPINullablesSetToNull, 'document_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['document_number'] = $document_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets identity_document_expiration_date
+     *
+     * @return \DateTime|null
+     */
+    public function getIdentityDocumentExpirationDate()
+    {
+        return $this->container['identity_document_expiration_date'];
+    }
+
+    /**
+     * Sets identity_document_expiration_date
+     *
+     * @param \DateTime|null $identity_document_expiration_date The expiration date of the identity document.
+     *
+     * @return self
+     */
+    public function setIdentityDocumentExpirationDate($identity_document_expiration_date)
+    {
+        if (is_null($identity_document_expiration_date)) {
+            array_push($this->openAPINullablesSetToNull, 'identity_document_expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('identity_document_expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['identity_document_expiration_date'] = $identity_document_expiration_date;
+
+        return $this;
+    }
+
+    /**
+     * Gets language
+     *
+     * @return string|null
+     */
+    public function getLanguage()
+    {
+        return $this->container['language'];
+    }
+
+    /**
+     * Sets language
+     *
+     * @param string|null $language The individual's language as an ISO 639-1 code. Expected values: NL, FR, DE, EN.
+     *
+     * @return self
+     */
+    public function setLanguage($language)
+    {
+        if (is_null($language)) {
+            array_push($this->openAPINullablesSetToNull, 'language');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('language', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['language'] = $language;
+
+        return $this;
+    }
+
+    /**
+     * Gets address
+     *
+     * @return \Trinsic\Api\Model\ItsmeAddress|null
+     */
+    public function getAddress()
+    {
+        return $this->container['address'];
+    }
+
+    /**
+     * Sets address
+     *
+     * @param \Trinsic\Api\Model\ItsmeAddress|null $address The individual's address
+     *
+     * @return self
+     */
+    public function setAddress($address)
+    {
+        if (is_null($address)) {
+            array_push($this->openAPINullablesSetToNull, 'address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['address'] = $address;
 
         return $this;
     }

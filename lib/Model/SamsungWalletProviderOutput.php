@@ -58,6 +58,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $openAPITypes = [
+        'mobile_drivers_license' => '\Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential',
         'raw_mdl_output' => '\Trinsic\Api\Model\MdlOutput'
     ];
 
@@ -69,6 +70,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'mobile_drivers_license' => null,
         'raw_mdl_output' => null
     ];
 
@@ -78,6 +80,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'mobile_drivers_license' => true,
         'raw_mdl_output' => false
     ];
 
@@ -167,6 +170,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $attributeMap = [
+        'mobile_drivers_license' => 'mobileDriversLicense',
         'raw_mdl_output' => 'rawMdlOutput'
     ];
 
@@ -176,6 +180,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $setters = [
+        'mobile_drivers_license' => 'setMobileDriversLicense',
         'raw_mdl_output' => 'setRawMdlOutput'
     ];
 
@@ -185,6 +190,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var string[]
      */
     protected static $getters = [
+        'mobile_drivers_license' => 'getMobileDriversLicense',
         'raw_mdl_output' => 'getRawMdlOutput'
     ];
 
@@ -245,6 +251,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('mobile_drivers_license', $data ?? [], null);
         $this->setIfExists('raw_mdl_output', $data ?? [], null);
     }
 
@@ -292,6 +299,40 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets mobile_drivers_license
+     *
+     * @return \Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential|null
+     */
+    public function getMobileDriversLicense()
+    {
+        return $this->container['mobile_drivers_license'];
+    }
+
+    /**
+     * Sets mobile_drivers_license
+     *
+     * @param \Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential|null $mobile_drivers_license A standard 18013-5 Mobile Driver's License credential, retrieved from the individual's wallet.
+     *
+     * @return self
+     */
+    public function setMobileDriversLicense($mobile_drivers_license)
+    {
+        if (is_null($mobile_drivers_license)) {
+            array_push($this->openAPINullablesSetToNull, 'mobile_drivers_license');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mobile_drivers_license', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['mobile_drivers_license'] = $mobile_drivers_license;
+
+        return $this;
+    }
 
     /**
      * Gets raw_mdl_output

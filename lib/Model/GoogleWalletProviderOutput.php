@@ -58,6 +58,8 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
+        'mobile_drivers_license' => '\Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential',
+        'id_pass' => '\Trinsic\Api\Model\GoogleWalletIdPassCredential',
         'raw_mdl_output' => '\Trinsic\Api\Model\MdlOutput'
     ];
 
@@ -69,6 +71,8 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'mobile_drivers_license' => null,
+        'id_pass' => null,
         'raw_mdl_output' => null
     ];
 
@@ -78,6 +82,8 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'mobile_drivers_license' => true,
+        'id_pass' => true,
         'raw_mdl_output' => false
     ];
 
@@ -167,6 +173,8 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
+        'mobile_drivers_license' => 'mobileDriversLicense',
+        'id_pass' => 'idPass',
         'raw_mdl_output' => 'rawMdlOutput'
     ];
 
@@ -176,6 +184,8 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
+        'mobile_drivers_license' => 'setMobileDriversLicense',
+        'id_pass' => 'setIdPass',
         'raw_mdl_output' => 'setRawMdlOutput'
     ];
 
@@ -185,6 +195,8 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
+        'mobile_drivers_license' => 'getMobileDriversLicense',
+        'id_pass' => 'getIdPass',
         'raw_mdl_output' => 'getRawMdlOutput'
     ];
 
@@ -245,6 +257,8 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('mobile_drivers_license', $data ?? [], null);
+        $this->setIfExists('id_pass', $data ?? [], null);
         $this->setIfExists('raw_mdl_output', $data ?? [], null);
     }
 
@@ -292,6 +306,74 @@ class GoogleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets mobile_drivers_license
+     *
+     * @return \Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential|null
+     */
+    public function getMobileDriversLicense()
+    {
+        return $this->container['mobile_drivers_license'];
+    }
+
+    /**
+     * Sets mobile_drivers_license
+     *
+     * @param \Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential|null $mobile_drivers_license A standard 18013-5 Mobile Driver's License credential, retrieved from the individual's wallet.
+     *
+     * @return self
+     */
+    public function setMobileDriversLicense($mobile_drivers_license)
+    {
+        if (is_null($mobile_drivers_license)) {
+            array_push($this->openAPINullablesSetToNull, 'mobile_drivers_license');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mobile_drivers_license', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['mobile_drivers_license'] = $mobile_drivers_license;
+
+        return $this;
+    }
+
+    /**
+     * Gets id_pass
+     *
+     * @return \Trinsic\Api\Model\GoogleWalletIdPassCredential|null
+     */
+    public function getIdPass()
+    {
+        return $this->container['id_pass'];
+    }
+
+    /**
+     * Sets id_pass
+     *
+     * @param \Trinsic\Api\Model\GoogleWalletIdPassCredential|null $id_pass A Google Wallet ID Pass credential (`com.google.wallet.idcard.1`), retrieved from the individual's wallet.
+     *
+     * @return self
+     */
+    public function setIdPass($id_pass)
+    {
+        if (is_null($id_pass)) {
+            array_push($this->openAPINullablesSetToNull, 'id_pass');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id_pass', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['id_pass'] = $id_pass;
+
+        return $this;
+    }
 
     /**
      * Gets raw_mdl_output

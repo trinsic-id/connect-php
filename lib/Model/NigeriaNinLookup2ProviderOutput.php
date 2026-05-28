@@ -579,7 +579,7 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Sets national_identity_number
      *
-     * @param string $national_identity_number National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission upon enrollment.              Format: 11 numeric digits (regex: /^[0-9]{11}$/). The digits are validated using the Verhoeff algorithm, meaning the last digit serves as a check digit.
+     * @param string $national_identity_number National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission (NIMC) upon enrollment.              Format: - 11 numeric digits - No publicly known encoding scheme is used to encode personal information in the NIN - Last digit is a checksum using the Verhoeff algorithm
      *
      * @return self
      */

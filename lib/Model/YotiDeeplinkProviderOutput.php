@@ -58,7 +58,7 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $openAPITypes = [
-        'remember_me_id' => 'string',
+        'yoti_remember_me_id' => 'string',
         'email' => 'string',
         'given_name' => 'string',
         'family_name' => 'string',
@@ -80,7 +80,7 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'remember_me_id' => 'uuid',
+        'yoti_remember_me_id' => null,
         'email' => null,
         'given_name' => null,
         'family_name' => null,
@@ -100,7 +100,7 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'remember_me_id' => true,
+        'yoti_remember_me_id' => true,
         'email' => true,
         'given_name' => true,
         'family_name' => true,
@@ -200,7 +200,7 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $attributeMap = [
-        'remember_me_id' => 'rememberMeId',
+        'yoti_remember_me_id' => 'yotiRememberMeId',
         'email' => 'email',
         'given_name' => 'givenName',
         'family_name' => 'familyName',
@@ -220,7 +220,7 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $setters = [
-        'remember_me_id' => 'setRememberMeId',
+        'yoti_remember_me_id' => 'setYotiRememberMeId',
         'email' => 'setEmail',
         'given_name' => 'setGivenName',
         'family_name' => 'setFamilyName',
@@ -240,7 +240,7 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var string[]
      */
     protected static $getters = [
-        'remember_me_id' => 'getRememberMeId',
+        'yoti_remember_me_id' => 'getYotiRememberMeId',
         'email' => 'getEmail',
         'given_name' => 'getGivenName',
         'family_name' => 'getFamilyName',
@@ -311,7 +311,7 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('remember_me_id', $data ?? [], null);
+        $this->setIfExists('yoti_remember_me_id', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('given_name', $data ?? [], null);
         $this->setIfExists('family_name', $data ?? [], null);
@@ -368,35 +368,35 @@ class YotiDeeplinkProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
 
 
     /**
-     * Gets remember_me_id
+     * Gets yoti_remember_me_id
      *
      * @return string|null
      */
-    public function getRememberMeId()
+    public function getYotiRememberMeId()
     {
-        return $this->container['remember_me_id'];
+        return $this->container['yoti_remember_me_id'];
     }
 
     /**
-     * Sets remember_me_id
+     * Sets yoti_remember_me_id
      *
-     * @param string|null $remember_me_id A Yoti-generated unique ID for this individual, consistent across repeat shares and different for each Relying Party.
+     * @param string|null $yoti_remember_me_id A Yoti-generated unique ID for this individual, consistent across repeat shares and different for each Relying Party.
      *
      * @return self
      */
-    public function setRememberMeId($remember_me_id)
+    public function setYotiRememberMeId($yoti_remember_me_id)
     {
-        if (is_null($remember_me_id)) {
-            array_push($this->openAPINullablesSetToNull, 'remember_me_id');
+        if (is_null($yoti_remember_me_id)) {
+            array_push($this->openAPINullablesSetToNull, 'yoti_remember_me_id');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('remember_me_id', $nullablesSetToNull);
+            $index = array_search('yoti_remember_me_id', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['remember_me_id'] = $remember_me_id;
+        $this->container['yoti_remember_me_id'] = $yoti_remember_me_id;
 
         return $this;
     }

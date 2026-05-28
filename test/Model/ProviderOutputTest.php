@@ -80,15 +80,6 @@ class ProviderOutputTest extends TestCase
     }
 
     /**
-     * Test attribute "audkenni"
-     */
-    public function testPropertyAudkenni()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "a_at_handy_signatur_login"
      */
     public function testPropertyAAtHandySignaturLogin()
@@ -224,6 +215,15 @@ class ProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "audkenni"
+     */
+    public function testPropertyAudkenni()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "australia_connect_id"
      */
     public function testPropertyAustraliaConnectId()
@@ -236,6 +236,24 @@ class ProviderOutputTest extends TestCase
      * Test attribute "bolivia_ci_lookup"
      */
     public function testPropertyBoliviaCiLookup()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "brazil_digital_cnh"
+     */
+    public function testPropertyBrazilDigitalCnh()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "canada_interac"
+     */
+    public function testPropertyCanadaInterac()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -263,6 +281,15 @@ class ProviderOutputTest extends TestCase
      * Test attribute "el_salvador_dui_lookup"
      */
     public function testPropertyElSalvadorDuiLookup()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "czech_bank_id"
+     */
+    public function testPropertyCzechBankId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -350,6 +377,15 @@ class ProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "idemia_preview"
+     */
+    public function testPropertyIdemiaPreview()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "panama_cedula_lookup"
      */
     public function testPropertyPanamaCedulaLookup()
@@ -377,9 +413,36 @@ class ProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "india_digilocker_aadhaar_match"
+     */
+    public function testPropertyIndiaDigilockerAadhaarMatch()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "india_pan_lookup"
      */
     public function testPropertyIndiaPanLookup()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "indonesia_dukcapil_match"
+     */
+    public function testPropertyIndonesiaDukcapilMatch()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "indonesia_nik_lookup"
+     */
+    public function testPropertyIndonesiaNikLookup()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -407,6 +470,15 @@ class ProviderOutputTest extends TestCase
      * Test attribute "kenya_nid_lookup_2"
      */
     public function testPropertyKenyaNidLookup2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "kenya_nid_match_2"
+     */
+    public function testPropertyKenyaNidMatch2()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -458,6 +530,15 @@ class ProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "nigeria_nin_match_2"
+     */
+    public function testPropertyNigeriaNinMatch2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "oneid"
      */
     public function testPropertyOneid()
@@ -488,6 +569,15 @@ class ProviderOutputTest extends TestCase
      * Test attribute "philippines_digital_national_id_qr"
      */
     public function testPropertyPhilippinesDigitalNationalIdQr()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "philippines_philsys_match"
+     */
+    public function testPropertyPhilippinesPhilsysMatch()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -557,6 +647,42 @@ class ProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "south_africa_nid_lookup_2"
+     */
+    public function testPropertySouthAfricaNidLookup2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "south_africa_nid_match_2"
+     */
+    public function testPropertySouthAfricaNidMatch2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "uae_pass"
+     */
+    public function testPropertyUaePass()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "uganda_nid_match_2"
+     */
+    public function testPropertyUgandaNidMatch2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "uk_evisa_lookup"
      */
     public function testPropertyUkEvisaLookup()
@@ -566,9 +692,27 @@ class ProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "verimi"
+     */
+    public function testPropertyVerimi()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "sweden_bankid"
      */
     public function testPropertySwedenBankid()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "ukraine_diia"
+     */
+    public function testPropertyUkraineDiia()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -605,6 +749,15 @@ class ProviderOutputTest extends TestCase
      * Test attribute "yoti_deeplink"
      */
     public function testPropertyYotiDeeplink()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "zimbabwe_nid_lookup_2"
+     */
+    public function testPropertyZimbabweNidLookup2()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

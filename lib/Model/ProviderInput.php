@@ -57,7 +57,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
-        'kenya_nid_match_biometric_2' => '\Trinsic\Api\Model\KenyaNidBiometric2Input',
         'indonesia_nik_lookup' => '\Trinsic\Api\Model\IndonesiaNikInput',
         'china_resident_id_match' => '\Trinsic\Api\Model\ChinaResidentIdMatchInput',
         'indonesia_dukcapil_match' => '\Trinsic\Api\Model\IndonesiaDukcapilMatchInput',
@@ -68,13 +67,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'kenya_nid_lookup_2' => '\Trinsic\Api\Model\KenyaNidLookup2Input',
         'south_africa_nid_lookup_2' => '\Trinsic\Api\Model\SouthAfricaNidLookup2Input',
         'south_africa_nid_match_2' => '\Trinsic\Api\Model\SouthAfricaNidMatch2Input',
-        'south_africa_nid_match_biometric_2' => '\Trinsic\Api\Model\SouthAfricaNidBiometric2Input',
         'nigeria_nin_lookup_2' => '\Trinsic\Api\Model\NigeriaNinLookup2Input',
         'cote_divoire_nid_lookup_2' => '\Trinsic\Api\Model\CoteDIvoireNidLookup2Input',
         'zimbabwe_nid_lookup_2' => '\Trinsic\Api\Model\ZimbabweNidLookup2Input',
         'nigeria_nin_match_2' => '\Trinsic\Api\Model\NigeriaNinMatch2Input',
         'uganda_nid_match_2' => '\Trinsic\Api\Model\UgandaNidMatch2Input',
-        'nigeria_nin_match_biometric_2' => '\Trinsic\Api\Model\NigeriaNinBiometric2Input',
         'nigeria_nin_lookup' => '\Trinsic\Api\Model\NigeriaNinInput',
         'india_digilocker_aadhaar_match' => '\Trinsic\Api\Model\AadhaarInput',
         'india_pan_lookup' => '\Trinsic\Api\Model\IndiaPanLookupInput',
@@ -113,7 +110,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'kenya_nid_match_biometric_2' => null,
         'indonesia_nik_lookup' => null,
         'china_resident_id_match' => null,
         'indonesia_dukcapil_match' => null,
@@ -124,13 +120,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'kenya_nid_lookup_2' => null,
         'south_africa_nid_lookup_2' => null,
         'south_africa_nid_match_2' => null,
-        'south_africa_nid_match_biometric_2' => null,
         'nigeria_nin_lookup_2' => null,
         'cote_divoire_nid_lookup_2' => null,
         'zimbabwe_nid_lookup_2' => null,
         'nigeria_nin_match_2' => null,
         'uganda_nid_match_2' => null,
-        'nigeria_nin_match_biometric_2' => null,
         'nigeria_nin_lookup' => null,
         'india_digilocker_aadhaar_match' => null,
         'india_pan_lookup' => null,
@@ -167,7 +161,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'kenya_nid_match_biometric_2' => true,
         'indonesia_nik_lookup' => true,
         'china_resident_id_match' => true,
         'indonesia_dukcapil_match' => true,
@@ -178,13 +171,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'kenya_nid_lookup_2' => true,
         'south_africa_nid_lookup_2' => true,
         'south_africa_nid_match_2' => true,
-        'south_africa_nid_match_biometric_2' => true,
         'nigeria_nin_lookup_2' => true,
         'cote_divoire_nid_lookup_2' => true,
         'zimbabwe_nid_lookup_2' => true,
         'nigeria_nin_match_2' => true,
         'uganda_nid_match_2' => true,
-        'nigeria_nin_match_biometric_2' => true,
         'nigeria_nin_lookup' => true,
         'india_digilocker_aadhaar_match' => true,
         'india_pan_lookup' => true,
@@ -301,7 +292,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
-        'kenya_nid_match_biometric_2' => 'kenya-nid-match-biometric-2',
         'indonesia_nik_lookup' => 'indonesia-nik-lookup',
         'china_resident_id_match' => 'china-resident-id-match',
         'indonesia_dukcapil_match' => 'indonesia-dukcapil-match',
@@ -312,13 +302,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'kenya_nid_lookup_2' => 'kenya-nid-lookup-2',
         'south_africa_nid_lookup_2' => 'south-africa-nid-lookup-2',
         'south_africa_nid_match_2' => 'south-africa-nid-match-2',
-        'south_africa_nid_match_biometric_2' => 'south-africa-nid-match-biometric-2',
         'nigeria_nin_lookup_2' => 'nigeria-nin-lookup-2',
         'cote_divoire_nid_lookup_2' => 'cote-divoire-nid-lookup-2',
         'zimbabwe_nid_lookup_2' => 'zimbabwe-nid-lookup-2',
         'nigeria_nin_match_2' => 'nigeria-nin-match-2',
         'uganda_nid_match_2' => 'uganda-nid-match-2',
-        'nigeria_nin_match_biometric_2' => 'nigeria-nin-match-biometric-2',
         'nigeria_nin_lookup' => 'nigeria-nin-lookup',
         'india_digilocker_aadhaar_match' => 'india-digilocker-aadhaar-match',
         'india_pan_lookup' => 'india-pan-lookup',
@@ -355,7 +343,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
-        'kenya_nid_match_biometric_2' => 'setKenyaNidMatchBiometric2',
         'indonesia_nik_lookup' => 'setIndonesiaNikLookup',
         'china_resident_id_match' => 'setChinaResidentIdMatch',
         'indonesia_dukcapil_match' => 'setIndonesiaDukcapilMatch',
@@ -366,13 +353,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'kenya_nid_lookup_2' => 'setKenyaNidLookup2',
         'south_africa_nid_lookup_2' => 'setSouthAfricaNidLookup2',
         'south_africa_nid_match_2' => 'setSouthAfricaNidMatch2',
-        'south_africa_nid_match_biometric_2' => 'setSouthAfricaNidMatchBiometric2',
         'nigeria_nin_lookup_2' => 'setNigeriaNinLookup2',
         'cote_divoire_nid_lookup_2' => 'setCoteDivoireNidLookup2',
         'zimbabwe_nid_lookup_2' => 'setZimbabweNidLookup2',
         'nigeria_nin_match_2' => 'setNigeriaNinMatch2',
         'uganda_nid_match_2' => 'setUgandaNidMatch2',
-        'nigeria_nin_match_biometric_2' => 'setNigeriaNinMatchBiometric2',
         'nigeria_nin_lookup' => 'setNigeriaNinLookup',
         'india_digilocker_aadhaar_match' => 'setIndiaDigilockerAadhaarMatch',
         'india_pan_lookup' => 'setIndiaPanLookup',
@@ -409,7 +394,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
-        'kenya_nid_match_biometric_2' => 'getKenyaNidMatchBiometric2',
         'indonesia_nik_lookup' => 'getIndonesiaNikLookup',
         'china_resident_id_match' => 'getChinaResidentIdMatch',
         'indonesia_dukcapil_match' => 'getIndonesiaDukcapilMatch',
@@ -420,13 +404,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'kenya_nid_lookup_2' => 'getKenyaNidLookup2',
         'south_africa_nid_lookup_2' => 'getSouthAfricaNidLookup2',
         'south_africa_nid_match_2' => 'getSouthAfricaNidMatch2',
-        'south_africa_nid_match_biometric_2' => 'getSouthAfricaNidMatchBiometric2',
         'nigeria_nin_lookup_2' => 'getNigeriaNinLookup2',
         'cote_divoire_nid_lookup_2' => 'getCoteDivoireNidLookup2',
         'zimbabwe_nid_lookup_2' => 'getZimbabweNidLookup2',
         'nigeria_nin_match_2' => 'getNigeriaNinMatch2',
         'uganda_nid_match_2' => 'getUgandaNidMatch2',
-        'nigeria_nin_match_biometric_2' => 'getNigeriaNinMatchBiometric2',
         'nigeria_nin_lookup' => 'getNigeriaNinLookup',
         'india_digilocker_aadhaar_match' => 'getIndiaDigilockerAadhaarMatch',
         'india_pan_lookup' => 'getIndiaPanLookup',
@@ -514,7 +496,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('kenya_nid_match_biometric_2', $data ?? [], null);
         $this->setIfExists('indonesia_nik_lookup', $data ?? [], null);
         $this->setIfExists('china_resident_id_match', $data ?? [], null);
         $this->setIfExists('indonesia_dukcapil_match', $data ?? [], null);
@@ -525,13 +506,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('kenya_nid_lookup_2', $data ?? [], null);
         $this->setIfExists('south_africa_nid_lookup_2', $data ?? [], null);
         $this->setIfExists('south_africa_nid_match_2', $data ?? [], null);
-        $this->setIfExists('south_africa_nid_match_biometric_2', $data ?? [], null);
         $this->setIfExists('nigeria_nin_lookup_2', $data ?? [], null);
         $this->setIfExists('cote_divoire_nid_lookup_2', $data ?? [], null);
         $this->setIfExists('zimbabwe_nid_lookup_2', $data ?? [], null);
         $this->setIfExists('nigeria_nin_match_2', $data ?? [], null);
         $this->setIfExists('uganda_nid_match_2', $data ?? [], null);
-        $this->setIfExists('nigeria_nin_match_biometric_2', $data ?? [], null);
         $this->setIfExists('nigeria_nin_lookup', $data ?? [], null);
         $this->setIfExists('india_digilocker_aadhaar_match', $data ?? [], null);
         $this->setIfExists('india_pan_lookup', $data ?? [], null);
@@ -603,40 +582,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
-
-    /**
-     * Gets kenya_nid_match_biometric_2
-     *
-     * @return \Trinsic\Api\Model\KenyaNidBiometric2Input|null
-     */
-    public function getKenyaNidMatchBiometric2()
-    {
-        return $this->container['kenya_nid_match_biometric_2'];
-    }
-
-    /**
-     * Sets kenya_nid_match_biometric_2
-     *
-     * @param \Trinsic\Api\Model\KenyaNidBiometric2Input|null $kenya_nid_match_biometric_2 Input for the `kenya-nid-match-biometric-2` provider
-     *
-     * @return self
-     */
-    public function setKenyaNidMatchBiometric2($kenya_nid_match_biometric_2)
-    {
-        if (is_null($kenya_nid_match_biometric_2)) {
-            array_push($this->openAPINullablesSetToNull, 'kenya_nid_match_biometric_2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('kenya_nid_match_biometric_2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['kenya_nid_match_biometric_2'] = $kenya_nid_match_biometric_2;
-
-        return $this;
-    }
 
     /**
      * Gets indonesia_nik_lookup
@@ -979,40 +924,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
     }
 
     /**
-     * Gets south_africa_nid_match_biometric_2
-     *
-     * @return \Trinsic\Api\Model\SouthAfricaNidBiometric2Input|null
-     */
-    public function getSouthAfricaNidMatchBiometric2()
-    {
-        return $this->container['south_africa_nid_match_biometric_2'];
-    }
-
-    /**
-     * Sets south_africa_nid_match_biometric_2
-     *
-     * @param \Trinsic\Api\Model\SouthAfricaNidBiometric2Input|null $south_africa_nid_match_biometric_2 Input for the `south-africa-nid-match-biometric-2` provider
-     *
-     * @return self
-     */
-    public function setSouthAfricaNidMatchBiometric2($south_africa_nid_match_biometric_2)
-    {
-        if (is_null($south_africa_nid_match_biometric_2)) {
-            array_push($this->openAPINullablesSetToNull, 'south_africa_nid_match_biometric_2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('south_africa_nid_match_biometric_2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['south_africa_nid_match_biometric_2'] = $south_africa_nid_match_biometric_2;
-
-        return $this;
-    }
-
-    /**
      * Gets nigeria_nin_lookup_2
      *
      * @return \Trinsic\Api\Model\NigeriaNinLookup2Input|null
@@ -1178,40 +1089,6 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['uganda_nid_match_2'] = $uganda_nid_match_2;
-
-        return $this;
-    }
-
-    /**
-     * Gets nigeria_nin_match_biometric_2
-     *
-     * @return \Trinsic\Api\Model\NigeriaNinBiometric2Input|null
-     */
-    public function getNigeriaNinMatchBiometric2()
-    {
-        return $this->container['nigeria_nin_match_biometric_2'];
-    }
-
-    /**
-     * Sets nigeria_nin_match_biometric_2
-     *
-     * @param \Trinsic\Api\Model\NigeriaNinBiometric2Input|null $nigeria_nin_match_biometric_2 Input for the `nigeria-nin-match-biometric-2` provider
-     *
-     * @return self
-     */
-    public function setNigeriaNinMatchBiometric2($nigeria_nin_match_biometric_2)
-    {
-        if (is_null($nigeria_nin_match_biometric_2)) {
-            array_push($this->openAPINullablesSetToNull, 'nigeria_nin_match_biometric_2');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('nigeria_nin_match_biometric_2', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['nigeria_nin_match_biometric_2'] = $nigeria_nin_match_biometric_2;
 
         return $this;
     }

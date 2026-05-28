@@ -58,6 +58,8 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $openAPITypes = [
+        'pid' => '\Trinsic\Api\Model\EudiPidCredential',
+        'age_verification' => '\Trinsic\Api\Model\EudiAgeVerificationCredential',
         'raw18013_output' => '\Trinsic\Api\Model\MdlOutput'
     ];
 
@@ -69,6 +71,8 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'pid' => null,
+        'age_verification' => null,
         'raw18013_output' => null
     ];
 
@@ -78,6 +82,8 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'pid' => true,
+        'age_verification' => true,
         'raw18013_output' => false
     ];
 
@@ -167,6 +173,8 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $attributeMap = [
+        'pid' => 'pid',
+        'age_verification' => 'ageVerification',
         'raw18013_output' => 'raw18013Output'
     ];
 
@@ -176,6 +184,8 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $setters = [
+        'pid' => 'setPid',
+        'age_verification' => 'setAgeVerification',
         'raw18013_output' => 'setRaw18013Output'
     ];
 
@@ -185,6 +195,8 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @var string[]
      */
     protected static $getters = [
+        'pid' => 'getPid',
+        'age_verification' => 'getAgeVerification',
         'raw18013_output' => 'getRaw18013Output'
     ];
 
@@ -245,6 +257,8 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('pid', $data ?? [], null);
+        $this->setIfExists('age_verification', $data ?? [], null);
         $this->setIfExists('raw18013_output', $data ?? [], null);
     }
 
@@ -292,6 +306,74 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets pid
+     *
+     * @return \Trinsic\Api\Model\EudiPidCredential|null
+     */
+    public function getPid()
+    {
+        return $this->container['pid'];
+    }
+
+    /**
+     * Sets pid
+     *
+     * @param \Trinsic\Api\Model\EudiPidCredential|null $pid An EUDI Person Identification Data (PID) credential, retrieved from the individual's wallet.
+     *
+     * @return self
+     */
+    public function setPid($pid)
+    {
+        if (is_null($pid)) {
+            array_push($this->openAPINullablesSetToNull, 'pid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('pid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['pid'] = $pid;
+
+        return $this;
+    }
+
+    /**
+     * Gets age_verification
+     *
+     * @return \Trinsic\Api\Model\EudiAgeVerificationCredential|null
+     */
+    public function getAgeVerification()
+    {
+        return $this->container['age_verification'];
+    }
+
+    /**
+     * Sets age_verification
+     *
+     * @param \Trinsic\Api\Model\EudiAgeVerificationCredential|null $age_verification An EUDI Age Verification credential, retrieved from the individual's wallet.
+     *
+     * @return self
+     */
+    public function setAgeVerification($age_verification)
+    {
+        if (is_null($age_verification)) {
+            array_push($this->openAPINullablesSetToNull, 'age_verification');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('age_verification', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['age_verification'] = $age_verification;
+
+        return $this;
+    }
 
     /**
      * Gets raw18013_output

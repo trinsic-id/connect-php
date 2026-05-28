@@ -58,7 +58,18 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $openAPITypes = [
-        'curp_status' => 'string'
+        'first_name' => 'string',
+        'father_last_name' => 'string',
+        'mother_last_name' => 'string',
+        'gender' => 'string',
+        'date_of_birth' => '\DateTime',
+        'country_of_birth' => 'string',
+        'state_of_birth' => 'string',
+        'curp' => 'string',
+        'curp_status' => 'string',
+        'registration_year' => 'int',
+        'registration_state' => 'string',
+        'act_number' => 'string'
     ];
 
     /**
@@ -69,7 +80,18 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'curp_status' => null
+        'first_name' => null,
+        'father_last_name' => null,
+        'mother_last_name' => null,
+        'gender' => null,
+        'date_of_birth' => 'date',
+        'country_of_birth' => null,
+        'state_of_birth' => null,
+        'curp' => null,
+        'curp_status' => null,
+        'registration_year' => 'int32',
+        'registration_state' => null,
+        'act_number' => null
     ];
 
     /**
@@ -78,7 +100,18 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'curp_status' => true
+        'first_name' => true,
+        'father_last_name' => true,
+        'mother_last_name' => true,
+        'gender' => true,
+        'date_of_birth' => true,
+        'country_of_birth' => true,
+        'state_of_birth' => true,
+        'curp' => true,
+        'curp_status' => true,
+        'registration_year' => true,
+        'registration_state' => true,
+        'act_number' => true
     ];
 
     /**
@@ -167,7 +200,18 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $attributeMap = [
-        'curp_status' => 'curpStatus'
+        'first_name' => 'firstName',
+        'father_last_name' => 'fatherLastName',
+        'mother_last_name' => 'motherLastName',
+        'gender' => 'gender',
+        'date_of_birth' => 'dateOfBirth',
+        'country_of_birth' => 'countryOfBirth',
+        'state_of_birth' => 'stateOfBirth',
+        'curp' => 'curp',
+        'curp_status' => 'curpStatus',
+        'registration_year' => 'registrationYear',
+        'registration_state' => 'registrationState',
+        'act_number' => 'actNumber'
     ];
 
     /**
@@ -176,7 +220,18 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $setters = [
-        'curp_status' => 'setCurpStatus'
+        'first_name' => 'setFirstName',
+        'father_last_name' => 'setFatherLastName',
+        'mother_last_name' => 'setMotherLastName',
+        'gender' => 'setGender',
+        'date_of_birth' => 'setDateOfBirth',
+        'country_of_birth' => 'setCountryOfBirth',
+        'state_of_birth' => 'setStateOfBirth',
+        'curp' => 'setCurp',
+        'curp_status' => 'setCurpStatus',
+        'registration_year' => 'setRegistrationYear',
+        'registration_state' => 'setRegistrationState',
+        'act_number' => 'setActNumber'
     ];
 
     /**
@@ -185,7 +240,18 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var string[]
      */
     protected static $getters = [
-        'curp_status' => 'getCurpStatus'
+        'first_name' => 'getFirstName',
+        'father_last_name' => 'getFatherLastName',
+        'mother_last_name' => 'getMotherLastName',
+        'gender' => 'getGender',
+        'date_of_birth' => 'getDateOfBirth',
+        'country_of_birth' => 'getCountryOfBirth',
+        'state_of_birth' => 'getStateOfBirth',
+        'curp' => 'getCurp',
+        'curp_status' => 'getCurpStatus',
+        'registration_year' => 'getRegistrationYear',
+        'registration_state' => 'getRegistrationState',
+        'act_number' => 'getActNumber'
     ];
 
     /**
@@ -245,7 +311,18 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('first_name', $data ?? [], null);
+        $this->setIfExists('father_last_name', $data ?? [], null);
+        $this->setIfExists('mother_last_name', $data ?? [], null);
+        $this->setIfExists('gender', $data ?? [], null);
+        $this->setIfExists('date_of_birth', $data ?? [], null);
+        $this->setIfExists('country_of_birth', $data ?? [], null);
+        $this->setIfExists('state_of_birth', $data ?? [], null);
+        $this->setIfExists('curp', $data ?? [], null);
         $this->setIfExists('curp_status', $data ?? [], null);
+        $this->setIfExists('registration_year', $data ?? [], null);
+        $this->setIfExists('registration_state', $data ?? [], null);
+        $this->setIfExists('act_number', $data ?? [], null);
     }
 
     /**
@@ -291,6 +368,278 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
 
 
     /**
+     * Gets first_name
+     *
+     * @return string|null
+     */
+    public function getFirstName()
+    {
+        return $this->container['first_name'];
+    }
+
+    /**
+     * Sets first_name
+     *
+     * @param string|null $first_name First name of the individual.
+     *
+     * @return self
+     */
+    public function setFirstName($first_name)
+    {
+        if (is_null($first_name)) {
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['first_name'] = $first_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets father_last_name
+     *
+     * @return string|null
+     */
+    public function getFatherLastName()
+    {
+        return $this->container['father_last_name'];
+    }
+
+    /**
+     * Sets father_last_name
+     *
+     * @param string|null $father_last_name The last name of the father of the individual.
+     *
+     * @return self
+     */
+    public function setFatherLastName($father_last_name)
+    {
+        if (is_null($father_last_name)) {
+            array_push($this->openAPINullablesSetToNull, 'father_last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('father_last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['father_last_name'] = $father_last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets mother_last_name
+     *
+     * @return string|null
+     */
+    public function getMotherLastName()
+    {
+        return $this->container['mother_last_name'];
+    }
+
+    /**
+     * Sets mother_last_name
+     *
+     * @param string|null $mother_last_name The last name of the mother of the individual.
+     *
+     * @return self
+     */
+    public function setMotherLastName($mother_last_name)
+    {
+        if (is_null($mother_last_name)) {
+            array_push($this->openAPINullablesSetToNull, 'mother_last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('mother_last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['mother_last_name'] = $mother_last_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets gender
+     *
+     * @return string|null
+     */
+    public function getGender()
+    {
+        return $this->container['gender'];
+    }
+
+    /**
+     * Sets gender
+     *
+     * @param string|null $gender The gender of the individual.   List of possible values:   - Male  - Female
+     *
+     * @return self
+     */
+    public function setGender($gender)
+    {
+        if (is_null($gender)) {
+            array_push($this->openAPINullablesSetToNull, 'gender');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gender', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['gender'] = $gender;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_of_birth
+     *
+     * @return \DateTime|null
+     */
+    public function getDateOfBirth()
+    {
+        return $this->container['date_of_birth'];
+    }
+
+    /**
+     * Sets date_of_birth
+     *
+     * @param \DateTime|null $date_of_birth The date of birth of the individual.
+     *
+     * @return self
+     */
+    public function setDateOfBirth($date_of_birth)
+    {
+        if (is_null($date_of_birth)) {
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['date_of_birth'] = $date_of_birth;
+
+        return $this;
+    }
+
+    /**
+     * Gets country_of_birth
+     *
+     * @return string|null
+     */
+    public function getCountryOfBirth()
+    {
+        return $this->container['country_of_birth'];
+    }
+
+    /**
+     * Sets country_of_birth
+     *
+     * @param string|null $country_of_birth The country of birth of the individual.
+     *
+     * @return self
+     */
+    public function setCountryOfBirth($country_of_birth)
+    {
+        if (is_null($country_of_birth)) {
+            array_push($this->openAPINullablesSetToNull, 'country_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['country_of_birth'] = $country_of_birth;
+
+        return $this;
+    }
+
+    /**
+     * Gets state_of_birth
+     *
+     * @return string|null
+     */
+    public function getStateOfBirth()
+    {
+        return $this->container['state_of_birth'];
+    }
+
+    /**
+     * Sets state_of_birth
+     *
+     * @param string|null $state_of_birth The state of birth of the individual.
+     *
+     * @return self
+     */
+    public function setStateOfBirth($state_of_birth)
+    {
+        if (is_null($state_of_birth)) {
+            array_push($this->openAPINullablesSetToNull, 'state_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['state_of_birth'] = $state_of_birth;
+
+        return $this;
+    }
+
+    /**
+     * Gets curp
+     *
+     * @return string|null
+     */
+    public function getCurp()
+    {
+        return $this->container['curp'];
+    }
+
+    /**
+     * Sets curp
+     *
+     * @param string|null $curp The CURP (Clave Única de Registro de Población) that was verified.              A CURP code is a unique identifier assigned to individuals in Mexico. It is 18 alphanumeric characters, with a structured meaning:              ABCD YYMMDD G SS XYZ M C The first 4 letters (ABCD): A: The first letter of the paternal last name. B: First internal vowel of paternal last name. C: First letter of maternal last name. D: First letter of first name.              YYMMDD: 2-digit year, month, day.              G: Gender, H for Hombre (male) and M for Mujer (female).              SS: State code (2 letters), e.g. NL for Nuevo León.              X: First internal consonant of paternal last name. Y: First internal consonant of maternal last name. Z: First internal consonant of given name.              M: Millennium indicator (0-9 for pre-2000 birth date, A-Z for post-2000's birth dates.              C: Checksum character
+     *
+     * @return self
+     */
+    public function setCurp($curp)
+    {
+        if (is_null($curp)) {
+            array_push($this->openAPINullablesSetToNull, 'curp');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('curp', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['curp'] = $curp;
+
+        return $this;
+    }
+
+    /**
      * Gets curp_status
      *
      * @return string|null
@@ -320,6 +669,108 @@ class MexicoCurpProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
             }
         }
         $this->container['curp_status'] = $curp_status;
+
+        return $this;
+    }
+
+    /**
+     * Gets registration_year
+     *
+     * @return int|null
+     */
+    public function getRegistrationYear()
+    {
+        return $this->container['registration_year'];
+    }
+
+    /**
+     * Sets registration_year
+     *
+     * @param int|null $registration_year The year the CURP number was registered in.
+     *
+     * @return self
+     */
+    public function setRegistrationYear($registration_year)
+    {
+        if (is_null($registration_year)) {
+            array_push($this->openAPINullablesSetToNull, 'registration_year');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('registration_year', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['registration_year'] = $registration_year;
+
+        return $this;
+    }
+
+    /**
+     * Gets registration_state
+     *
+     * @return string|null
+     */
+    public function getRegistrationState()
+    {
+        return $this->container['registration_state'];
+    }
+
+    /**
+     * Sets registration_state
+     *
+     * @param string|null $registration_state The state the CURP number was registered in.
+     *
+     * @return self
+     */
+    public function setRegistrationState($registration_state)
+    {
+        if (is_null($registration_state)) {
+            array_push($this->openAPINullablesSetToNull, 'registration_state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('registration_state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['registration_state'] = $registration_state;
+
+        return $this;
+    }
+
+    /**
+     * Gets act_number
+     *
+     * @return string|null
+     */
+    public function getActNumber()
+    {
+        return $this->container['act_number'];
+    }
+
+    /**
+     * Sets act_number
+     *
+     * @param string|null $act_number The ACT (Número de Acta) number of the individual.              The Act number is a civil registry index number. Various state have various formats of specifying these.
+     *
+     * @return self
+     */
+    public function setActNumber($act_number)
+    {
+        if (is_null($act_number)) {
+            array_push($this->openAPINullablesSetToNull, 'act_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('act_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['act_number'] = $act_number;
 
         return $this;
     }

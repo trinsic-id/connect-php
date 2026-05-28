@@ -80,15 +80,6 @@ class ProviderInputTest extends TestCase
     }
 
     /**
-     * Test attribute "kenya_nid_match_biometric_2"
-     */
-    public function testPropertyKenyaNidMatchBiometric2()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "indonesia_nik_lookup"
      */
     public function testPropertyIndonesiaNikLookup()
@@ -179,15 +170,6 @@ class ProviderInputTest extends TestCase
     }
 
     /**
-     * Test attribute "south_africa_nid_match_biometric_2"
-     */
-    public function testPropertySouthAfricaNidMatchBiometric2()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "nigeria_nin_lookup_2"
      */
     public function testPropertyNigeriaNinLookup2()
@@ -227,15 +209,6 @@ class ProviderInputTest extends TestCase
      * Test attribute "uganda_nid_match_2"
      */
     public function testPropertyUgandaNidMatch2()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "nigeria_nin_match_biometric_2"
-     */
-    public function testPropertyNigeriaNinMatchBiometric2()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

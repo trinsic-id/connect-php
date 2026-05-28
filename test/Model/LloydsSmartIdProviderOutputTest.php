@@ -80,9 +80,9 @@ class LloydsSmartIdProviderOutputTest extends TestCase
     }
 
     /**
-     * Test attribute "remember_me_id"
+     * Test attribute "yoti_remember_me_id"
      */
-    public function testPropertyRememberMeId()
+    public function testPropertyYotiRememberMeId()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

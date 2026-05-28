@@ -316,7 +316,7 @@ class UgandaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSerializ
     /**
      * Sets id_number
      *
-     * @param string|null $id_number The user's Uganda National ID number (NIN) - 14 alphanumeric characters
+     * @param string|null $id_number Uganda National ID number (NID) assigned by the National Identification and Registration Authority (NIRA).              Format: - 14 alphanumeric characters (A-Z, 0-9) - There is no publicly documented encoding scheme for encoding personal information in the NID - No check digit or algorithm has been publicly documented by NIRA
      *
      * @return self
      */

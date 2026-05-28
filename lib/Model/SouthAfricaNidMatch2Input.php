@@ -62,8 +62,7 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
         'family_name' => 'string',
         'middle_name' => 'string',
         'date_of_birth' => '\DateTime',
-        'sex' => '\Trinsic\Api\Model\SouthAfricaNidMatch2InputSex',
-        'phone_number' => 'string'
+        'sex' => '\Trinsic\Api\Model\SouthAfricaNidMatch2InputSex'
     ];
 
     /**
@@ -79,8 +78,7 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
         'family_name' => null,
         'middle_name' => null,
         'date_of_birth' => 'date',
-        'sex' => null,
-        'phone_number' => null
+        'sex' => null
     ];
 
     /**
@@ -94,8 +92,7 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
         'family_name' => true,
         'middle_name' => true,
         'date_of_birth' => true,
-        'sex' => true,
-        'phone_number' => true
+        'sex' => true
     ];
 
     /**
@@ -189,8 +186,7 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
         'family_name' => 'familyName',
         'middle_name' => 'middleName',
         'date_of_birth' => 'dateOfBirth',
-        'sex' => 'sex',
-        'phone_number' => 'phoneNumber'
+        'sex' => 'sex'
     ];
 
     /**
@@ -204,8 +200,7 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
         'family_name' => 'setFamilyName',
         'middle_name' => 'setMiddleName',
         'date_of_birth' => 'setDateOfBirth',
-        'sex' => 'setSex',
-        'phone_number' => 'setPhoneNumber'
+        'sex' => 'setSex'
     ];
 
     /**
@@ -219,8 +214,7 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
         'family_name' => 'getFamilyName',
         'middle_name' => 'getMiddleName',
         'date_of_birth' => 'getDateOfBirth',
-        'sex' => 'getSex',
-        'phone_number' => 'getPhoneNumber'
+        'sex' => 'getSex'
     ];
 
     /**
@@ -286,7 +280,6 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
         $this->setIfExists('middle_name', $data ?? [], null);
         $this->setIfExists('date_of_birth', $data ?? [], null);
         $this->setIfExists('sex', $data ?? [], null);
-        $this->setIfExists('phone_number', $data ?? [], null);
     }
 
     /**
@@ -344,7 +337,7 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets id_number
      *
-     * @param string|null $id_number The user's South African National ID number
+     * @param string|null $id_number The South African National Identity Number (13 digits).              Issued for life by the Department of Home Affairs (DHA) and stored in the HANIS (Home Affairs National Identification System) database. The same number is mandatory for banking, employment, taxation, and voting, and is printed on both the legacy green ID book and the Smart ID Card (rolled out from 2013 onward).              Format: - YYMMDD G(4) C A Z - YYMMDD is the date of birth - G(4) is the gender code (below 5000 female, 5000 or above male) - C is the citizenship indicator (0 citizen, 1 permanent resident) - A is reserved (it had a politically sensitive meaning in the past, but is currently   semantically meaningless) - Z is a Luhn check digit
      *
      * @return self
      */
@@ -531,40 +524,6 @@ class SouthAfricaNidMatch2Input implements ModelInterface, ArrayAccess, \JsonSer
             }
         }
         $this->container['sex'] = $sex;
-
-        return $this;
-    }
-
-    /**
-     * Gets phone_number
-     *
-     * @return string|null
-     */
-    public function getPhoneNumber()
-    {
-        return $this->container['phone_number'];
-    }
-
-    /**
-     * Sets phone_number
-     *
-     * @param string|null $phone_number The user's phone number as it appears in their National ID (optional). Must be in E.164 international format: \"+27XXXXXXXXX\"
-     *
-     * @return self
-     */
-    public function setPhoneNumber($phone_number)
-    {
-        if (is_null($phone_number)) {
-            array_push($this->openAPINullablesSetToNull, 'phone_number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('phone_number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['phone_number'] = $phone_number;
 
         return $this;
     }

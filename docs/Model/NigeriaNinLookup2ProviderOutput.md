@@ -10,7 +10,7 @@ Name | Type | Description | Notes
 **sex** | **string** | The sex of the ID holder.              Possible values: - Male - Female | [optional]
 **date_of_birth** | **\DateTime** | The date of birth of the ID holder. | [optional]
 **birth_country** | **string** | Country of birth as an ISO 3166-1 alpha-2 code. | [optional]
-**national_identity_number** | **string** | National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission upon enrollment.              Format: 11 numeric digits (regex: /^[0-9]{11}$/). The digits are validated using the Verhoeff algorithm, meaning the last digit serves as a check digit. |
+**national_identity_number** | **string** | National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission (NIMC) upon enrollment.              Format: - 11 numeric digits - No publicly known encoding scheme is used to encode personal information in the NIN - Last digit is a checksum using the Verhoeff algorithm |
 **phone_number** | **string** | Phone number registered with the National Identity Management Commission. | [optional]
 **email** | **string** | Email address registered with the National Identity Management Commission. | [optional]
 **address** | **string** | Full residential address as a single string, normalized to lowercase without delimiters. | [optional]

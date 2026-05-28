@@ -80,9 +80,108 @@ class MexicoCurpProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "first_name"
+     */
+    public function testPropertyFirstName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "father_last_name"
+     */
+    public function testPropertyFatherLastName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "mother_last_name"
+     */
+    public function testPropertyMotherLastName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "gender"
+     */
+    public function testPropertyGender()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "date_of_birth"
+     */
+    public function testPropertyDateOfBirth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "country_of_birth"
+     */
+    public function testPropertyCountryOfBirth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "state_of_birth"
+     */
+    public function testPropertyStateOfBirth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "curp"
+     */
+    public function testPropertyCurp()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "curp_status"
      */
     public function testPropertyCurpStatus()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "registration_year"
+     */
+    public function testPropertyRegistrationYear()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "registration_state"
+     */
+    public function testPropertyRegistrationState()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "act_number"
+     */
+    public function testPropertyActNumber()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

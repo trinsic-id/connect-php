@@ -80,6 +80,24 @@ class AppleWalletProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "mobile_drivers_license"
+     */
+    public function testPropertyMobileDriversLicense()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "digital_id"
+     */
+    public function testPropertyDigitalId()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "raw_mdl_output"
      */
     public function testPropertyRawMdlOutput()
