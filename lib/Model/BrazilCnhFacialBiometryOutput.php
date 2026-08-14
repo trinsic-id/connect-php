@@ -83,7 +83,7 @@ class BrazilCnhFacialBiometryOutput implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'database_face_available' => false,
+        'database_face_available' => true,
         'probability' => true,
         'similarity_score' => true,
         'liveness' => true
@@ -295,9 +295,6 @@ class BrazilCnhFacialBiometryOutput implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['database_face_available'] === null) {
-            $invalidProperties[] = "'database_face_available' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +313,7 @@ class BrazilCnhFacialBiometryOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets database_face_available
      *
-     * @return bool
+     * @return bool|null
      */
     public function getDatabaseFaceAvailable()
     {
@@ -326,14 +323,21 @@ class BrazilCnhFacialBiometryOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets database_face_available
      *
-     * @param bool $database_face_available Whether the government database had facial biometrics available for comparison.
+     * @param bool|null $database_face_available Whether the government database had facial biometrics available for comparison.
      *
      * @return self
      */
     public function setDatabaseFaceAvailable($database_face_available)
     {
         if (is_null($database_face_available)) {
-            throw new \InvalidArgumentException('non-nullable database_face_available cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'database_face_available');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('database_face_available', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['database_face_available'] = $database_face_available;
 

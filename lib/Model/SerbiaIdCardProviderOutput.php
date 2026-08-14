@@ -84,10 +84,10 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'date_of_birth' => false,
-        'unique_master_citizen_number' => false
+        'first_name' => true,
+        'last_name' => true,
+        'date_of_birth' => true,
+        'unique_master_citizen_number' => true
     ];
 
     /**
@@ -296,18 +296,6 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['unique_master_citizen_number'] === null) {
-            $invalidProperties[] = "'unique_master_citizen_number' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -326,7 +314,7 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -336,14 +324,21 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name of the verified individual
+     * @param string|null $first_name The first name of the verified individual
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -353,7 +348,7 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -363,14 +358,21 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name of the verified individual
+     * @param string|null $last_name The last name of the verified individual
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -380,7 +382,7 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -390,14 +392,21 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The date of birth of the verified individual
+     * @param \DateTime|null $date_of_birth The date of birth of the verified individual
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -407,7 +416,7 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets unique_master_citizen_number
      *
-     * @return string
+     * @return string|null
      */
     public function getUniqueMasterCitizenNumber()
     {
@@ -417,14 +426,21 @@ class SerbiaIdCardProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets unique_master_citizen_number
      *
-     * @param string $unique_master_citizen_number The 13-digit Serbian Unique Master Citizen Number (\"JMBG\" / \"Jedinstveni Matični Broj Građana\") of the verified individual.              This is in the format DDMMYYYRRSSSC, where: - DDMM is the day and month of birth - YYY is the last three digits of the year of birth - RR is the political region code of the region of birth (if born after 1976) or of first registration (if born before 1976) - SSS is a unique sex-specific serial number for individuals born on the same date in the same region - C is a checksum digit              If YYY is between 000 and 099, the millennium digit of the year is \"2\"; the individual was born after the year 2000. If YYY is between 800 and 999, the millennium digit of the year is \"1\"; the individual was born before the year 2000.              If SSS is between 000 and 499, the individual is male. If SSS is between 500 and 999, the individual is female.
+     * @param string|null $unique_master_citizen_number The 13-digit Serbian Unique Master Citizen Number (\"JMBG\" / \"Jedinstveni Matični Broj Građana\") of the verified individual.              This is in the format DDMMYYYRRSSSC, where: - DDMM is the day and month of birth - YYY is the last three digits of the year of birth - RR is the political region code of the region of birth (if born after 1976) or of first registration (if born before 1976) - SSS is a unique sex-specific serial number for individuals born on the same date in the same region - C is a checksum digit              If YYY is between 000 and 099, the millennium digit of the year is \"2\"; the individual was born after the year 2000. If YYY is between 800 and 999, the millennium digit of the year is \"1\"; the individual was born before the year 2000.              If SSS is between 000 and 499, the individual is male. If SSS is between 500 and 999, the individual is female.
      *
      * @return self
      */
     public function setUniqueMasterCitizenNumber($unique_master_citizen_number)
     {
         if (is_null($unique_master_citizen_number)) {
-            throw new \InvalidArgumentException('non-nullable unique_master_citizen_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'unique_master_citizen_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('unique_master_citizen_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['unique_master_citizen_number'] = $unique_master_citizen_number;
 

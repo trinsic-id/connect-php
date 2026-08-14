@@ -4,6 +4,6 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**templates** | [**\Trinsic\Api\Model\Iso180132BiometricTemplate[]**](Iso180132BiometricTemplate.md) | Individual biometric templates contained in this group. |
+**templates** | [**\Trinsic\Api\Model\Iso180132BiometricTemplate[]**](Iso180132BiometricTemplate.md) | Individual biometric templates contained in this group. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

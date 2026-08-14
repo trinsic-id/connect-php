@@ -87,12 +87,12 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'series_code' => false,
-        'assessee_category_code' => false,
+        'series_code' => true,
+        'assessee_category_code' => true,
         'assessee_category_name' => true,
-        'name_prefix_letter' => false,
-        'serial_number' => false,
-        'check_letter' => false
+        'name_prefix_letter' => true,
+        'serial_number' => true,
+        'check_letter' => true
     ];
 
     /**
@@ -309,21 +309,6 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['series_code'] === null) {
-            $invalidProperties[] = "'series_code' can't be null";
-        }
-        if ($this->container['assessee_category_code'] === null) {
-            $invalidProperties[] = "'assessee_category_code' can't be null";
-        }
-        if ($this->container['name_prefix_letter'] === null) {
-            $invalidProperties[] = "'name_prefix_letter' can't be null";
-        }
-        if ($this->container['serial_number'] === null) {
-            $invalidProperties[] = "'serial_number' can't be null";
-        }
-        if ($this->container['check_letter'] === null) {
-            $invalidProperties[] = "'check_letter' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -342,7 +327,7 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets series_code
      *
-     * @return string
+     * @return string|null
      */
     public function getSeriesCode()
     {
@@ -352,14 +337,21 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets series_code
      *
-     * @param string $series_code Three-letter block issued by the Income Tax Department of India.              Ties the number to a specific Income Tax Office or jurisdiction using an internal labeling system.              Position: - Characters 1 through 3 of the PAN              Possible values: - Any three-letter block of uppercase Latin letters
+     * @param string|null $series_code Three-letter block issued by the Income Tax Department of India.              Ties the number to a specific Income Tax Office or jurisdiction using an internal labeling system.              Position: - Characters 1 through 3 of the PAN              Possible values: - Any three-letter block of uppercase Latin letters
      *
      * @return self
      */
     public function setSeriesCode($series_code)
     {
         if (is_null($series_code)) {
-            throw new \InvalidArgumentException('non-nullable series_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'series_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('series_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['series_code'] = $series_code;
 
@@ -369,7 +361,7 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets assessee_category_code
      *
-     * @return string
+     * @return string|null
      */
     public function getAssesseeCategoryCode()
     {
@@ -379,14 +371,21 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets assessee_category_code
      *
-     * @param string $assessee_category_code Code that represents the entity that is subject to income tax in India.              Position: - Character 4 of the PAN              Possible values: - \"A\" for Association of Persons (AOP) - \"B\" for Body of Individuals (BOI) - \"C\" for Company - \"F\" for Firm - \"G\" for Government - \"H\" for Hindu Undivided Family (HUF) - \"J\" for Artificial Juridical Person - \"L\" for Local Authority - \"P\" for Individual - \"T\" for Trust
+     * @param string|null $assessee_category_code Code that represents the entity that is subject to income tax in India.              Position: - Character 4 of the PAN              Possible values: - \"A\" for Association of Persons (AOP) - \"B\" for Body of Individuals (BOI) - \"C\" for Company - \"F\" for Firm - \"G\" for Government - \"H\" for Hindu Undivided Family (HUF) - \"J\" for Artificial Juridical Person - \"L\" for Local Authority - \"P\" for Individual - \"T\" for Trust
      *
      * @return self
      */
     public function setAssesseeCategoryCode($assessee_category_code)
     {
         if (is_null($assessee_category_code)) {
-            throw new \InvalidArgumentException('non-nullable assessee_category_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'assessee_category_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('assessee_category_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['assessee_category_code'] = $assessee_category_code;
 
@@ -430,7 +429,7 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets name_prefix_letter
      *
-     * @return string
+     * @return string|null
      */
     public function getNamePrefixLetter()
     {
@@ -440,14 +439,21 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets name_prefix_letter
      *
-     * @param string $name_prefix_letter First letter of the name of the entity that is subject to income tax in India.              Position: - Character 5 of the PAN.              Format: - When AssesseeCategoryCode is P, this character is the first letter of the individual's   family name as recorded for the PAN. - When AssesseeCategoryCode is A, B, C, F, G, H, J, L, or T, this character is the first letter   of the name of the association, body, company, firm, government, HUF, local authority, or   trust.              Possible values: - Any uppercase Latin letter
+     * @param string|null $name_prefix_letter First letter of the name of the entity that is subject to income tax in India.              Position: - Character 5 of the PAN.              Format: - When AssesseeCategoryCode is P, this character is the first letter of the individual's   family name as recorded for the PAN. - When AssesseeCategoryCode is A, B, C, F, G, H, J, L, or T, this character is the first letter   of the name of the association, body, company, firm, government, HUF, local authority, or   trust.              Possible values: - Any uppercase Latin letter
      *
      * @return self
      */
     public function setNamePrefixLetter($name_prefix_letter)
     {
         if (is_null($name_prefix_letter)) {
-            throw new \InvalidArgumentException('non-nullable name_prefix_letter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name_prefix_letter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name_prefix_letter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name_prefix_letter'] = $name_prefix_letter;
 
@@ -457,7 +463,7 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets serial_number
      *
-     * @return string
+     * @return string|null
      */
     public function getSerialNumber()
     {
@@ -467,14 +473,21 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets serial_number
      *
-     * @param string $serial_number Sequential four-digit field assigned by the Income Tax Department of India.              Each PAN receives a unique serial within the given series code and assessee category.              Position: - Characters 6 through 9 of the PAN.              Possible values: - Four-digit strings 0001 through 9999 inclusive, using only digits 0 through 9
+     * @param string|null $serial_number Sequential four-digit field assigned by the Income Tax Department of India.              Each PAN receives a unique serial within the given series code and assessee category.              Position: - Characters 6 through 9 of the PAN.              Possible values: - Four-digit strings 0001 through 9999 inclusive, using only digits 0 through 9
      *
      * @return self
      */
     public function setSerialNumber($serial_number)
     {
         if (is_null($serial_number)) {
-            throw new \InvalidArgumentException('non-nullable serial_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'serial_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('serial_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['serial_number'] = $serial_number;
 
@@ -484,7 +497,7 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets check_letter
      *
-     * @return string
+     * @return string|null
      */
     public function getCheckLetter()
     {
@@ -494,14 +507,21 @@ class IndiaPanStructuredNumber implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets check_letter
      *
-     * @param string $check_letter Alphabetic check character for the first nine characters of the PAN.              The algorithm has not been made publicly available by the Income Tax Department of India.              Position: - Character 10 of the PAN.              Possible values: - One uppercase Latin letter A through Z
+     * @param string|null $check_letter Alphabetic check character for the first nine characters of the PAN.              The algorithm has not been made publicly available by the Income Tax Department of India.              Position: - Character 10 of the PAN.              Possible values: - One uppercase Latin letter A through Z
      *
      * @return self
      */
     public function setCheckLetter($check_letter)
     {
         if (is_null($check_letter)) {
-            throw new \InvalidArgumentException('non-nullable check_letter cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'check_letter');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('check_letter', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['check_letter'] = $check_letter;
 

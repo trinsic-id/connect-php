@@ -112,24 +112,24 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'drivers_license_number' => false,
-        'issue_date' => false,
-        'expiration_date' => false,
-        'audit_number' => false,
-        'license_status' => false,
-        'license_class' => false,
-        'first_name' => false,
-        'middle_name' => false,
-        'last_name' => false,
-        'date_of_birth' => false,
-        'sex' => false,
-        'address_line1' => false,
+        'drivers_license_number' => true,
+        'issue_date' => true,
+        'expiration_date' => true,
+        'audit_number' => true,
+        'license_status' => true,
+        'license_class' => true,
+        'first_name' => true,
+        'middle_name' => true,
+        'last_name' => true,
+        'date_of_birth' => true,
+        'sex' => true,
+        'address_line1' => true,
         'address_line2' => true,
-        'address_city' => false,
-        'address_state' => false,
-        'address_zip' => false,
-        'county' => false,
-        'coarse_age' => false
+        'address_city' => true,
+        'address_state' => true,
+        'address_zip' => true,
+        'county' => true,
+        'coarse_age' => true
     ];
 
     /**
@@ -394,57 +394,6 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['drivers_license_number'] === null) {
-            $invalidProperties[] = "'drivers_license_number' can't be null";
-        }
-        if ($this->container['issue_date'] === null) {
-            $invalidProperties[] = "'issue_date' can't be null";
-        }
-        if ($this->container['expiration_date'] === null) {
-            $invalidProperties[] = "'expiration_date' can't be null";
-        }
-        if ($this->container['audit_number'] === null) {
-            $invalidProperties[] = "'audit_number' can't be null";
-        }
-        if ($this->container['license_status'] === null) {
-            $invalidProperties[] = "'license_status' can't be null";
-        }
-        if ($this->container['license_class'] === null) {
-            $invalidProperties[] = "'license_class' can't be null";
-        }
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['middle_name'] === null) {
-            $invalidProperties[] = "'middle_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['sex'] === null) {
-            $invalidProperties[] = "'sex' can't be null";
-        }
-        if ($this->container['address_line1'] === null) {
-            $invalidProperties[] = "'address_line1' can't be null";
-        }
-        if ($this->container['address_city'] === null) {
-            $invalidProperties[] = "'address_city' can't be null";
-        }
-        if ($this->container['address_state'] === null) {
-            $invalidProperties[] = "'address_state' can't be null";
-        }
-        if ($this->container['address_zip'] === null) {
-            $invalidProperties[] = "'address_zip' can't be null";
-        }
-        if ($this->container['county'] === null) {
-            $invalidProperties[] = "'county' can't be null";
-        }
-        if ($this->container['coarse_age'] === null) {
-            $invalidProperties[] = "'coarse_age' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -463,7 +412,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets drivers_license_number
      *
-     * @return string
+     * @return string|null
      */
     public function getDriversLicenseNumber()
     {
@@ -473,14 +422,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets drivers_license_number
      *
-     * @param string $drivers_license_number The number of the driver's license used to create the LA Wallet credential
+     * @param string|null $drivers_license_number The number of the driver's license used to create the LA Wallet credential
      *
      * @return self
      */
     public function setDriversLicenseNumber($drivers_license_number)
     {
         if (is_null($drivers_license_number)) {
-            throw new \InvalidArgumentException('non-nullable drivers_license_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'drivers_license_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('drivers_license_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['drivers_license_number'] = $drivers_license_number;
 
@@ -490,7 +446,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets issue_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getIssueDate()
     {
@@ -500,14 +456,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets issue_date
      *
-     * @param \DateTime $issue_date The issue date of the driver's license used to create the LA Wallet credential
+     * @param \DateTime|null $issue_date The issue date of the driver's license used to create the LA Wallet credential
      *
      * @return self
      */
     public function setIssueDate($issue_date)
     {
         if (is_null($issue_date)) {
-            throw new \InvalidArgumentException('non-nullable issue_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'issue_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('issue_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['issue_date'] = $issue_date;
 
@@ -517,7 +480,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets expiration_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getExpirationDate()
     {
@@ -527,14 +490,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets expiration_date
      *
-     * @param \DateTime $expiration_date The expiration date of the driver's license used to create the LA Wallet credential
+     * @param \DateTime|null $expiration_date The expiration date of the driver's license used to create the LA Wallet credential
      *
      * @return self
      */
     public function setExpirationDate($expiration_date)
     {
         if (is_null($expiration_date)) {
-            throw new \InvalidArgumentException('non-nullable expiration_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expiration_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expiration_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expiration_date'] = $expiration_date;
 
@@ -544,7 +514,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets audit_number
      *
-     * @return string
+     * @return string|null
      */
     public function getAuditNumber()
     {
@@ -554,14 +524,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets audit_number
      *
-     * @param string $audit_number The 4-digit audit number of the driver's license used to create the LA Wallet credential
+     * @param string|null $audit_number The 4-digit audit number of the driver's license used to create the LA Wallet credential
      *
      * @return self
      */
     public function setAuditNumber($audit_number)
     {
         if (is_null($audit_number)) {
-            throw new \InvalidArgumentException('non-nullable audit_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'audit_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('audit_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['audit_number'] = $audit_number;
 
@@ -571,7 +548,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets license_status
      *
-     * @return string
+     * @return string|null
      */
     public function getLicenseStatus()
     {
@@ -581,14 +558,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets license_status
      *
-     * @param string $license_status The license status from the LA Wallet credential
+     * @param string|null $license_status The license status from the LA Wallet credential
      *
      * @return self
      */
     public function setLicenseStatus($license_status)
     {
         if (is_null($license_status)) {
-            throw new \InvalidArgumentException('non-nullable license_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'license_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('license_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['license_status'] = $license_status;
 
@@ -598,7 +582,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets license_class
      *
-     * @return string
+     * @return string|null
      */
     public function getLicenseClass()
     {
@@ -608,14 +592,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets license_class
      *
-     * @param string $license_class The license class from the LA Wallet credential              Possible values: - \"A\": Commercial Driver's License, Combination Vehicles - \"B\": Commercial Driver's License, Heavy Straight Vehicle - \"C\": Commercial Driver's License, Light Straight Vehicle - \"D\": Chauffeur's Driver's License - \"E\": Driver's License for Personal Vehicle
+     * @param string|null $license_class The license class from the LA Wallet credential              Possible values: - \"A\": Commercial Driver's License, Combination Vehicles - \"B\": Commercial Driver's License, Heavy Straight Vehicle - \"C\": Commercial Driver's License, Light Straight Vehicle - \"D\": Chauffeur's Driver's License - \"E\": Driver's License for Personal Vehicle
      *
      * @return self
      */
     public function setLicenseClass($license_class)
     {
         if (is_null($license_class)) {
-            throw new \InvalidArgumentException('non-nullable license_class cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'license_class');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('license_class', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['license_class'] = $license_class;
 
@@ -625,7 +616,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -635,14 +626,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name from the LA Wallet credential
+     * @param string|null $first_name The first name from the LA Wallet credential
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -652,7 +650,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets middle_name
      *
-     * @return string
+     * @return string|null
      */
     public function getMiddleName()
     {
@@ -662,14 +660,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets middle_name
      *
-     * @param string $middle_name The middle name from the LA Wallet credential
+     * @param string|null $middle_name The middle name from the LA Wallet credential
      *
      * @return self
      */
     public function setMiddleName($middle_name)
     {
         if (is_null($middle_name)) {
-            throw new \InvalidArgumentException('non-nullable middle_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'middle_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('middle_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['middle_name'] = $middle_name;
 
@@ -679,7 +684,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -689,14 +694,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name from the LA Wallet credential
+     * @param string|null $last_name The last name from the LA Wallet credential
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -706,7 +718,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -716,14 +728,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The date of birth from the LA Wallet credential
+     * @param \DateTime|null $date_of_birth The date of birth from the LA Wallet credential
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -733,7 +752,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets sex
      *
-     * @return string
+     * @return string|null
      */
     public function getSex()
     {
@@ -743,14 +762,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets sex
      *
-     * @param string $sex The sex from the LA Wallet credential
+     * @param string|null $sex The sex from the LA Wallet credential
      *
      * @return self
      */
     public function setSex($sex)
     {
         if (is_null($sex)) {
-            throw new \InvalidArgumentException('non-nullable sex cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sex', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sex'] = $sex;
 
@@ -760,7 +786,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets address_line1
      *
-     * @return string
+     * @return string|null
      */
     public function getAddressLine1()
     {
@@ -770,14 +796,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_line1
      *
-     * @param string $address_line1 The address' line 1 from the LA Wallet credential
+     * @param string|null $address_line1 The address' line 1 from the LA Wallet credential
      *
      * @return self
      */
     public function setAddressLine1($address_line1)
     {
         if (is_null($address_line1)) {
-            throw new \InvalidArgumentException('non-nullable address_line1 cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'address_line1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address_line1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['address_line1'] = $address_line1;
 
@@ -821,7 +854,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets address_city
      *
-     * @return string
+     * @return string|null
      */
     public function getAddressCity()
     {
@@ -831,14 +864,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_city
      *
-     * @param string $address_city The address' city from the LA Wallet credential
+     * @param string|null $address_city The address' city from the LA Wallet credential
      *
      * @return self
      */
     public function setAddressCity($address_city)
     {
         if (is_null($address_city)) {
-            throw new \InvalidArgumentException('non-nullable address_city cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'address_city');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address_city', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['address_city'] = $address_city;
 
@@ -848,7 +888,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets address_state
      *
-     * @return string
+     * @return string|null
      */
     public function getAddressState()
     {
@@ -858,14 +898,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_state
      *
-     * @param string $address_state The address' state from the LA Wallet credential
+     * @param string|null $address_state The address' state from the LA Wallet credential
      *
      * @return self
      */
     public function setAddressState($address_state)
     {
         if (is_null($address_state)) {
-            throw new \InvalidArgumentException('non-nullable address_state cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'address_state');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address_state', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['address_state'] = $address_state;
 
@@ -875,7 +922,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets address_zip
      *
-     * @return string
+     * @return string|null
      */
     public function getAddressZip()
     {
@@ -885,14 +932,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets address_zip
      *
-     * @param string $address_zip The address' ZIP from the LA Wallet credential
+     * @param string|null $address_zip The address' ZIP from the LA Wallet credential
      *
      * @return self
      */
     public function setAddressZip($address_zip)
     {
         if (is_null($address_zip)) {
-            throw new \InvalidArgumentException('non-nullable address_zip cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'address_zip');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address_zip', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['address_zip'] = $address_zip;
 
@@ -902,7 +956,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets county
      *
-     * @return string
+     * @return string|null
      */
     public function getCounty()
     {
@@ -912,14 +966,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets county
      *
-     * @param string $county The county (\"parish\") code from the LA Wallet credential.              This is a number from 1 to 64, representing one of Louisiana's 64 parishes.
+     * @param string|null $county The county (\"parish\") code from the LA Wallet credential.              This is a number from 1 to 64, representing one of Louisiana's 64 parishes.
      *
      * @return self
      */
     public function setCounty($county)
     {
         if (is_null($county)) {
-            throw new \InvalidArgumentException('non-nullable county cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'county');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('county', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['county'] = $county;
 
@@ -929,7 +990,7 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets coarse_age
      *
-     * @return string
+     * @return string|null
      */
     public function getCoarseAge()
     {
@@ -939,14 +1000,21 @@ class LaWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets coarse_age
      *
-     * @param string $coarse_age The coarse age returned by LA Wallet for this credential              Possible values: - \"Under 18\" - \"Under 21\" - \"Over 21\"
+     * @param string|null $coarse_age The coarse age returned by LA Wallet for this credential              Possible values: - \"Under 18\" - \"Under 21\" - \"Over 21\"
      *
      * @return self
      */
     public function setCoarseAge($coarse_age)
     {
         if (is_null($coarse_age)) {
-            throw new \InvalidArgumentException('non-nullable coarse_age cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'coarse_age');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('coarse_age', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['coarse_age'] = $coarse_age;
 

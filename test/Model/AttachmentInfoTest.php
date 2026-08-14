@@ -114,4 +114,13 @@ class AttachmentInfoTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "hpke_encrypted"
+     */
+    public function testPropertyHpkeEncrypted()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

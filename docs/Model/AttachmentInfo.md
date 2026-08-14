@@ -8,5 +8,6 @@ Name | Type | Description | Notes
 **type** | **string** | The type of the Attachment.              Possible values: - \&quot;selfie\&quot; - \&quot;document_front\&quot; - \&quot;document_back\&quot; - \&quot;document_portrait\&quot; - \&quot;document_signature\&quot; - \&quot;document_scan_report\&quot;              Additional attachment types may be defined for specific Providers. |
 **content_type** | **string** | The MIME type of the attachment&#39;s contents; eg, \&quot;image/jpeg\&quot; or \&quot;application/pdf\&quot;. |
 **size_bytes** | **int** | The size in bytes of the attachment. |
+**hpke_encrypted** | **bool** | Whether the attachment contents are encrypted via HPKE and must be decrypted using your private key. | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

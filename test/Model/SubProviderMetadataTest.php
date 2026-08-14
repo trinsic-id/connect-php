@@ -114,4 +114,13 @@ class SubProviderMetadataTest extends TestCase
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
+
+    /**
+     * Test attribute "dark_mode_logo_url"
+     */
+    public function testPropertyDarkModeLogoUrl()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
 }

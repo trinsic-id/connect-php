@@ -81,7 +81,7 @@ class Iso180135AamvaDomesticVehicleRestriction implements ModelInterface, ArrayA
      */
     protected static array $openAPINullables = [
         'code' => true,
-        'description' => false
+        'description' => true
     ];
 
     /**
@@ -282,9 +282,6 @@ class Iso180135AamvaDomesticVehicleRestriction implements ModelInterface, ArrayA
     {
         $invalidProperties = [];
 
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -337,7 +334,7 @@ class Iso180135AamvaDomesticVehicleRestriction implements ModelInterface, ArrayA
     /**
      * Gets description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -347,14 +344,21 @@ class Iso180135AamvaDomesticVehicleRestriction implements ModelInterface, ArrayA
     /**
      * Sets description
      *
-     * @param string $description Human-readable description of the restriction.
+     * @param string|null $description Human-readable description of the restriction.
      *
      * @return self
      */
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 

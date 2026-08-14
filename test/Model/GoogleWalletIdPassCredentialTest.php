@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * GoogleWalletIdPassCredentialTest Class Doc Comment
  *
  * @category    Class
- * @description A Google Wallet ID Pass credential, with document type &#x60;com.google.wallet.idcard.1&#x60;.              This is a passport-derived digital credential issued by Google.
+ * @description A Google Wallet ID Pass credential, retrieved from Google Wallet.              This is a passport-derived digital credential issued by Google.
  * @package     Trinsic\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

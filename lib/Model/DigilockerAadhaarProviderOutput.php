@@ -96,7 +96,7 @@ class DigilockerAadhaarProviderOutput implements ModelInterface, ArrayAccess, \J
         'aadhaar_number_last_four' => true,
         'claims' => true,
         'localized_claims' => true,
-        'document_signature_validated' => false
+        'document_signature_validated' => true
     ];
 
     /**
@@ -317,9 +317,6 @@ class DigilockerAadhaarProviderOutput implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['document_signature_validated'] === null) {
-            $invalidProperties[] = "'document_signature_validated' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -542,7 +539,7 @@ class DigilockerAadhaarProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Gets document_signature_validated
      *
-     * @return bool
+     * @return bool|null
      */
     public function getDocumentSignatureValidated()
     {
@@ -552,14 +549,21 @@ class DigilockerAadhaarProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Sets document_signature_validated
      *
-     * @param bool $document_signature_validated Whether our own validation of the Aadhaar document signature and certificate chain succeeded.              When the signed document (e.g. Digilocker XML) is available, we validate it using the standard CCA/SafeScrypt chain. When the document is not returned, the signature cannot be validated and this is false. Some providers (e.g. Signzy) also supply a separate DSC validation indicator in the webhook payload; that is independent of this flag, which reflects only our validation.
+     * @param bool|null $document_signature_validated Whether our own validation of the Aadhaar document signature and certificate chain succeeded.              When the signed document (e.g. Digilocker XML) is available, we validate it using the standard CCA/SafeScrypt chain. When the document is not returned, the signature cannot be validated and this is false. Some providers (e.g. Signzy) also supply a separate DSC validation indicator in the webhook payload; that is independent of this flag, which reflects only our validation.
      *
      * @return self
      */
     public function setDocumentSignatureValidated($document_signature_validated)
     {
         if (is_null($document_signature_validated)) {
-            throw new \InvalidArgumentException('non-nullable document_signature_validated cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_signature_validated');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_signature_validated', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_signature_validated'] = $document_signature_validated;
 

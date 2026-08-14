@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * Iso180135DrivingPrivilegeTest Class Doc Comment
  *
  * @category    Class
- * @description A single driving privilege entry from the mDL &#x60;driving_privileges&#x60; field, per ISO 18013-5.
+ * @description A single driving privilege entry, per ISO 18013-5.
  * @package     Trinsic\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech

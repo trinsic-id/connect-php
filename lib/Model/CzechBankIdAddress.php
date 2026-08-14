@@ -100,10 +100,10 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
         'building_apartment' => true,
         'street_number' => true,
         'evidence_number' => true,
-        'city' => false,
+        'city' => true,
         'city_area' => true,
-        'zipcode' => false,
-        'country' => false,
+        'zipcode' => true,
+        'country' => true,
         'ruian_reference' => true
     ];
 
@@ -337,15 +337,6 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['city'] === null) {
-            $invalidProperties[] = "'city' can't be null";
-        }
-        if ($this->container['zipcode'] === null) {
-            $invalidProperties[] = "'zipcode' can't be null";
-        }
-        if ($this->container['country'] === null) {
-            $invalidProperties[] = "'country' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -534,7 +525,7 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets city
      *
-     * @return string
+     * @return string|null
      */
     public function getCity()
     {
@@ -544,14 +535,21 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets city
      *
-     * @param string $city The city name.
+     * @param string|null $city The city name.
      *
      * @return self
      */
     public function setCity($city)
     {
         if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'city');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('city', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['city'] = $city;
 
@@ -595,7 +593,7 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets zipcode
      *
-     * @return string
+     * @return string|null
      */
     public function getZipcode()
     {
@@ -605,14 +603,21 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets zipcode
      *
-     * @param string $zipcode The zip of the address.
+     * @param string|null $zipcode The zip of the address.
      *
      * @return self
      */
     public function setZipcode($zipcode)
     {
         if (is_null($zipcode)) {
-            throw new \InvalidArgumentException('non-nullable zipcode cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'zipcode');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('zipcode', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['zipcode'] = $zipcode;
 
@@ -622,7 +627,7 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets country
      *
-     * @return string
+     * @return string|null
      */
     public function getCountry()
     {
@@ -632,14 +637,21 @@ class CzechBankIdAddress implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets country
      *
-     * @param string $country The country code in ISO 3166-1 alpha-2 format.
+     * @param string|null $country The country code in ISO 3166-1 alpha-2 format.
      *
      * @return self
      */
     public function setCountry($country)
     {
         if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['country'] = $country;
 

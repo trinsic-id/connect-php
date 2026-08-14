@@ -84,10 +84,10 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'personal_number' => false,
-        'personal_number_country' => false
+        'first_name' => true,
+        'last_name' => true,
+        'personal_number' => true,
+        'personal_number_country' => true
     ];
 
     /**
@@ -296,18 +296,6 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['personal_number'] === null) {
-            $invalidProperties[] = "'personal_number' can't be null";
-        }
-        if ($this->container['personal_number_country'] === null) {
-            $invalidProperties[] = "'personal_number_country' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -326,7 +314,7 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -336,14 +324,21 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name of the verified individual
+     * @param string|null $first_name The first name of the verified individual
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -353,7 +348,7 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -363,14 +358,21 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name of the verified individual
+     * @param string|null $last_name The last name of the verified individual
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -380,7 +382,7 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets personal_number
      *
-     * @return string
+     * @return string|null
      */
     public function getPersonalNumber()
     {
@@ -390,14 +392,21 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets personal_number
      *
-     * @param string $personal_number The value returned by Freja in the \"ssn\" field.              The actual value of this field depends on the country of origin used to create the Freja credential. It is typically a Social Security Number, National Identification Number, or equivalent personal identifier.
+     * @param string|null $personal_number The value returned by Freja in the \"ssn\" field.              The actual value of this field depends on the country of origin used to create the Freja credential. It is typically a Social Security Number, National Identification Number, or equivalent personal identifier.
      *
      * @return self
      */
     public function setPersonalNumber($personal_number)
     {
         if (is_null($personal_number)) {
-            throw new \InvalidArgumentException('non-nullable personal_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'personal_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('personal_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['personal_number'] = $personal_number;
 
@@ -407,7 +416,7 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets personal_number_country
      *
-     * @return string
+     * @return string|null
      */
     public function getPersonalNumberCountry()
     {
@@ -417,14 +426,21 @@ class FrejaIndirectProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets personal_number_country
      *
-     * @param string $personal_number_country The 2-digit ISO country code of the country which issued the personal number.
+     * @param string|null $personal_number_country The 2-digit ISO country code of the country which issued the personal number.
      *
      * @return self
      */
     public function setPersonalNumberCountry($personal_number_country)
     {
         if (is_null($personal_number_country)) {
-            throw new \InvalidArgumentException('non-nullable personal_number_country cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'personal_number_country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('personal_number_country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['personal_number_country'] = $personal_number_country;
 

@@ -79,8 +79,8 @@ class IndonesiaNikMatchField implements ModelInterface, ArrayAccess, \JsonSerial
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'content' => false,
-        'match_value' => false
+        'content' => true,
+        'match_value' => true
     ];
 
     /**
@@ -281,12 +281,6 @@ class IndonesiaNikMatchField implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['content'] === null) {
-            $invalidProperties[] = "'content' can't be null";
-        }
-        if ($this->container['match_value'] === null) {
-            $invalidProperties[] = "'match_value' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -305,7 +299,7 @@ class IndonesiaNikMatchField implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets content
      *
-     * @return string
+     * @return string|null
      */
     public function getContent()
     {
@@ -315,14 +309,21 @@ class IndonesiaNikMatchField implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets content
      *
-     * @param string $content Raw value used for this match field.
+     * @param string|null $content Raw value used for this match field.
      *
      * @return self
      */
     public function setContent($content)
     {
         if (is_null($content)) {
-            throw new \InvalidArgumentException('non-nullable content cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'content');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('content', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['content'] = $content;
 
@@ -332,7 +333,7 @@ class IndonesiaNikMatchField implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets match_value
      *
-     * @return bool
+     * @return bool|null
      */
     public function getMatchValue()
     {
@@ -342,14 +343,21 @@ class IndonesiaNikMatchField implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets match_value
      *
-     * @param bool $match_value Whether the value matched.
+     * @param bool|null $match_value Whether the value matched.
      *
      * @return self
      */
     public function setMatchValue($match_value)
     {
         if (is_null($match_value)) {
-            throw new \InvalidArgumentException('non-nullable match_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'match_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('match_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['match_value'] = $match_value;
 

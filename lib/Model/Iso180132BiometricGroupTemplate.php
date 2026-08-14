@@ -78,7 +78,7 @@ class Iso180132BiometricGroupTemplate implements ModelInterface, ArrayAccess, \J
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'templates' => false
+        'templates' => true
     ];
 
     /**
@@ -275,9 +275,6 @@ class Iso180132BiometricGroupTemplate implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['templates'] === null) {
-            $invalidProperties[] = "'templates' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -296,7 +293,7 @@ class Iso180132BiometricGroupTemplate implements ModelInterface, ArrayAccess, \J
     /**
      * Gets templates
      *
-     * @return \Trinsic\Api\Model\Iso180132BiometricTemplate[]
+     * @return \Trinsic\Api\Model\Iso180132BiometricTemplate[]|null
      */
     public function getTemplates()
     {
@@ -306,14 +303,21 @@ class Iso180132BiometricGroupTemplate implements ModelInterface, ArrayAccess, \J
     /**
      * Sets templates
      *
-     * @param \Trinsic\Api\Model\Iso180132BiometricTemplate[] $templates Individual biometric templates contained in this group.
+     * @param \Trinsic\Api\Model\Iso180132BiometricTemplate[]|null $templates Individual biometric templates contained in this group.
      *
      * @return self
      */
     public function setTemplates($templates)
     {
         if (is_null($templates)) {
-            throw new \InvalidArgumentException('non-nullable templates cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'templates');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('templates', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['templates'] = $templates;
 

@@ -98,14 +98,14 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'surname' => false,
+        'first_name' => true,
+        'surname' => true,
         'other_name' => true,
-        'sex' => false,
+        'sex' => true,
         'date_of_birth' => true,
-        'citizenship' => false,
-        'id_number' => false,
-        'serial_number' => false,
+        'citizenship' => true,
+        'id_number' => true,
+        'serial_number' => true,
         'date_of_issue' => true,
         'place_of_birth' => true,
         'place_of_residence' => true
@@ -345,24 +345,6 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['surname'] === null) {
-            $invalidProperties[] = "'surname' can't be null";
-        }
-        if ($this->container['sex'] === null) {
-            $invalidProperties[] = "'sex' can't be null";
-        }
-        if ($this->container['citizenship'] === null) {
-            $invalidProperties[] = "'citizenship' can't be null";
-        }
-        if ($this->container['id_number'] === null) {
-            $invalidProperties[] = "'id_number' can't be null";
-        }
-        if ($this->container['serial_number'] === null) {
-            $invalidProperties[] = "'serial_number' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -381,7 +363,7 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -391,14 +373,21 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name (given name) of the ID holder as recorded in IPRS.
+     * @param string|null $first_name The first name (given name) of the ID holder as recorded in IPRS.
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -408,7 +397,7 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets surname
      *
-     * @return string
+     * @return string|null
      */
     public function getSurname()
     {
@@ -418,14 +407,21 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets surname
      *
-     * @param string $surname The surname (family name) of the ID holder as recorded in IPRS.
+     * @param string|null $surname The surname (family name) of the ID holder as recorded in IPRS.
      *
      * @return self
      */
     public function setSurname($surname)
     {
         if (is_null($surname)) {
-            throw new \InvalidArgumentException('non-nullable surname cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'surname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('surname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['surname'] = $surname;
 
@@ -469,7 +465,7 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets sex
      *
-     * @return string
+     * @return string|null
      */
     public function getSex()
     {
@@ -479,14 +475,21 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets sex
      *
-     * @param string $sex The sex of the ID holder as recorded on the National ID.              Possible values: - Male - Female
+     * @param string|null $sex The sex of the ID holder as recorded on the National ID.              Possible values: - Male - Female
      *
      * @return self
      */
     public function setSex($sex)
     {
         if (is_null($sex)) {
-            throw new \InvalidArgumentException('non-nullable sex cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sex', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sex'] = $sex;
 
@@ -530,7 +533,7 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets citizenship
      *
-     * @return string
+     * @return string|null
      */
     public function getCitizenship()
     {
@@ -540,14 +543,21 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets citizenship
      *
-     * @param string $citizenship Citizenship status as recorded in the IPRS civil registry database.              For the Kenya National ID lookup, this value will always be \"Kenyan\" as the National ID is only issued to Kenyan citizens. Non-citizens residing in Kenya are issued different identification documents (Alien ID cards, refugee documentation, etc.) which are not supported by this provider.
+     * @param string|null $citizenship Citizenship status as recorded in the IPRS civil registry database.              For the Kenya National ID lookup, this value will always be \"Kenyan\" as the National ID is only issued to Kenyan citizens. Non-citizens residing in Kenya are issued different identification documents (Alien ID cards, refugee documentation, etc.) which are not supported by this provider.
      *
      * @return self
      */
     public function setCitizenship($citizenship)
     {
         if (is_null($citizenship)) {
-            throw new \InvalidArgumentException('non-nullable citizenship cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'citizenship');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('citizenship', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['citizenship'] = $citizenship;
 
@@ -557,7 +567,7 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets id_number
      *
-     * @return string
+     * @return string|null
      */
     public function getIdNumber()
     {
@@ -567,14 +577,21 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets id_number
      *
-     * @param string $id_number The Kenya National ID Number (Nambari ya Kitambulisho) or Unique Personal Identifier (Maisha Namba).              This is the primary unique identifier for Kenyan citizens in all government systems, issued by the National Registration Bureau (NRB). The format is either 8 digits for National ID or 9 digits for Maisha Namba UPI (the new format since 2023).
+     * @param string|null $id_number The Kenya National ID Number (Nambari ya Kitambulisho) or Unique Personal Identifier (Maisha Namba).              This is the primary unique identifier for Kenyan citizens in all government systems, issued by the National Registration Bureau (NRB). The format is either 8 digits for National ID or 9 digits for Maisha Namba UPI (the new format since 2023).
      *
      * @return self
      */
     public function setIdNumber($id_number)
     {
         if (is_null($id_number)) {
-            throw new \InvalidArgumentException('non-nullable id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['id_number'] = $id_number;
 
@@ -584,7 +601,7 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets serial_number
      *
-     * @return string
+     * @return string|null
      */
     public function getSerialNumber()
     {
@@ -594,14 +611,21 @@ class KenyaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets serial_number
      *
-     * @param string $serial_number The physical card serial number printed on the Kenya National ID card.              This is distinct from the ID Number and serves as a card issuance tracking identifier maintained by IPRS. This value changes each time a new physical card is issued (loss, damage, renewal).
+     * @param string|null $serial_number The physical card serial number printed on the Kenya National ID card.              This is distinct from the ID Number and serves as a card issuance tracking identifier maintained by IPRS. This value changes each time a new physical card is issued (loss, damage, renewal).
      *
      * @return self
      */
     public function setSerialNumber($serial_number)
     {
         if (is_null($serial_number)) {
-            throw new \InvalidArgumentException('non-nullable serial_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'serial_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('serial_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['serial_number'] = $serial_number;
 

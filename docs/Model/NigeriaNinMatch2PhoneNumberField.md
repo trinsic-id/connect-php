@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input_value** | **string** | The phone number as submitted for this check.              Format: - International E.164 |
-**outcome** | **string** | The outcome of comparing the submitted phone number to the issuer record.              Possible values: - Exact Match - No Match - Not Provided - Not Returned |
+**input_value** | **string** | The phone number as submitted for this check.              Format: - International E.164 | [optional]
+**outcome** | **string** | The outcome of comparing the submitted phone number to the issuer record.              Possible values: - Exact Match - No Match - Not Provided - Not Returned | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

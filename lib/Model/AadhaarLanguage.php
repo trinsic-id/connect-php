@@ -81,7 +81,7 @@ class AadhaarLanguage implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     protected static array $openAPINullables = [
         'language_code' => true,
-        'language_name' => false
+        'language_name' => true
     ];
 
     /**
@@ -282,9 +282,6 @@ class AadhaarLanguage implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['language_name'] === null) {
-            $invalidProperties[] = "'language_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -337,7 +334,7 @@ class AadhaarLanguage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets language_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLanguageName()
     {
@@ -347,14 +344,21 @@ class AadhaarLanguage implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets language_name
      *
-     * @param string $language_name The language name for the localized claims.              This is Trinsic mapping the language from the code. The mapping comes from the spec, however, the code may not always reflect with the actual language used in the localized claims. Use this as a reference. Possible values: - Assamese (01) - Bengali (02) - Gujarati (05) - Hindi (06) - Kannada (07) - Malayalam (11) - Manipuri (12) - Marathi (13) - Oriya (15) - Punjabi (16) - Tamil (20) - Telugu (21) - Urdu (22)
+     * @param string|null $language_name The language name for the localized claims.              This is Trinsic mapping the language from the code. The mapping comes from the spec, however, the code may not always reflect with the actual language used in the localized claims. Use this as a reference. Possible values: - Assamese (01) - Bengali (02) - Gujarati (05) - Hindi (06) - Kannada (07) - Malayalam (11) - Manipuri (12) - Marathi (13) - Oriya (15) - Punjabi (16) - Tamil (20) - Telugu (21) - Urdu (22)
      *
      * @return self
      */
     public function setLanguageName($language_name)
     {
         if (is_null($language_name)) {
-            throw new \InvalidArgumentException('non-nullable language_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'language_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('language_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['language_name'] = $language_name;
 

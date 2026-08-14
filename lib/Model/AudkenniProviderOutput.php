@@ -84,9 +84,9 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'national_register_id' => false,
-        'subject_id' => false,
-        'name' => false,
+        'national_register_id' => true,
+        'subject_id' => true,
+        'name' => true,
         'date_of_birth' => true
     ];
 
@@ -296,15 +296,6 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['national_register_id'] === null) {
-            $invalidProperties[] = "'national_register_id' can't be null";
-        }
-        if ($this->container['subject_id'] === null) {
-            $invalidProperties[] = "'subject_id' can't be null";
-        }
-        if ($this->container['name'] === null) {
-            $invalidProperties[] = "'name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -323,7 +314,7 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets national_register_id
      *
-     * @return string
+     * @return string|null
      */
     public function getNationalRegisterId()
     {
@@ -333,14 +324,21 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets national_register_id
      *
-     * @param string $national_register_id National Register ID number (kennitala) of the individual.              Often written with a hyphen following the 6th digit (123456-1234). ID numbers are composed of ten digits. The first six of these are the individual’s date of birth in the format DDMMYY. The seventh and eighth digits are randomly chosen when the ID number is allocated, the ninth digit used to be a check digit (modulus (11) but this has been removed. The tenth indicates the century of the individual’s birth: ‘9’ for 1900–1999, ‘0’ for 2000 and beyond.
+     * @param string|null $national_register_id National Register ID number (kennitala) of the individual.              Often written with a hyphen following the 6th digit (123456-1234). ID numbers are composed of ten digits. The first six of these are the individual’s date of birth in the format DDMMYY. The seventh and eighth digits are randomly chosen when the ID number is allocated, the ninth digit used to be a check digit (modulus (11) but this has been removed. The tenth indicates the century of the individual’s birth: ‘9’ for 1900–1999, ‘0’ for 2000 and beyond.
      *
      * @return self
      */
     public function setNationalRegisterId($national_register_id)
     {
         if (is_null($national_register_id)) {
-            throw new \InvalidArgumentException('non-nullable national_register_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_register_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_register_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_register_id'] = $national_register_id;
 
@@ -350,7 +348,7 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets subject_id
      *
-     * @return string
+     * @return string|null
      */
     public function getSubjectId()
     {
@@ -360,14 +358,21 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets subject_id
      *
-     * @param string $subject_id Unique identifier for the individual across Audkenni.              It is recommended to use this identifier instead of using the national register ID directly.
+     * @param string|null $subject_id Unique identifier for the individual across Audkenni.              It is recommended to use this identifier instead of using the national register ID directly.
      *
      * @return self
      */
     public function setSubjectId($subject_id)
     {
         if (is_null($subject_id)) {
-            throw new \InvalidArgumentException('non-nullable subject_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subject_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subject_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subject_id'] = $subject_id;
 
@@ -377,7 +382,7 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets name
      *
-     * @return string
+     * @return string|null
      */
     public function getName()
     {
@@ -387,14 +392,21 @@ class AudkenniProviderOutput implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets name
      *
-     * @param string $name The full name of the individual.
+     * @param string|null $name The full name of the individual.
      *
      * @return self
      */
     public function setName($name)
     {
         if (is_null($name)) {
-            throw new \InvalidArgumentException('non-nullable name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name'] = $name;
 

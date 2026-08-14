@@ -82,9 +82,9 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'full_name' => false,
-        'document_number' => false,
-        'date_of_birth' => false
+        'full_name' => true,
+        'document_number' => true,
+        'date_of_birth' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['document_number'] === null) {
-            $invalidProperties[] = "'document_number' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -326,14 +317,21 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets full_name
      *
-     * @param string $full_name Full name as it appears on the DUI (Documento Único de Identidad), as returned by Verifik from official records administered by the Registro Nacional de las Personas Naturales (RNPN).
+     * @param string|null $full_name Full name as it appears on the DUI (Documento Único de Identidad), as returned by Verifik from official records administered by the Registro Nacional de las Personas Naturales (RNPN).
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -343,7 +341,7 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets document_number
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentNumber()
     {
@@ -353,14 +351,21 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets document_number
      *
-     * @param string $document_number The DUI (Documento Único de Identidad) document number as returned by Verifik for the matched record.              Nine numeric digits after sanitization. Commonly printed as ########-# (hyphen before the final digit). The output will be stripped of the hyphen and will preserve leading zeros.              The ninth digit is a check digit. This is not publicly documented by the Salvadoran government, but the algorithm is available in the public domain for those who seek it.
+     * @param string|null $document_number The DUI (Documento Único de Identidad) document number as returned by Verifik for the matched record.              Nine numeric digits after sanitization. Commonly printed as ########-# (hyphen before the final digit). The output will be stripped of the hyphen and will preserve leading zeros.              The ninth digit is a check digit. This is not publicly documented by the Salvadoran government, but the algorithm is available in the public domain for those who seek it.
      *
      * @return self
      */
     public function setDocumentNumber($document_number)
     {
         if (is_null($document_number)) {
-            throw new \InvalidArgumentException('non-nullable document_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_number'] = $document_number;
 
@@ -370,7 +375,7 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -380,14 +385,21 @@ class ElSalvadorDuiProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The date of birth that was supplied for the lookup and confirmed as matching the DUI record.
+     * @param \DateTime|null $date_of_birth The date of birth that was supplied for the lookup and confirmed as matching the DUI record.
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 

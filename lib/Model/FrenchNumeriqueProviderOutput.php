@@ -58,14 +58,17 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $openAPITypes = [
-        'given_name' => '\Trinsic\Api\Model\FrenchNumeriqueGivenName',
+        'sub' => 'string',
+        'given_name' => 'string',
+        'splitted_given_name' => '\Trinsic\Api\Model\FrenchNumeriqueSplittedGivenName',
         'family_name' => 'string',
         'preferred_surname' => 'string',
         'birthdate' => 'string',
         'nationality' => '\Trinsic\Api\Model\FrenchNumeriqueNationality',
         'sex' => 'string',
         'majority' => 'bool',
-        'phone_number' => '\Trinsic\Api\Model\FrenchNumeriquePhone',
+        'phone_number' => 'string',
+        'splitted_phone' => '\Trinsic\Api\Model\FrenchNumeriqueSplittedPhone',
         'phone_number_verified' => 'bool',
         'email' => 'string',
         'email_verified' => 'bool',
@@ -93,7 +96,9 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'sub' => null,
         'given_name' => null,
+        'splitted_given_name' => null,
         'family_name' => null,
         'preferred_surname' => null,
         'birthdate' => null,
@@ -101,6 +106,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
         'sex' => null,
         'majority' => null,
         'phone_number' => null,
+        'splitted_phone' => null,
         'phone_number_verified' => null,
         'email' => null,
         'email_verified' => null,
@@ -126,7 +132,9 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'sub' => true,
         'given_name' => true,
+        'splitted_given_name' => true,
         'family_name' => true,
         'preferred_surname' => true,
         'birthdate' => true,
@@ -134,6 +142,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
         'sex' => true,
         'majority' => true,
         'phone_number' => true,
+        'splitted_phone' => true,
         'phone_number_verified' => true,
         'email' => true,
         'email_verified' => true,
@@ -239,7 +248,9 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
+        'sub' => 'sub',
         'given_name' => 'givenName',
+        'splitted_given_name' => 'splittedGivenName',
         'family_name' => 'familyName',
         'preferred_surname' => 'preferredSurname',
         'birthdate' => 'birthdate',
@@ -247,6 +258,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
         'sex' => 'sex',
         'majority' => 'majority',
         'phone_number' => 'phoneNumber',
+        'splitted_phone' => 'splittedPhone',
         'phone_number_verified' => 'phoneNumberVerified',
         'email' => 'email',
         'email_verified' => 'emailVerified',
@@ -272,7 +284,9 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
+        'sub' => 'setSub',
         'given_name' => 'setGivenName',
+        'splitted_given_name' => 'setSplittedGivenName',
         'family_name' => 'setFamilyName',
         'preferred_surname' => 'setPreferredSurname',
         'birthdate' => 'setBirthdate',
@@ -280,6 +294,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
         'sex' => 'setSex',
         'majority' => 'setMajority',
         'phone_number' => 'setPhoneNumber',
+        'splitted_phone' => 'setSplittedPhone',
         'phone_number_verified' => 'setPhoneNumberVerified',
         'email' => 'setEmail',
         'email_verified' => 'setEmailVerified',
@@ -305,7 +320,9 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
+        'sub' => 'getSub',
         'given_name' => 'getGivenName',
+        'splitted_given_name' => 'getSplittedGivenName',
         'family_name' => 'getFamilyName',
         'preferred_surname' => 'getPreferredSurname',
         'birthdate' => 'getBirthdate',
@@ -313,6 +330,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
         'sex' => 'getSex',
         'majority' => 'getMajority',
         'phone_number' => 'getPhoneNumber',
+        'splitted_phone' => 'getSplittedPhone',
         'phone_number_verified' => 'getPhoneNumberVerified',
         'email' => 'getEmail',
         'email_verified' => 'getEmailVerified',
@@ -389,7 +407,9 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('sub', $data ?? [], null);
         $this->setIfExists('given_name', $data ?? [], null);
+        $this->setIfExists('splitted_given_name', $data ?? [], null);
         $this->setIfExists('family_name', $data ?? [], null);
         $this->setIfExists('preferred_surname', $data ?? [], null);
         $this->setIfExists('birthdate', $data ?? [], null);
@@ -397,6 +417,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
         $this->setIfExists('sex', $data ?? [], null);
         $this->setIfExists('majority', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
+        $this->setIfExists('splitted_phone', $data ?? [], null);
         $this->setIfExists('phone_number_verified', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('email_verified', $data ?? [], null);
@@ -459,9 +480,43 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
 
 
     /**
+     * Gets sub
+     *
+     * @return string|null
+     */
+    public function getSub()
+    {
+        return $this->container['sub'];
+    }
+
+    /**
+     * Sets sub
+     *
+     * @param string|null $sub OpenID Connect subject identifier (sub) for the verified individual.
+     *
+     * @return self
+     */
+    public function setSub($sub)
+    {
+        if (is_null($sub)) {
+            array_push($this->openAPINullablesSetToNull, 'sub');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sub', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['sub'] = $sub;
+
+        return $this;
+    }
+
+    /**
      * Gets given_name
      *
-     * @return \Trinsic\Api\Model\FrenchNumeriqueGivenName|null
+     * @return string|null
      */
     public function getGivenName()
     {
@@ -471,7 +526,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets given_name
      *
-     * @param \Trinsic\Api\Model\FrenchNumeriqueGivenName|null $given_name Given name information including the full given name and its structured components (first name and middle name(s)).
+     * @param string|null $given_name Full given name(s) as recorded on the individual's French identity document.              If the individual has multiple given names, they are separated by a single space.
      *
      * @return self
      */
@@ -488,6 +543,40 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
             }
         }
         $this->container['given_name'] = $given_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets splitted_given_name
+     *
+     * @return \Trinsic\Api\Model\FrenchNumeriqueSplittedGivenName|null
+     */
+    public function getSplittedGivenName()
+    {
+        return $this->container['splitted_given_name'];
+    }
+
+    /**
+     * Sets splitted_given_name
+     *
+     * @param \Trinsic\Api\Model\FrenchNumeriqueSplittedGivenName|null $splitted_given_name Given name split into first name and middle name(s).
+     *
+     * @return self
+     */
+    public function setSplittedGivenName($splitted_given_name)
+    {
+        if (is_null($splitted_given_name)) {
+            array_push($this->openAPINullablesSetToNull, 'splitted_given_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('splitted_given_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['splitted_given_name'] = $splitted_given_name;
 
         return $this;
     }
@@ -699,7 +788,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets phone_number
      *
-     * @return \Trinsic\Api\Model\FrenchNumeriquePhone|null
+     * @return string|null
      */
     public function getPhoneNumber()
     {
@@ -709,7 +798,7 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets phone_number
      *
-     * @param \Trinsic\Api\Model\FrenchNumeriquePhone|null $phone_number Phone number information including the full phone number and its structured components (country prefix and national number).
+     * @param string|null $phone_number Full phone number including country prefix.
      *
      * @return self
      */
@@ -726,6 +815,40 @@ class FrenchNumeriqueProviderOutput implements ModelInterface, ArrayAccess, \Jso
             }
         }
         $this->container['phone_number'] = $phone_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets splitted_phone
+     *
+     * @return \Trinsic\Api\Model\FrenchNumeriqueSplittedPhone|null
+     */
+    public function getSplittedPhone()
+    {
+        return $this->container['splitted_phone'];
+    }
+
+    /**
+     * Sets splitted_phone
+     *
+     * @param \Trinsic\Api\Model\FrenchNumeriqueSplittedPhone|null $splitted_phone Phone number split into country prefix and national number.
+     *
+     * @return self
+     */
+    public function setSplittedPhone($splitted_phone)
+    {
+        if (is_null($splitted_phone)) {
+            array_push($this->openAPINullablesSetToNull, 'splitted_phone');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('splitted_phone', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['splitted_phone'] = $splitted_phone;
 
         return $this;
     }

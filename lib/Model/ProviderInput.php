@@ -57,8 +57,10 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $openAPITypes = [
+        'trinsic_mock_output' => '\Trinsic\Api\Model\MockOutputProviderInput',
         'indonesia_nik_lookup' => '\Trinsic\Api\Model\IndonesiaNikInput',
         'china_resident_id_match' => '\Trinsic\Api\Model\ChinaResidentIdMatchInput',
+        'evrotrust' => '\Trinsic\Api\Model\EvrotrustInput',
         'indonesia_dukcapil_match' => '\Trinsic\Api\Model\IndonesiaDukcapilMatchInput',
         'mexico_curp_lookup' => '\Trinsic\Api\Model\MexicoCurpInput',
         'south_africa_nid_lookup' => '\Trinsic\Api\Model\SouthAfricaNidInput',
@@ -68,6 +70,8 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'south_africa_nid_lookup_2' => '\Trinsic\Api\Model\SouthAfricaNidLookup2Input',
         'south_africa_nid_match_2' => '\Trinsic\Api\Model\SouthAfricaNidMatch2Input',
         'nigeria_nin_lookup_2' => '\Trinsic\Api\Model\NigeriaNinLookup2Input',
+        'nigeria_nin_lookup_3' => '\Trinsic\Api\Model\NigeriaNinLookup3Input',
+        'kenya_nid_lookup_3' => '\Trinsic\Api\Model\KenyaNidLookup3Input',
         'cote_divoire_nid_lookup_2' => '\Trinsic\Api\Model\CoteDIvoireNidLookup2Input',
         'zimbabwe_nid_lookup_2' => '\Trinsic\Api\Model\ZimbabweNidLookup2Input',
         'nigeria_nin_match_2' => '\Trinsic\Api\Model\NigeriaNinMatch2Input',
@@ -89,6 +93,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'apple_wallet' => '\Trinsic\Api\Model\AppleWalletInput',
         'samsung_wallet' => '\Trinsic\Api\Model\SamsungWalletInput',
         'france_identite' => '\Trinsic\Api\Model\FranceIdentiteInput',
+        'moldova_evo_wallet' => '\Trinsic\Api\Model\MoldovaEvoWalletInput',
+        'germany_eudi_sandbox' => '\Trinsic\Api\Model\GermanyEudiSandboxInput',
+        'denmark_altid' => '\Trinsic\Api\Model\DenmarkAltIdInput',
+        'austria_valera_eudi_sandbox' => '\Trinsic\Api\Model\AustriaValeraEudiSandboxInput',
+        'netherlands_eudi_sandbox' => '\Trinsic\Api\Model\NetherlandsEudiSandboxInput',
         'poland_mobywatel_match' => '\Trinsic\Api\Model\PolandMobywatelMatchInput',
         'bolivia_ci_lookup' => '\Trinsic\Api\Model\BoliviaCiLookupInput',
         'colombia_cc_lookup' => '\Trinsic\Api\Model\ColombiaCcLookupInput',
@@ -110,8 +119,10 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
+        'trinsic_mock_output' => null,
         'indonesia_nik_lookup' => null,
         'china_resident_id_match' => null,
+        'evrotrust' => null,
         'indonesia_dukcapil_match' => null,
         'mexico_curp_lookup' => null,
         'south_africa_nid_lookup' => null,
@@ -121,6 +132,8 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'south_africa_nid_lookup_2' => null,
         'south_africa_nid_match_2' => null,
         'nigeria_nin_lookup_2' => null,
+        'nigeria_nin_lookup_3' => null,
+        'kenya_nid_lookup_3' => null,
         'cote_divoire_nid_lookup_2' => null,
         'zimbabwe_nid_lookup_2' => null,
         'nigeria_nin_match_2' => null,
@@ -142,6 +155,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'apple_wallet' => null,
         'samsung_wallet' => null,
         'france_identite' => null,
+        'moldova_evo_wallet' => null,
+        'germany_eudi_sandbox' => null,
+        'denmark_altid' => null,
+        'austria_valera_eudi_sandbox' => null,
+        'netherlands_eudi_sandbox' => null,
         'poland_mobywatel_match' => null,
         'bolivia_ci_lookup' => null,
         'colombia_cc_lookup' => null,
@@ -161,8 +179,10 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
+        'trinsic_mock_output' => true,
         'indonesia_nik_lookup' => true,
         'china_resident_id_match' => true,
+        'evrotrust' => true,
         'indonesia_dukcapil_match' => true,
         'mexico_curp_lookup' => true,
         'south_africa_nid_lookup' => true,
@@ -172,6 +192,8 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'south_africa_nid_lookup_2' => true,
         'south_africa_nid_match_2' => true,
         'nigeria_nin_lookup_2' => true,
+        'nigeria_nin_lookup_3' => true,
+        'kenya_nid_lookup_3' => true,
         'cote_divoire_nid_lookup_2' => true,
         'zimbabwe_nid_lookup_2' => true,
         'nigeria_nin_match_2' => true,
@@ -193,6 +215,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'apple_wallet' => true,
         'samsung_wallet' => true,
         'france_identite' => true,
+        'moldova_evo_wallet' => true,
+        'germany_eudi_sandbox' => true,
+        'denmark_altid' => true,
+        'austria_valera_eudi_sandbox' => true,
+        'netherlands_eudi_sandbox' => true,
         'poland_mobywatel_match' => true,
         'bolivia_ci_lookup' => true,
         'colombia_cc_lookup' => true,
@@ -292,8 +319,10 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $attributeMap = [
+        'trinsic_mock_output' => 'trinsic-mock-output',
         'indonesia_nik_lookup' => 'indonesia-nik-lookup',
         'china_resident_id_match' => 'china-resident-id-match',
+        'evrotrust' => 'evrotrust',
         'indonesia_dukcapil_match' => 'indonesia-dukcapil-match',
         'mexico_curp_lookup' => 'mexico-curp-lookup',
         'south_africa_nid_lookup' => 'south-africa-nid-lookup',
@@ -303,6 +332,8 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'south_africa_nid_lookup_2' => 'south-africa-nid-lookup-2',
         'south_africa_nid_match_2' => 'south-africa-nid-match-2',
         'nigeria_nin_lookup_2' => 'nigeria-nin-lookup-2',
+        'nigeria_nin_lookup_3' => 'nigeria-nin-lookup-3',
+        'kenya_nid_lookup_3' => 'kenya-nid-lookup-3',
         'cote_divoire_nid_lookup_2' => 'cote-divoire-nid-lookup-2',
         'zimbabwe_nid_lookup_2' => 'zimbabwe-nid-lookup-2',
         'nigeria_nin_match_2' => 'nigeria-nin-match-2',
@@ -324,6 +355,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'apple_wallet' => 'apple-wallet',
         'samsung_wallet' => 'samsung-wallet',
         'france_identite' => 'france-identite',
+        'moldova_evo_wallet' => 'moldova-evo-wallet',
+        'germany_eudi_sandbox' => 'germany-eudi-sandbox',
+        'denmark_altid' => 'denmark-altid',
+        'austria_valera_eudi_sandbox' => 'austria-valera-eudi-sandbox',
+        'netherlands_eudi_sandbox' => 'netherlands-eudi-sandbox',
         'poland_mobywatel_match' => 'poland-mobywatel-match',
         'bolivia_ci_lookup' => 'bolivia-ci-lookup',
         'colombia_cc_lookup' => 'colombia-cc-lookup',
@@ -343,8 +379,10 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $setters = [
+        'trinsic_mock_output' => 'setTrinsicMockOutput',
         'indonesia_nik_lookup' => 'setIndonesiaNikLookup',
         'china_resident_id_match' => 'setChinaResidentIdMatch',
+        'evrotrust' => 'setEvrotrust',
         'indonesia_dukcapil_match' => 'setIndonesiaDukcapilMatch',
         'mexico_curp_lookup' => 'setMexicoCurpLookup',
         'south_africa_nid_lookup' => 'setSouthAfricaNidLookup',
@@ -354,6 +392,8 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'south_africa_nid_lookup_2' => 'setSouthAfricaNidLookup2',
         'south_africa_nid_match_2' => 'setSouthAfricaNidMatch2',
         'nigeria_nin_lookup_2' => 'setNigeriaNinLookup2',
+        'nigeria_nin_lookup_3' => 'setNigeriaNinLookup3',
+        'kenya_nid_lookup_3' => 'setKenyaNidLookup3',
         'cote_divoire_nid_lookup_2' => 'setCoteDivoireNidLookup2',
         'zimbabwe_nid_lookup_2' => 'setZimbabweNidLookup2',
         'nigeria_nin_match_2' => 'setNigeriaNinMatch2',
@@ -375,6 +415,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'apple_wallet' => 'setAppleWallet',
         'samsung_wallet' => 'setSamsungWallet',
         'france_identite' => 'setFranceIdentite',
+        'moldova_evo_wallet' => 'setMoldovaEvoWallet',
+        'germany_eudi_sandbox' => 'setGermanyEudiSandbox',
+        'denmark_altid' => 'setDenmarkAltid',
+        'austria_valera_eudi_sandbox' => 'setAustriaValeraEudiSandbox',
+        'netherlands_eudi_sandbox' => 'setNetherlandsEudiSandbox',
         'poland_mobywatel_match' => 'setPolandMobywatelMatch',
         'bolivia_ci_lookup' => 'setBoliviaCiLookup',
         'colombia_cc_lookup' => 'setColombiaCcLookup',
@@ -394,8 +439,10 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var string[]
      */
     protected static $getters = [
+        'trinsic_mock_output' => 'getTrinsicMockOutput',
         'indonesia_nik_lookup' => 'getIndonesiaNikLookup',
         'china_resident_id_match' => 'getChinaResidentIdMatch',
+        'evrotrust' => 'getEvrotrust',
         'indonesia_dukcapil_match' => 'getIndonesiaDukcapilMatch',
         'mexico_curp_lookup' => 'getMexicoCurpLookup',
         'south_africa_nid_lookup' => 'getSouthAfricaNidLookup',
@@ -405,6 +452,8 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'south_africa_nid_lookup_2' => 'getSouthAfricaNidLookup2',
         'south_africa_nid_match_2' => 'getSouthAfricaNidMatch2',
         'nigeria_nin_lookup_2' => 'getNigeriaNinLookup2',
+        'nigeria_nin_lookup_3' => 'getNigeriaNinLookup3',
+        'kenya_nid_lookup_3' => 'getKenyaNidLookup3',
         'cote_divoire_nid_lookup_2' => 'getCoteDivoireNidLookup2',
         'zimbabwe_nid_lookup_2' => 'getZimbabweNidLookup2',
         'nigeria_nin_match_2' => 'getNigeriaNinMatch2',
@@ -426,6 +475,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         'apple_wallet' => 'getAppleWallet',
         'samsung_wallet' => 'getSamsungWallet',
         'france_identite' => 'getFranceIdentite',
+        'moldova_evo_wallet' => 'getMoldovaEvoWallet',
+        'germany_eudi_sandbox' => 'getGermanyEudiSandbox',
+        'denmark_altid' => 'getDenmarkAltid',
+        'austria_valera_eudi_sandbox' => 'getAustriaValeraEudiSandbox',
+        'netherlands_eudi_sandbox' => 'getNetherlandsEudiSandbox',
         'poland_mobywatel_match' => 'getPolandMobywatelMatch',
         'bolivia_ci_lookup' => 'getBoliviaCiLookup',
         'colombia_cc_lookup' => 'getColombiaCcLookup',
@@ -496,8 +550,10 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
      */
     public function __construct(?array $data = null)
     {
+        $this->setIfExists('trinsic_mock_output', $data ?? [], null);
         $this->setIfExists('indonesia_nik_lookup', $data ?? [], null);
         $this->setIfExists('china_resident_id_match', $data ?? [], null);
+        $this->setIfExists('evrotrust', $data ?? [], null);
         $this->setIfExists('indonesia_dukcapil_match', $data ?? [], null);
         $this->setIfExists('mexico_curp_lookup', $data ?? [], null);
         $this->setIfExists('south_africa_nid_lookup', $data ?? [], null);
@@ -507,6 +563,8 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('south_africa_nid_lookup_2', $data ?? [], null);
         $this->setIfExists('south_africa_nid_match_2', $data ?? [], null);
         $this->setIfExists('nigeria_nin_lookup_2', $data ?? [], null);
+        $this->setIfExists('nigeria_nin_lookup_3', $data ?? [], null);
+        $this->setIfExists('kenya_nid_lookup_3', $data ?? [], null);
         $this->setIfExists('cote_divoire_nid_lookup_2', $data ?? [], null);
         $this->setIfExists('zimbabwe_nid_lookup_2', $data ?? [], null);
         $this->setIfExists('nigeria_nin_match_2', $data ?? [], null);
@@ -528,6 +586,11 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('apple_wallet', $data ?? [], null);
         $this->setIfExists('samsung_wallet', $data ?? [], null);
         $this->setIfExists('france_identite', $data ?? [], null);
+        $this->setIfExists('moldova_evo_wallet', $data ?? [], null);
+        $this->setIfExists('germany_eudi_sandbox', $data ?? [], null);
+        $this->setIfExists('denmark_altid', $data ?? [], null);
+        $this->setIfExists('austria_valera_eudi_sandbox', $data ?? [], null);
+        $this->setIfExists('netherlands_eudi_sandbox', $data ?? [], null);
         $this->setIfExists('poland_mobywatel_match', $data ?? [], null);
         $this->setIfExists('bolivia_ci_lookup', $data ?? [], null);
         $this->setIfExists('colombia_cc_lookup', $data ?? [], null);
@@ -582,6 +645,40 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
         return count($this->listInvalidProperties()) === 0;
     }
 
+
+    /**
+     * Gets trinsic_mock_output
+     *
+     * @return \Trinsic\Api\Model\MockOutputProviderInput|null
+     */
+    public function getTrinsicMockOutput()
+    {
+        return $this->container['trinsic_mock_output'];
+    }
+
+    /**
+     * Sets trinsic_mock_output
+     *
+     * @param \Trinsic\Api\Model\MockOutputProviderInput|null $trinsic_mock_output *TEST MODE ONLY.*              Input for the `trinsic-mock-output` provider.
+     *
+     * @return self
+     */
+    public function setTrinsicMockOutput($trinsic_mock_output)
+    {
+        if (is_null($trinsic_mock_output)) {
+            array_push($this->openAPINullablesSetToNull, 'trinsic_mock_output');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trinsic_mock_output', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['trinsic_mock_output'] = $trinsic_mock_output;
+
+        return $this;
+    }
 
     /**
      * Gets indonesia_nik_lookup
@@ -647,6 +744,40 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['china_resident_id_match'] = $china_resident_id_match;
+
+        return $this;
+    }
+
+    /**
+     * Gets evrotrust
+     *
+     * @return \Trinsic\Api\Model\EvrotrustInput|null
+     */
+    public function getEvrotrust()
+    {
+        return $this->container['evrotrust'];
+    }
+
+    /**
+     * Sets evrotrust
+     *
+     * @param \Trinsic\Api\Model\EvrotrustInput|null $evrotrust Input for the `evrotrust` provider
+     *
+     * @return self
+     */
+    public function setEvrotrust($evrotrust)
+    {
+        if (is_null($evrotrust)) {
+            array_push($this->openAPINullablesSetToNull, 'evrotrust');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('evrotrust', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['evrotrust'] = $evrotrust;
 
         return $this;
     }
@@ -953,6 +1084,74 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['nigeria_nin_lookup_2'] = $nigeria_nin_lookup_2;
+
+        return $this;
+    }
+
+    /**
+     * Gets nigeria_nin_lookup_3
+     *
+     * @return \Trinsic\Api\Model\NigeriaNinLookup3Input|null
+     */
+    public function getNigeriaNinLookup3()
+    {
+        return $this->container['nigeria_nin_lookup_3'];
+    }
+
+    /**
+     * Sets nigeria_nin_lookup_3
+     *
+     * @param \Trinsic\Api\Model\NigeriaNinLookup3Input|null $nigeria_nin_lookup_3 Input for the `nigeria-nin-lookup-3` provider
+     *
+     * @return self
+     */
+    public function setNigeriaNinLookup3($nigeria_nin_lookup_3)
+    {
+        if (is_null($nigeria_nin_lookup_3)) {
+            array_push($this->openAPINullablesSetToNull, 'nigeria_nin_lookup_3');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nigeria_nin_lookup_3', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['nigeria_nin_lookup_3'] = $nigeria_nin_lookup_3;
+
+        return $this;
+    }
+
+    /**
+     * Gets kenya_nid_lookup_3
+     *
+     * @return \Trinsic\Api\Model\KenyaNidLookup3Input|null
+     */
+    public function getKenyaNidLookup3()
+    {
+        return $this->container['kenya_nid_lookup_3'];
+    }
+
+    /**
+     * Sets kenya_nid_lookup_3
+     *
+     * @param \Trinsic\Api\Model\KenyaNidLookup3Input|null $kenya_nid_lookup_3 Input for the `kenya-nid-lookup-3` provider
+     *
+     * @return self
+     */
+    public function setKenyaNidLookup3($kenya_nid_lookup_3)
+    {
+        if (is_null($kenya_nid_lookup_3)) {
+            array_push($this->openAPINullablesSetToNull, 'kenya_nid_lookup_3');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('kenya_nid_lookup_3', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['kenya_nid_lookup_3'] = $kenya_nid_lookup_3;
 
         return $this;
     }
@@ -1667,6 +1866,176 @@ class ProviderInput implements ModelInterface, ArrayAccess, \JsonSerializable
             }
         }
         $this->container['france_identite'] = $france_identite;
+
+        return $this;
+    }
+
+    /**
+     * Gets moldova_evo_wallet
+     *
+     * @return \Trinsic\Api\Model\MoldovaEvoWalletInput|null
+     */
+    public function getMoldovaEvoWallet()
+    {
+        return $this->container['moldova_evo_wallet'];
+    }
+
+    /**
+     * Sets moldova_evo_wallet
+     *
+     * @param \Trinsic\Api\Model\MoldovaEvoWalletInput|null $moldova_evo_wallet Input for the `moldova-evo-wallet` provider
+     *
+     * @return self
+     */
+    public function setMoldovaEvoWallet($moldova_evo_wallet)
+    {
+        if (is_null($moldova_evo_wallet)) {
+            array_push($this->openAPINullablesSetToNull, 'moldova_evo_wallet');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('moldova_evo_wallet', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['moldova_evo_wallet'] = $moldova_evo_wallet;
+
+        return $this;
+    }
+
+    /**
+     * Gets germany_eudi_sandbox
+     *
+     * @return \Trinsic\Api\Model\GermanyEudiSandboxInput|null
+     */
+    public function getGermanyEudiSandbox()
+    {
+        return $this->container['germany_eudi_sandbox'];
+    }
+
+    /**
+     * Sets germany_eudi_sandbox
+     *
+     * @param \Trinsic\Api\Model\GermanyEudiSandboxInput|null $germany_eudi_sandbox germany_eudi_sandbox
+     *
+     * @return self
+     */
+    public function setGermanyEudiSandbox($germany_eudi_sandbox)
+    {
+        if (is_null($germany_eudi_sandbox)) {
+            array_push($this->openAPINullablesSetToNull, 'germany_eudi_sandbox');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('germany_eudi_sandbox', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['germany_eudi_sandbox'] = $germany_eudi_sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets denmark_altid
+     *
+     * @return \Trinsic\Api\Model\DenmarkAltIdInput|null
+     */
+    public function getDenmarkAltid()
+    {
+        return $this->container['denmark_altid'];
+    }
+
+    /**
+     * Sets denmark_altid
+     *
+     * @param \Trinsic\Api\Model\DenmarkAltIdInput|null $denmark_altid denmark_altid
+     *
+     * @return self
+     */
+    public function setDenmarkAltid($denmark_altid)
+    {
+        if (is_null($denmark_altid)) {
+            array_push($this->openAPINullablesSetToNull, 'denmark_altid');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('denmark_altid', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['denmark_altid'] = $denmark_altid;
+
+        return $this;
+    }
+
+    /**
+     * Gets austria_valera_eudi_sandbox
+     *
+     * @return \Trinsic\Api\Model\AustriaValeraEudiSandboxInput|null
+     */
+    public function getAustriaValeraEudiSandbox()
+    {
+        return $this->container['austria_valera_eudi_sandbox'];
+    }
+
+    /**
+     * Sets austria_valera_eudi_sandbox
+     *
+     * @param \Trinsic\Api\Model\AustriaValeraEudiSandboxInput|null $austria_valera_eudi_sandbox austria_valera_eudi_sandbox
+     *
+     * @return self
+     */
+    public function setAustriaValeraEudiSandbox($austria_valera_eudi_sandbox)
+    {
+        if (is_null($austria_valera_eudi_sandbox)) {
+            array_push($this->openAPINullablesSetToNull, 'austria_valera_eudi_sandbox');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('austria_valera_eudi_sandbox', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['austria_valera_eudi_sandbox'] = $austria_valera_eudi_sandbox;
+
+        return $this;
+    }
+
+    /**
+     * Gets netherlands_eudi_sandbox
+     *
+     * @return \Trinsic\Api\Model\NetherlandsEudiSandboxInput|null
+     */
+    public function getNetherlandsEudiSandbox()
+    {
+        return $this->container['netherlands_eudi_sandbox'];
+    }
+
+    /**
+     * Sets netherlands_eudi_sandbox
+     *
+     * @param \Trinsic\Api\Model\NetherlandsEudiSandboxInput|null $netherlands_eudi_sandbox Input for the `netherlands-eudi-sandbox` provider
+     *
+     * @return self
+     */
+    public function setNetherlandsEudiSandbox($netherlands_eudi_sandbox)
+    {
+        if (is_null($netherlands_eudi_sandbox)) {
+            array_push($this->openAPINullablesSetToNull, 'netherlands_eudi_sandbox');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('netherlands_eudi_sandbox', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['netherlands_eudi_sandbox'] = $netherlands_eudi_sandbox;
 
         return $this;
     }

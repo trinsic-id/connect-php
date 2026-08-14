@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**code** | **string** | The code identifier. |
+**code** | **string** | The code identifier. | [optional]
 **sign** | **string** | Optional comparison sign applied to the code&#39;s value. | [optional]
 **value** | **string** | Optional value applied to the code. | [optional]
 

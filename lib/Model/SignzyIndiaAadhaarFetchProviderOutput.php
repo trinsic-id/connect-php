@@ -106,12 +106,12 @@ class SignzyIndiaAadhaarFetchProviderOutput implements ModelInterface, ArrayAcce
         'aadhaar_number_last_four' => true,
         'claims' => true,
         'localized_claims' => true,
-        'document_signature_validated' => false,
+        'document_signature_validated' => true,
         'digilocker_id' => true,
         'issuer_id' => true,
         'issuer' => true,
         'mobile_phone' => true,
-        'scope' => false
+        'scope' => true
     ];
 
     /**
@@ -352,12 +352,6 @@ class SignzyIndiaAadhaarFetchProviderOutput implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['document_signature_validated'] === null) {
-            $invalidProperties[] = "'document_signature_validated' can't be null";
-        }
-        if ($this->container['scope'] === null) {
-            $invalidProperties[] = "'scope' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -580,7 +574,7 @@ class SignzyIndiaAadhaarFetchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Gets document_signature_validated
      *
-     * @return bool
+     * @return bool|null
      */
     public function getDocumentSignatureValidated()
     {
@@ -590,14 +584,21 @@ class SignzyIndiaAadhaarFetchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Sets document_signature_validated
      *
-     * @param bool $document_signature_validated Whether our own validation of the Aadhaar document signature and certificate chain succeeded.              When the signed document (e.g. Digilocker XML) is available, we validate it using the standard CCA/SafeScrypt chain. When the document is not returned, the signature cannot be validated and this is false. Some providers (e.g. Signzy) also supply a separate DSC validation indicator in the webhook payload; that is independent of this flag, which reflects only our validation.
+     * @param bool|null $document_signature_validated Whether our own validation of the Aadhaar document signature and certificate chain succeeded.              When the signed document (e.g. Digilocker XML) is available, we validate it using the standard CCA/SafeScrypt chain. When the document is not returned, the signature cannot be validated and this is false. Some providers (e.g. Signzy) also supply a separate DSC validation indicator in the webhook payload; that is independent of this flag, which reflects only our validation.
      *
      * @return self
      */
     public function setDocumentSignatureValidated($document_signature_validated)
     {
         if (is_null($document_signature_validated)) {
-            throw new \InvalidArgumentException('non-nullable document_signature_validated cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_signature_validated');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_signature_validated', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_signature_validated'] = $document_signature_validated;
 
@@ -743,7 +744,7 @@ class SignzyIndiaAadhaarFetchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Gets scope
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getScope()
     {
@@ -753,14 +754,21 @@ class SignzyIndiaAadhaarFetchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Sets scope
      *
-     * @param string[] $scope DigiLocker consent scopes that the individual actually consented to for this session. Included in provider output so customers can verify what was granted: the customer does not control these—the individual chooses scopes in the DigiLocker consent UI, and there is no way to pre-select or enforce them. This is a common source of error (e.g. the individual skips a scope), so surfacing the granted scopes lets customers confirm the session had the expected consent.
+     * @param string[]|null $scope DigiLocker consent scopes that the individual actually consented to for this session. Included in provider output so customers can verify what was granted: the customer does not control these—the individual chooses scopes in the DigiLocker consent UI, and there is no way to pre-select or enforce them. This is a common source of error (e.g. the individual skips a scope), so surfacing the granted scopes lets customers confirm the session had the expected consent.
      *
      * @return self
      */
     public function setScope($scope)
     {
         if (is_null($scope)) {
-            throw new \InvalidArgumentException('non-nullable scope cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'scope');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('scope', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['scope'] = $scope;
 

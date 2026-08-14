@@ -84,10 +84,10 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'date_of_birth' => false,
-        'personal_code' => false
+        'first_name' => true,
+        'last_name' => true,
+        'date_of_birth' => true,
+        'personal_code' => true
     ];
 
     /**
@@ -296,18 +296,6 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['personal_code'] === null) {
-            $invalidProperties[] = "'personal_code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -326,7 +314,7 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -336,14 +324,21 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name of the verified individual
+     * @param string|null $first_name The first name of the verified individual
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -353,7 +348,7 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -363,14 +358,21 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name of the verified individual
+     * @param string|null $last_name The last name of the verified individual
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -380,7 +382,7 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -390,14 +392,21 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The date of birth of the verified individual
+     * @param \DateTime|null $date_of_birth The date of birth of the verified individual
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -407,7 +416,7 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets personal_code
      *
-     * @return string
+     * @return string|null
      */
     public function getPersonalCode()
     {
@@ -417,14 +426,21 @@ class LithuaniaIdCardProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets personal_code
      *
-     * @param string $personal_code The 11-digit Lithuanian Personal Code (asmens kodas) of the verified individual.              If the first digit is \"9\" (rare), the rest of the identifier is random and has no structure.              Otherwise, this is in the format GYYMMDDSSSC, where:              - G is both gender and century of birth - YYMMDD is the date of birth - SSS is a sequential serial number - C is a checksum digit              If G is odd, the gender is male. If G is even, the gender is female.              If G is 1 or 2, the individual was born in the 19th century (1800-1899). If G is 3 or 4, the individual was born in the 20th century (1900-1999). If G is 5 or 6, the individual was born in the 21st century (2000-2099).              Rarely, the date of birth may be encoded as 000000 if it is not known.
+     * @param string|null $personal_code The 11-digit Lithuanian Personal Code (asmens kodas) of the verified individual.              If the first digit is \"9\" (rare), the rest of the identifier is random and has no structure.              Otherwise, this is in the format GYYMMDDSSSC, where:              - G is both gender and century of birth - YYMMDD is the date of birth - SSS is a sequential serial number - C is a checksum digit              If G is odd, the gender is male. If G is even, the gender is female.              If G is 1 or 2, the individual was born in the 19th century (1800-1899). If G is 3 or 4, the individual was born in the 20th century (1900-1999). If G is 5 or 6, the individual was born in the 21st century (2000-2099).              Rarely, the date of birth may be encoded as 000000 if it is not known.
      *
      * @return self
      */
     public function setPersonalCode($personal_code)
     {
         if (is_null($personal_code)) {
-            throw new \InvalidArgumentException('non-nullable personal_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'personal_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('personal_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['personal_code'] = $personal_code;
 

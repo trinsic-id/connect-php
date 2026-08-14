@@ -59,6 +59,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $openAPITypes = [
         'mobile_drivers_license' => '\Trinsic\Api\Model\Iso180135MobileDriversLicenseCredential',
+        'samsung_id_with_clear' => '\Trinsic\Api\Model\SamsungIdWithClearCredential',
         'raw_mdl_output' => '\Trinsic\Api\Model\MdlOutput'
     ];
 
@@ -71,6 +72,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $openAPIFormats = [
         'mobile_drivers_license' => null,
+        'samsung_id_with_clear' => null,
         'raw_mdl_output' => null
     ];
 
@@ -81,7 +83,8 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static array $openAPINullables = [
         'mobile_drivers_license' => true,
-        'raw_mdl_output' => false
+        'samsung_id_with_clear' => true,
+        'raw_mdl_output' => true
     ];
 
     /**
@@ -171,6 +174,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $attributeMap = [
         'mobile_drivers_license' => 'mobileDriversLicense',
+        'samsung_id_with_clear' => 'samsungIdWithClear',
         'raw_mdl_output' => 'rawMdlOutput'
     ];
 
@@ -181,6 +185,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $setters = [
         'mobile_drivers_license' => 'setMobileDriversLicense',
+        'samsung_id_with_clear' => 'setSamsungIdWithClear',
         'raw_mdl_output' => 'setRawMdlOutput'
     ];
 
@@ -191,6 +196,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      */
     protected static $getters = [
         'mobile_drivers_license' => 'getMobileDriversLicense',
+        'samsung_id_with_clear' => 'getSamsungIdWithClear',
         'raw_mdl_output' => 'getRawMdlOutput'
     ];
 
@@ -252,6 +258,7 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     public function __construct(?array $data = null)
     {
         $this->setIfExists('mobile_drivers_license', $data ?? [], null);
+        $this->setIfExists('samsung_id_with_clear', $data ?? [], null);
         $this->setIfExists('raw_mdl_output', $data ?? [], null);
     }
 
@@ -282,9 +289,6 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['raw_mdl_output'] === null) {
-            $invalidProperties[] = "'raw_mdl_output' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -335,9 +339,43 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     }
 
     /**
+     * Gets samsung_id_with_clear
+     *
+     * @return \Trinsic\Api\Model\SamsungIdWithClearCredential|null
+     */
+    public function getSamsungIdWithClear()
+    {
+        return $this->container['samsung_id_with_clear'];
+    }
+
+    /**
+     * Sets samsung_id_with_clear
+     *
+     * @param \Trinsic\Api\Model\SamsungIdWithClearCredential|null $samsung_id_with_clear A Samsung ID with CLEAR credential, retrieved from the individual's Samsung Wallet.
+     *
+     * @return self
+     */
+    public function setSamsungIdWithClear($samsung_id_with_clear)
+    {
+        if (is_null($samsung_id_with_clear)) {
+            array_push($this->openAPINullablesSetToNull, 'samsung_id_with_clear');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('samsung_id_with_clear', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['samsung_id_with_clear'] = $samsung_id_with_clear;
+
+        return $this;
+    }
+
+    /**
      * Gets raw_mdl_output
      *
-     * @return \Trinsic\Api\Model\MdlOutput
+     * @return \Trinsic\Api\Model\MdlOutput|null
      */
     public function getRawMdlOutput()
     {
@@ -347,14 +385,21 @@ class SamsungWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets raw_mdl_output
      *
-     * @param \Trinsic\Api\Model\MdlOutput $raw_mdl_output The raw output of the mDL exchange performed through Samsung Wallet.
+     * @param \Trinsic\Api\Model\MdlOutput|null $raw_mdl_output The raw output of the mDL exchange performed through Samsung Wallet.
      *
      * @return self
      */
     public function setRawMdlOutput($raw_mdl_output)
     {
         if (is_null($raw_mdl_output)) {
-            throw new \InvalidArgumentException('non-nullable raw_mdl_output cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'raw_mdl_output');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('raw_mdl_output', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['raw_mdl_output'] = $raw_mdl_output;
 

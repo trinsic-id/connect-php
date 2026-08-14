@@ -302,7 +302,7 @@ class SamsungWalletInput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets preview_raw18013_request
      *
-     * @param \Trinsic\Api\Model\Raw18013RequestInput|null $preview_raw18013_request **Preview feature: not suitable for production use cases**              The raw 18013-7 exchange request to use for this verification.              If set, this overrides any default configuration on your Verification Profile.
+     * @param \Trinsic\Api\Model\Raw18013RequestInput|null $preview_raw18013_request The raw 18013-7 exchange request to use for this verification.              If set, this overrides any default configuration on your Verification Profile.
      *
      * @return self
      */

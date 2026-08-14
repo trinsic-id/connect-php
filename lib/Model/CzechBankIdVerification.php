@@ -81,9 +81,9 @@ class CzechBankIdVerification implements ModelInterface, ArrayAccess, \JsonSeria
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'trust_framework' => false,
+        'trust_framework' => true,
         'time' => true,
-        'verification_process' => false
+        'verification_process' => true
     ];
 
     /**
@@ -288,12 +288,6 @@ class CzechBankIdVerification implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['trust_framework'] === null) {
-            $invalidProperties[] = "'trust_framework' can't be null";
-        }
-        if ($this->container['verification_process'] === null) {
-            $invalidProperties[] = "'verification_process' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -312,7 +306,7 @@ class CzechBankIdVerification implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets trust_framework
      *
-     * @return string
+     * @return string|null
      */
     public function getTrustFramework()
     {
@@ -322,14 +316,21 @@ class CzechBankIdVerification implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets trust_framework
      *
-     * @param string $trust_framework The trust framework used for the verification.              This identifies the anti-money-laundering framework used for identity verification.
+     * @param string|null $trust_framework The trust framework used for the verification.              This identifies the anti-money-laundering framework used for identity verification.
      *
      * @return self
      */
     public function setTrustFramework($trust_framework)
     {
         if (is_null($trust_framework)) {
-            throw new \InvalidArgumentException('non-nullable trust_framework cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'trust_framework');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('trust_framework', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['trust_framework'] = $trust_framework;
 
@@ -373,7 +374,7 @@ class CzechBankIdVerification implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets verification_process
      *
-     * @return string
+     * @return string|null
      */
     public function getVerificationProcess()
     {
@@ -383,14 +384,21 @@ class CzechBankIdVerification implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets verification_process
      *
-     * @param string $verification_process The verification process identifier.              This identifies the bank that completed the physical identity verification process.
+     * @param string|null $verification_process The verification process identifier.              This identifies the bank that completed the physical identity verification process.
      *
      * @return self
      */
     public function setVerificationProcess($verification_process)
     {
         if (is_null($verification_process)) {
-            throw new \InvalidArgumentException('non-nullable verification_process cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'verification_process');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('verification_process', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['verification_process'] = $verification_process;
 

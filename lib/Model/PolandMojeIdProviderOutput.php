@@ -82,9 +82,9 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'national_identification_number' => false
+        'first_name' => true,
+        'last_name' => true,
+        'national_identification_number' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['national_identification_number'] === null) {
-            $invalidProperties[] = "'national_identification_number' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -326,14 +317,21 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name of the verified individual
+     * @param string|null $first_name The first name of the verified individual
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -343,7 +341,7 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -353,14 +351,21 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name of the verified individual
+     * @param string|null $last_name The last name of the verified individual
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -370,7 +375,7 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets national_identification_number
      *
-     * @return string
+     * @return string|null
      */
     public function getNationalIdentificationNumber()
     {
@@ -380,14 +385,21 @@ class PolandMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets national_identification_number
      *
-     * @param string $national_identification_number The 11-digit Polish national identification number (PESEL) of the verified individual.              This is in the format YYMMDDZZZGQ, where: - YYMMDD is the date of birth - ZZZ is a unique identifier - G is sex (even for females, odd for males) - Q is a checksum digit              The year of birth encoded in this identifier assumes a default year of birth in the 20th century. If the year of birth is in the range [1800, 1899], the month portion is incremented by 80. If the year of birth is in the range [2000, 2099] the month portion is incremented by 20. If the year of birth is in the range [2100, 2199], the month portion is incremented by 40. If the year of birth is in the range [2200, 2299], the month portion is incremented by 60.
+     * @param string|null $national_identification_number The 11-digit Polish national identification number (PESEL) of the verified individual.              This is in the format YYMMDDZZZGQ, where: - YYMMDD is the date of birth - ZZZ is a unique identifier - G is sex (even for females, odd for males) - Q is a checksum digit              The year of birth encoded in this identifier assumes a default year of birth in the 20th century. If the year of birth is in the range [1800, 1899], the month portion is incremented by 80. If the year of birth is in the range [2000, 2099] the month portion is incremented by 20. If the year of birth is in the range [2100, 2199], the month portion is incremented by 40. If the year of birth is in the range [2200, 2299], the month portion is incremented by 60.
      *
      * @return self
      */
     public function setNationalIdentificationNumber($national_identification_number)
     {
         if (is_null($national_identification_number)) {
-            throw new \InvalidArgumentException('non-nullable national_identification_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_identification_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_identification_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_identification_number'] = $national_identification_number;
 

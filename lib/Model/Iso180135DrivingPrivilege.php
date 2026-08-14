@@ -35,7 +35,7 @@ use \Trinsic\Api\ObjectSerializer;
  * Iso180135DrivingPrivilege Class Doc Comment
  *
  * @category Class
- * @description A single driving privilege entry from the mDL &#x60;driving_privileges&#x60; field, per ISO 18013-5.
+ * @description A single driving privilege entry, per ISO 18013-5.
  * @package  Trinsic\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -84,7 +84,7 @@ class Iso180135DrivingPrivilege implements ModelInterface, ArrayAccess, \JsonSer
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'vehicle_category_code' => false,
+        'vehicle_category_code' => true,
         'issue_date' => true,
         'expiry_date' => true,
         'codes' => true
@@ -296,9 +296,6 @@ class Iso180135DrivingPrivilege implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['vehicle_category_code'] === null) {
-            $invalidProperties[] = "'vehicle_category_code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -317,7 +314,7 @@ class Iso180135DrivingPrivilege implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets vehicle_category_code
      *
-     * @return string
+     * @return string|null
      */
     public function getVehicleCategoryCode()
     {
@@ -327,14 +324,21 @@ class Iso180135DrivingPrivilege implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets vehicle_category_code
      *
-     * @param string $vehicle_category_code Vehicle category code that the holder is authorized to operate.
+     * @param string|null $vehicle_category_code Vehicle category code that the holder is authorized to operate.
      *
      * @return self
      */
     public function setVehicleCategoryCode($vehicle_category_code)
     {
         if (is_null($vehicle_category_code)) {
-            throw new \InvalidArgumentException('non-nullable vehicle_category_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'vehicle_category_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('vehicle_category_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['vehicle_category_code'] = $vehicle_category_code;
 

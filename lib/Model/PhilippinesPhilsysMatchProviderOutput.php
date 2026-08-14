@@ -86,8 +86,8 @@ class PhilippinesPhilsysMatchProviderOutput implements ModelInterface, ArrayAcce
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
+        'first_name' => true,
+        'last_name' => true,
         'middle_name' => true,
         'suffix' => true,
         'birth_date' => true
@@ -303,12 +303,6 @@ class PhilippinesPhilsysMatchProviderOutput implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -327,7 +321,7 @@ class PhilippinesPhilsysMatchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -337,14 +331,21 @@ class PhilippinesPhilsysMatchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Sets first_name
      *
-     * @param string $first_name The individual's given name.
+     * @param string|null $first_name The individual's given name.
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -354,7 +355,7 @@ class PhilippinesPhilsysMatchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -364,14 +365,21 @@ class PhilippinesPhilsysMatchProviderOutput implements ModelInterface, ArrayAcce
     /**
      * Sets last_name
      *
-     * @param string $last_name The individual's family name.
+     * @param string|null $last_name The individual's family name.
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 

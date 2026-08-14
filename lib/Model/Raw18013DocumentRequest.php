@@ -291,6 +291,10 @@ class Raw18013DocumentRequest implements ModelInterface, ArrayAccess, \JsonSeria
         if ($this->container['name_spaces'] === null) {
             $invalidProperties[] = "'name_spaces' can't be null";
         }
+        if ((count($this->container['name_spaces']) < 1)) {
+            $invalidProperties[] = "invalid value for 'name_spaces', number of items must be greater than or equal to 1.";
+        }
+
         return $invalidProperties;
     }
 
@@ -362,6 +366,9 @@ class Raw18013DocumentRequest implements ModelInterface, ArrayAccess, \JsonSeria
         }
 
 
+        if ((count($name_spaces) < 1)) {
+            throw new \InvalidArgumentException('invalid length for $name_spaces when calling Raw18013DocumentRequest., number of items must be greater than or equal to 1.');
+        }
         $this->container['name_spaces'] = $name_spaces;
 
         return $this;

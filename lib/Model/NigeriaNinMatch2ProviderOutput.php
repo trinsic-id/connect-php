@@ -86,8 +86,8 @@ class NigeriaNinMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Js
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'national_id_number' => false,
-        'full_name' => false,
+        'national_id_number' => true,
+        'full_name' => true,
         'date_of_birth' => true,
         'sex' => true,
         'phone_number' => true
@@ -303,12 +303,6 @@ class NigeriaNinMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Js
     {
         $invalidProperties = [];
 
-        if ($this->container['national_id_number'] === null) {
-            $invalidProperties[] = "'national_id_number' can't be null";
-        }
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -327,7 +321,7 @@ class NigeriaNinMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets national_id_number
      *
-     * @return \Trinsic\Api\Model\NigeriaNinMatch2NationalIdNumberField
+     * @return \Trinsic\Api\Model\NigeriaNinMatch2NationalIdNumberField|null
      */
     public function getNationalIdNumber()
     {
@@ -337,14 +331,21 @@ class NigeriaNinMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets national_id_number
      *
-     * @param \Trinsic\Api\Model\NigeriaNinMatch2NationalIdNumberField $national_id_number Outcome of the verification of the NIN.
+     * @param \Trinsic\Api\Model\NigeriaNinMatch2NationalIdNumberField|null $national_id_number Outcome of the verification of the NIN.
      *
      * @return self
      */
     public function setNationalIdNumber($national_id_number)
     {
         if (is_null($national_id_number)) {
-            throw new \InvalidArgumentException('non-nullable national_id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_id_number'] = $national_id_number;
 
@@ -354,7 +355,7 @@ class NigeriaNinMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Js
     /**
      * Gets full_name
      *
-     * @return \Trinsic\Api\Model\NigeriaNinMatch2FullNameField
+     * @return \Trinsic\Api\Model\NigeriaNinMatch2FullNameField|null
      */
     public function getFullName()
     {
@@ -364,14 +365,21 @@ class NigeriaNinMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Js
     /**
      * Sets full_name
      *
-     * @param \Trinsic\Api\Model\NigeriaNinMatch2FullNameField $full_name Outcome of the verification of the full name.
+     * @param \Trinsic\Api\Model\NigeriaNinMatch2FullNameField|null $full_name Outcome of the verification of the full name.
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 

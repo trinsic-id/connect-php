@@ -453,7 +453,7 @@ class PolandMobywatelMatchInput implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets nationality
      *
-     * @param string|null $nationality Nationality as it appears on mobile ID (mDowód).
+     * @param string|null $nationality Nationality as it appears on mobile ID (mDowód).              Format: - Must be a valid ISO 3166-1 alpha-2 or alpha-3 country code. - Matching against mObywatel is an exact string comparison on the alpha-3 code.   Alpha-2 values are accepted and normalized to alpha-3 before matching.
      *
      * @return self
      */
@@ -555,7 +555,7 @@ class PolandMobywatelMatchInput implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets selfie_bytes
      *
-     * @param string|null $selfie_bytes The raw bytes of the selfie image collected from the user.
+     * @param string|null $selfie_bytes The raw bytes of an optional selfie image collected from the individual.              Requirements from the provider: - JPEG or PNG - At least 720 pixels wide (1080 pixels recommended) - Not exceeding 10 MB - Clear, front-facing photo with good lighting and no sunglasses or face coverings.
      *
      * @return self
      */
@@ -589,7 +589,7 @@ class PolandMobywatelMatchInput implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets selfie_image_mime_type
      *
-     * @param string|null $selfie_image_mime_type The MIME Type of the file contained in SelfieBytes.              Only JPEG or PNG formats are supported.
+     * @param string|null $selfie_image_mime_type The MIME type of the file contained in SelfieBytes.              Must be one of `image/jpeg` or `image/png`.
      *
      * @return self
      */

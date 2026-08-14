@@ -125,8 +125,8 @@ class SpidProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
      */
     protected static array $openAPINullables = [
         'billing_information' => true,
-        'identity_provider_entity_id' => false,
-        'spid_code' => false,
+        'identity_provider_entity_id' => true,
+        'spid_code' => true,
         'spid_credential_expiration_date' => true,
         'raw_id_card' => true,
         'given_name' => true,
@@ -436,12 +436,6 @@ class SpidProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['identity_provider_entity_id'] === null) {
-            $invalidProperties[] = "'identity_provider_entity_id' can't be null";
-        }
-        if ($this->container['spid_code'] === null) {
-            $invalidProperties[] = "'spid_code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -494,7 +488,7 @@ class SpidProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets identity_provider_entity_id
      *
-     * @return string
+     * @return string|null
      */
     public function getIdentityProviderEntityId()
     {
@@ -504,14 +498,21 @@ class SpidProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets identity_provider_entity_id
      *
-     * @param string $identity_provider_entity_id The SPID Entity ID of the Identity Provider which issued the SPID identity.              This is an HTTPS URI which uniquely identifies the IdP within the SPID federation.              A normalized / simplified representation of this value is present in the `originatingSubProviderId` field in Trinsic's normalized data model.
+     * @param string|null $identity_provider_entity_id The SPID Entity ID of the Identity Provider which issued the SPID identity.              This is an HTTPS URI which uniquely identifies the IdP within the SPID federation.              A normalized / simplified representation of this value is present in the `originatingSubProviderId` field in Trinsic's normalized data model.
      *
      * @return self
      */
     public function setIdentityProviderEntityId($identity_provider_entity_id)
     {
         if (is_null($identity_provider_entity_id)) {
-            throw new \InvalidArgumentException('non-nullable identity_provider_entity_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'identity_provider_entity_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('identity_provider_entity_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['identity_provider_entity_id'] = $identity_provider_entity_id;
 
@@ -521,7 +522,7 @@ class SpidProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets spid_code
      *
-     * @return string
+     * @return string|null
      */
     public function getSpidCode()
     {
@@ -531,14 +532,21 @@ class SpidProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets spid_code
      *
-     * @param string $spid_code The identifier of the SPID credential, uniquely identifying it within the SPID federation.              The format of this string is specific to each individual Identity Provider.
+     * @param string|null $spid_code The identifier of the SPID credential, uniquely identifying it within the SPID federation.              The format of this string is specific to each individual Identity Provider.
      *
      * @return self
      */
     public function setSpidCode($spid_code)
     {
         if (is_null($spid_code)) {
-            throw new \InvalidArgumentException('non-nullable spid_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'spid_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('spid_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['spid_code'] = $spid_code;
 

@@ -89,6 +89,15 @@ class SamsungWalletProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "samsung_id_with_clear"
+     */
+    public function testPropertySamsungIdWithClear()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "raw_mdl_output"
      */
     public function testPropertyRawMdlOutput()

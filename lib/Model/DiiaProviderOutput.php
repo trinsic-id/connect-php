@@ -80,8 +80,8 @@ class DiiaProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'subject' => false,
-        'issuer' => false
+        'subject' => true,
+        'issuer' => true
     ];
 
     /**
@@ -282,12 +282,6 @@ class DiiaProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     {
         $invalidProperties = [];
 
-        if ($this->container['subject'] === null) {
-            $invalidProperties[] = "'subject' can't be null";
-        }
-        if ($this->container['issuer'] === null) {
-            $invalidProperties[] = "'issuer' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -306,7 +300,7 @@ class DiiaProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets subject
      *
-     * @return \Trinsic\Api\Model\DiiaSubjectOutput
+     * @return \Trinsic\Api\Model\DiiaSubjectOutput|null
      */
     public function getSubject()
     {
@@ -316,14 +310,21 @@ class DiiaProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets subject
      *
-     * @param \Trinsic\Api\Model\DiiaSubjectOutput $subject Diia.Signature user data.
+     * @param \Trinsic\Api\Model\DiiaSubjectOutput|null $subject Diia.Signature user data.
      *
      * @return self
      */
     public function setSubject($subject)
     {
         if (is_null($subject)) {
-            throw new \InvalidArgumentException('non-nullable subject cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subject');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subject', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subject'] = $subject;
 
@@ -333,7 +334,7 @@ class DiiaProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Gets issuer
      *
-     * @return \Trinsic\Api\Model\DiiaIssuerOutput
+     * @return \Trinsic\Api\Model\DiiaIssuerOutput|null
      */
     public function getIssuer()
     {
@@ -343,14 +344,21 @@ class DiiaProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializab
     /**
      * Sets issuer
      *
-     * @param \Trinsic\Api\Model\DiiaIssuerOutput $issuer Diia.Signature issuer data.
+     * @param \Trinsic\Api\Model\DiiaIssuerOutput|null $issuer Diia.Signature issuer data.
      *
      * @return self
      */
     public function setIssuer($issuer)
     {
         if (is_null($issuer)) {
-            throw new \InvalidArgumentException('non-nullable issuer cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'issuer');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('issuer', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['issuer'] = $issuer;
 

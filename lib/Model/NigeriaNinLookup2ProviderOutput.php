@@ -100,13 +100,13 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
+        'first_name' => true,
         'middle_name' => true,
-        'surname' => false,
+        'surname' => true,
         'sex' => true,
         'date_of_birth' => true,
         'birth_country' => true,
-        'national_identity_number' => false,
+        'national_identity_number' => true,
         'phone_number' => true,
         'email' => true,
         'address' => true,
@@ -352,15 +352,6 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['surname'] === null) {
-            $invalidProperties[] = "'surname' can't be null";
-        }
-        if ($this->container['national_identity_number'] === null) {
-            $invalidProperties[] = "'national_identity_number' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -379,7 +370,7 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -389,14 +380,21 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name (given name) of the ID holder.
+     * @param string|null $first_name The first name (given name) of the ID holder.
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -440,7 +438,7 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Gets surname
      *
-     * @return string
+     * @return string|null
      */
     public function getSurname()
     {
@@ -450,14 +448,21 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Sets surname
      *
-     * @param string $surname The surname (family name) of the ID holder.
+     * @param string|null $surname The surname (family name) of the ID holder.
      *
      * @return self
      */
     public function setSurname($surname)
     {
         if (is_null($surname)) {
-            throw new \InvalidArgumentException('non-nullable surname cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'surname');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('surname', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['surname'] = $surname;
 
@@ -569,7 +574,7 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Gets national_identity_number
      *
-     * @return string
+     * @return string|null
      */
     public function getNationalIdentityNumber()
     {
@@ -579,14 +584,21 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Sets national_identity_number
      *
-     * @param string $national_identity_number National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission (NIMC) upon enrollment.              Format: - 11 numeric digits - No publicly known encoding scheme is used to encode personal information in the NIN - Last digit is a checksum using the Verhoeff algorithm
+     * @param string|null $national_identity_number National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission (NIMC) upon enrollment.              Format: - 11 numeric digits - No publicly known encoding scheme is used to encode personal information in the NIN - Last digit is a checksum using the Verhoeff algorithm
      *
      * @return self
      */
     public function setNationalIdentityNumber($national_identity_number)
     {
         if (is_null($national_identity_number)) {
-            throw new \InvalidArgumentException('non-nullable national_identity_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_identity_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_identity_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_identity_number'] = $national_identity_number;
 
@@ -606,7 +618,7 @@ class NigeriaNinLookup2ProviderOutput implements ModelInterface, ArrayAccess, \J
     /**
      * Sets phone_number
      *
-     * @param string|null $phone_number Phone number registered with the National Identity Management Commission.
+     * @param string|null $phone_number Phone number registered with the National Identity Management Commission.              Format: - Valid Nigerian numbers are returned in international E.164 format   (for example, +2348031234567). - Otherwise, the value is returned in trunk notation (leading zero included)   as provided by the authority (for example, 0123456789).
      *
      * @return self
      */

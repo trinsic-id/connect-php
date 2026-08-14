@@ -79,8 +79,8 @@ class IndonesiaDukcapilMatchDateOfBirthField implements ModelInterface, ArrayAcc
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'input_value' => false,
-        'outcome' => false
+        'input_value' => true,
+        'outcome' => true
     ];
 
     /**
@@ -281,12 +281,6 @@ class IndonesiaDukcapilMatchDateOfBirthField implements ModelInterface, ArrayAcc
     {
         $invalidProperties = [];
 
-        if ($this->container['input_value'] === null) {
-            $invalidProperties[] = "'input_value' can't be null";
-        }
-        if ($this->container['outcome'] === null) {
-            $invalidProperties[] = "'outcome' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -305,7 +299,7 @@ class IndonesiaDukcapilMatchDateOfBirthField implements ModelInterface, ArrayAcc
     /**
      * Gets input_value
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getInputValue()
     {
@@ -315,14 +309,21 @@ class IndonesiaDukcapilMatchDateOfBirthField implements ModelInterface, ArrayAcc
     /**
      * Sets input_value
      *
-     * @param \DateTime $input_value The date of birth submitted for this check.
+     * @param \DateTime|null $input_value The date of birth submitted for this check.
      *
      * @return self
      */
     public function setInputValue($input_value)
     {
         if (is_null($input_value)) {
-            throw new \InvalidArgumentException('non-nullable input_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'input_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('input_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['input_value'] = $input_value;
 
@@ -332,7 +333,7 @@ class IndonesiaDukcapilMatchDateOfBirthField implements ModelInterface, ArrayAcc
     /**
      * Gets outcome
      *
-     * @return float
+     * @return float|null
      */
     public function getOutcome()
     {
@@ -342,14 +343,21 @@ class IndonesiaDukcapilMatchDateOfBirthField implements ModelInterface, ArrayAcc
     /**
      * Sets outcome
      *
-     * @param float $outcome The provider assessment result for the submitted date of birth.              Local integration code expects the provider to return 0 or 1 for this assessment.
+     * @param float|null $outcome The provider assessment result for the submitted date of birth.              Local integration code expects the provider to return 0 or 1 for this assessment.
      *
      * @return self
      */
     public function setOutcome($outcome)
     {
         if (is_null($outcome)) {
-            throw new \InvalidArgumentException('non-nullable outcome cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'outcome');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('outcome', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['outcome'] = $outcome;
 

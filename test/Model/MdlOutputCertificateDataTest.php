@@ -107,6 +107,15 @@ class MdlOutputCertificateDataTest extends TestCase
     }
 
     /**
+     * Test attribute "country_code"
+     */
+    public function testPropertyCountryCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "not_before"
      */
     public function testPropertyNotBefore()

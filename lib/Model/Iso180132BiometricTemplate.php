@@ -84,9 +84,9 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'header' => false,
-        'data_block' => false,
-        'data_is_encrypted' => false,
+        'header' => true,
+        'data_block' => true,
+        'data_is_encrypted' => true,
         'biometric_information_record_payload' => true
     ];
 
@@ -296,15 +296,6 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['header'] === null) {
-            $invalidProperties[] = "'header' can't be null";
-        }
-        if ($this->container['data_block'] === null) {
-            $invalidProperties[] = "'data_block' can't be null";
-        }
-        if ($this->container['data_is_encrypted'] === null) {
-            $invalidProperties[] = "'data_is_encrypted' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -323,7 +314,7 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets header
      *
-     * @return \Trinsic\Api\Model\Iso180132BiometricTemplateHeader
+     * @return \Trinsic\Api\Model\Iso180132BiometricTemplateHeader|null
      */
     public function getHeader()
     {
@@ -333,14 +324,21 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets header
      *
-     * @param \Trinsic\Api\Model\Iso180132BiometricTemplateHeader $header Header describing the biometric template.
+     * @param \Trinsic\Api\Model\Iso180132BiometricTemplateHeader|null $header Header describing the biometric template.
      *
      * @return self
      */
     public function setHeader($header)
     {
         if (is_null($header)) {
-            throw new \InvalidArgumentException('non-nullable header cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'header');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('header', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['header'] = $header;
 
@@ -350,7 +348,7 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data_block
      *
-     * @return string
+     * @return string|null
      */
     public function getDataBlock()
     {
@@ -360,14 +358,21 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data_block
      *
-     * @param string $data_block The raw data block, in a biometric type- and format-specific encoding.              For `face` and `signature_usual_mark`, this is a raw JPEG or JPEG2000 image.              See ISO 18013-2 and 18013-5.
+     * @param string|null $data_block The raw data block, in a biometric type- and format-specific encoding.              For `face` and `signature_usual_mark`, this is a raw JPEG or JPEG2000 image.              See ISO 18013-2 and 18013-5.
      *
      * @return self
      */
     public function setDataBlock($data_block)
     {
         if (is_null($data_block)) {
-            throw new \InvalidArgumentException('non-nullable data_block cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_block');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_block', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_block'] = $data_block;
 
@@ -377,7 +382,7 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets data_is_encrypted
      *
-     * @return bool
+     * @return bool|null
      */
     public function getDataIsEncrypted()
     {
@@ -387,14 +392,21 @@ class Iso180132BiometricTemplate implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets data_is_encrypted
      *
-     * @param bool $data_is_encrypted Whether the data block is encrypted.
+     * @param bool|null $data_is_encrypted Whether the data block is encrypted.
      *
      * @return self
      */
     public function setDataIsEncrypted($data_is_encrypted)
     {
         if (is_null($data_is_encrypted)) {
-            throw new \InvalidArgumentException('non-nullable data_is_encrypted cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'data_is_encrypted');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('data_is_encrypted', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['data_is_encrypted'] = $data_is_encrypted;
 

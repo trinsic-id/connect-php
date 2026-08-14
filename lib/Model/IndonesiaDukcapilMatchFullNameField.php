@@ -79,8 +79,8 @@ class IndonesiaDukcapilMatchFullNameField implements ModelInterface, ArrayAccess
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'input_value' => false,
-        'outcome' => false
+        'input_value' => true,
+        'outcome' => true
     ];
 
     /**
@@ -281,12 +281,6 @@ class IndonesiaDukcapilMatchFullNameField implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['input_value'] === null) {
-            $invalidProperties[] = "'input_value' can't be null";
-        }
-        if ($this->container['outcome'] === null) {
-            $invalidProperties[] = "'outcome' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -305,7 +299,7 @@ class IndonesiaDukcapilMatchFullNameField implements ModelInterface, ArrayAccess
     /**
      * Gets input_value
      *
-     * @return string
+     * @return string|null
      */
     public function getInputValue()
     {
@@ -315,14 +309,21 @@ class IndonesiaDukcapilMatchFullNameField implements ModelInterface, ArrayAccess
     /**
      * Sets input_value
      *
-     * @param string $input_value The full name submitted for this check.
+     * @param string|null $input_value The full name submitted for this check.
      *
      * @return self
      */
     public function setInputValue($input_value)
     {
         if (is_null($input_value)) {
-            throw new \InvalidArgumentException('non-nullable input_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'input_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('input_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['input_value'] = $input_value;
 
@@ -332,7 +333,7 @@ class IndonesiaDukcapilMatchFullNameField implements ModelInterface, ArrayAccess
     /**
      * Gets outcome
      *
-     * @return float
+     * @return float|null
      */
     public function getOutcome()
     {
@@ -342,14 +343,21 @@ class IndonesiaDukcapilMatchFullNameField implements ModelInterface, ArrayAccess
     /**
      * Sets outcome
      *
-     * @param float $outcome The provider assessment result for the submitted full name.              Format: numeric score from 0.0 to 1.0, where higher values indicate closer agreement with the Dukcapil record.
+     * @param float|null $outcome The provider assessment result for the submitted full name.              Format: numeric score from 0.0 to 1.0, where higher values indicate closer agreement with the Dukcapil record.
      *
      * @return self
      */
     public function setOutcome($outcome)
     {
         if (is_null($outcome)) {
-            throw new \InvalidArgumentException('non-nullable outcome cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'outcome');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('outcome', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['outcome'] = $outcome;
 

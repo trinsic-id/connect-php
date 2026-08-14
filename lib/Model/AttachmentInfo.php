@@ -60,7 +60,8 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'string',
         'type' => 'string',
         'content_type' => 'string',
-        'size_bytes' => 'int'
+        'size_bytes' => 'int',
+        'hpke_encrypted' => 'bool'
     ];
 
     /**
@@ -74,7 +75,8 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'uuid',
         'type' => null,
         'content_type' => null,
-        'size_bytes' => 'int32'
+        'size_bytes' => 'int32',
+        'hpke_encrypted' => null
     ];
 
     /**
@@ -86,7 +88,8 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => false,
         'type' => false,
         'content_type' => false,
-        'size_bytes' => false
+        'size_bytes' => false,
+        'hpke_encrypted' => true
     ];
 
     /**
@@ -178,7 +181,8 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'id',
         'type' => 'type',
         'content_type' => 'contentType',
-        'size_bytes' => 'sizeBytes'
+        'size_bytes' => 'sizeBytes',
+        'hpke_encrypted' => 'hpkeEncrypted'
     ];
 
     /**
@@ -190,7 +194,8 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'setId',
         'type' => 'setType',
         'content_type' => 'setContentType',
-        'size_bytes' => 'setSizeBytes'
+        'size_bytes' => 'setSizeBytes',
+        'hpke_encrypted' => 'setHpkeEncrypted'
     ];
 
     /**
@@ -202,7 +207,8 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         'id' => 'getId',
         'type' => 'getType',
         'content_type' => 'getContentType',
-        'size_bytes' => 'getSizeBytes'
+        'size_bytes' => 'getSizeBytes',
+        'hpke_encrypted' => 'getHpkeEncrypted'
     ];
 
     /**
@@ -266,6 +272,7 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('type', $data ?? [], null);
         $this->setIfExists('content_type', $data ?? [], null);
         $this->setIfExists('size_bytes', $data ?? [], null);
+        $this->setIfExists('hpke_encrypted', $data ?? [], null);
     }
 
     /**
@@ -426,6 +433,40 @@ class AttachmentInfo implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable size_bytes cannot be null');
         }
         $this->container['size_bytes'] = $size_bytes;
+
+        return $this;
+    }
+
+    /**
+     * Gets hpke_encrypted
+     *
+     * @return bool|null
+     */
+    public function getHpkeEncrypted()
+    {
+        return $this->container['hpke_encrypted'];
+    }
+
+    /**
+     * Sets hpke_encrypted
+     *
+     * @param bool|null $hpke_encrypted Whether the attachment contents are encrypted via HPKE and must be decrypted using your private key.
+     *
+     * @return self
+     */
+    public function setHpkeEncrypted($hpke_encrypted)
+    {
+        if (is_null($hpke_encrypted)) {
+            array_push($this->openAPINullablesSetToNull, 'hpke_encrypted');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('hpke_encrypted', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['hpke_encrypted'] = $hpke_encrypted;
 
         return $this;
     }

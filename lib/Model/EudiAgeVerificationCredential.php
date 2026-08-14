@@ -35,7 +35,7 @@ use \Trinsic\Api\ObjectSerializer;
  * EudiAgeVerificationCredential Class Doc Comment
  *
  * @category Class
- * @description An EUDI Age Verification credential, with document type &#x60;eu.europa.ec.eudi.av.1&#x60;.              This is the age verification credential type defined in the EUDI Wallet framework.
+ * @description An EUDI Age Verification credential, with document type &#x60;eu.europa.ec.av.1&#x60;.
  * @package  Trinsic\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,9 +58,7 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $openAPITypes = [
-        'age_over' => '\Trinsic\Api\Model\AgeOverOutput[]',
-        'expiry_date' => '\DateTime',
-        'issuing_country' => 'string'
+        'age_over' => '\Trinsic\Api\Model\AgeOverOutput[]'
     ];
 
     /**
@@ -71,9 +69,7 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'age_over' => null,
-        'expiry_date' => 'date',
-        'issuing_country' => null
+        'age_over' => null
     ];
 
     /**
@@ -82,9 +78,7 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'age_over' => true,
-        'expiry_date' => true,
-        'issuing_country' => true
+        'age_over' => true
     ];
 
     /**
@@ -173,9 +167,7 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $attributeMap = [
-        'age_over' => 'ageOver',
-        'expiry_date' => 'expiryDate',
-        'issuing_country' => 'issuingCountry'
+        'age_over' => 'ageOver'
     ];
 
     /**
@@ -184,9 +176,7 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $setters = [
-        'age_over' => 'setAgeOver',
-        'expiry_date' => 'setExpiryDate',
-        'issuing_country' => 'setIssuingCountry'
+        'age_over' => 'setAgeOver'
     ];
 
     /**
@@ -195,9 +185,7 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
      * @var string[]
      */
     protected static $getters = [
-        'age_over' => 'getAgeOver',
-        'expiry_date' => 'getExpiryDate',
-        'issuing_country' => 'getIssuingCountry'
+        'age_over' => 'getAgeOver'
     ];
 
     /**
@@ -258,8 +246,6 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
     public function __construct(?array $data = null)
     {
         $this->setIfExists('age_over', $data ?? [], null);
-        $this->setIfExists('expiry_date', $data ?? [], null);
-        $this->setIfExists('issuing_country', $data ?? [], null);
     }
 
     /**
@@ -334,74 +320,6 @@ class EudiAgeVerificationCredential implements ModelInterface, ArrayAccess, \Jso
             }
         }
         $this->container['age_over'] = $age_over;
-
-        return $this;
-    }
-
-    /**
-     * Gets expiry_date
-     *
-     * @return \DateTime|null
-     */
-    public function getExpiryDate()
-    {
-        return $this->container['expiry_date'];
-    }
-
-    /**
-     * Sets expiry_date
-     *
-     * @param \DateTime|null $expiry_date Date when the age verification data expires.
-     *
-     * @return self
-     */
-    public function setExpiryDate($expiry_date)
-    {
-        if (is_null($expiry_date)) {
-            array_push($this->openAPINullablesSetToNull, 'expiry_date');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('expiry_date', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['expiry_date'] = $expiry_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets issuing_country
-     *
-     * @return string|null
-     */
-    public function getIssuingCountry()
-    {
-        return $this->container['issuing_country'];
-    }
-
-    /**
-     * Sets issuing_country
-     *
-     * @param string|null $issuing_country ISO 3166-1 alpha-2 country code of the country or territory of the issuer of the credential.
-     *
-     * @return self
-     */
-    public function setIssuingCountry($issuing_country)
-    {
-        if (is_null($issuing_country)) {
-            array_push($this->openAPINullablesSetToNull, 'issuing_country');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('issuing_country', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['issuing_country'] = $issuing_country;
 
         return $this;
     }

@@ -80,6 +80,15 @@ class ProviderInputTest extends TestCase
     }
 
     /**
+     * Test attribute "trinsic_mock_output"
+     */
+    public function testPropertyTrinsicMockOutput()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "indonesia_nik_lookup"
      */
     public function testPropertyIndonesiaNikLookup()
@@ -92,6 +101,15 @@ class ProviderInputTest extends TestCase
      * Test attribute "china_resident_id_match"
      */
     public function testPropertyChinaResidentIdMatch()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "evrotrust"
+     */
+    public function testPropertyEvrotrust()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -173,6 +191,24 @@ class ProviderInputTest extends TestCase
      * Test attribute "nigeria_nin_lookup_2"
      */
     public function testPropertyNigeriaNinLookup2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "nigeria_nin_lookup_3"
+     */
+    public function testPropertyNigeriaNinLookup3()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "kenya_nid_lookup_3"
+     */
+    public function testPropertyKenyaNidLookup3()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -362,6 +398,51 @@ class ProviderInputTest extends TestCase
      * Test attribute "france_identite"
      */
     public function testPropertyFranceIdentite()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "moldova_evo_wallet"
+     */
+    public function testPropertyMoldovaEvoWallet()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "germany_eudi_sandbox"
+     */
+    public function testPropertyGermanyEudiSandbox()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "denmark_altid"
+     */
+    public function testPropertyDenmarkAltid()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "austria_valera_eudi_sandbox"
+     */
+    public function testPropertyAustriaValeraEudiSandbox()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "netherlands_eudi_sandbox"
+     */
+    public function testPropertyNetherlandsEudiSandbox()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

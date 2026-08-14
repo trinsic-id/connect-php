@@ -84,7 +84,7 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
     protected static array $openAPINullables = [
         'mobile_drivers_license' => true,
         'digital_id' => true,
-        'raw_mdl_output' => false
+        'raw_mdl_output' => true
     ];
 
     /**
@@ -289,9 +289,6 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['raw_mdl_output'] === null) {
-            $invalidProperties[] = "'raw_mdl_output' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -378,7 +375,7 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets raw_mdl_output
      *
-     * @return \Trinsic\Api\Model\MdlOutput
+     * @return \Trinsic\Api\Model\MdlOutput|null
      */
     public function getRawMdlOutput()
     {
@@ -388,14 +385,21 @@ class AppleWalletProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets raw_mdl_output
      *
-     * @param \Trinsic\Api\Model\MdlOutput $raw_mdl_output The raw output of the mDL exchange performed through Apple Wallet.
+     * @param \Trinsic\Api\Model\MdlOutput|null $raw_mdl_output The raw output of the mDL exchange performed through Apple Wallet.
      *
      * @return self
      */
     public function setRawMdlOutput($raw_mdl_output)
     {
         if (is_null($raw_mdl_output)) {
-            throw new \InvalidArgumentException('non-nullable raw_mdl_output cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'raw_mdl_output');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('raw_mdl_output', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['raw_mdl_output'] = $raw_mdl_output;
 

@@ -96,14 +96,14 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'national_id_number' => false,
-        'citizenship_status' => false,
-        'first_name' => false,
-        'family_name' => false,
-        'full_name' => false,
-        'sex' => false,
-        'date_of_birth' => false,
-        'nationality' => false,
+        'national_id_number' => true,
+        'citizenship_status' => true,
+        'first_name' => true,
+        'family_name' => true,
+        'full_name' => true,
+        'sex' => true,
+        'date_of_birth' => true,
+        'nationality' => true,
         'date_of_death' => true,
         'birth_country' => true
     ];
@@ -338,30 +338,6 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['national_id_number'] === null) {
-            $invalidProperties[] = "'national_id_number' can't be null";
-        }
-        if ($this->container['citizenship_status'] === null) {
-            $invalidProperties[] = "'citizenship_status' can't be null";
-        }
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
-        }
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['sex'] === null) {
-            $invalidProperties[] = "'sex' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['nationality'] === null) {
-            $invalidProperties[] = "'nationality' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -380,7 +356,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets national_id_number
      *
-     * @return string
+     * @return string|null
      */
     public function getNationalIdNumber()
     {
@@ -390,14 +366,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets national_id_number
      *
-     * @param string $national_id_number The South African National Identity Number (13 digits).              Issued for life by the Department of Home Affairs (DHA) and stored in the HANIS (Home Affairs National Identification System) database. The same number is mandatory for banking, employment, taxation, and voting, and is printed on both the legacy green ID book and the Smart ID Card (rolled out from 2013 onward).              Format: - YYMMDD G(4) C A Z - YYMMDD is the date of birth - G(4) is the gender code (below 5000 female, 5000 or above male) - C is the citizenship indicator (0 citizen, 1 permanent resident) - A is reserved (it had a politically sensitive meaning in the past, but is currently   semantically meaningless) - Z is a Luhn check digit
+     * @param string|null $national_id_number The South African National Identity Number (13 digits).              Issued for life by the Department of Home Affairs (DHA) and stored in the HANIS (Home Affairs National Identification System) database. The same number is mandatory for banking, employment, taxation, and voting, and is printed on both the legacy green ID book and the Smart ID Card (rolled out from 2013 onward).              Format: - YYMMDD G(4) C A Z - YYMMDD is the date of birth - G(4) is the gender code (below 5000 female, 5000 or above male) - C is the citizenship indicator (0 citizen, 1 permanent resident) - A is reserved (it had a politically sensitive meaning in the past, but is currently   semantically meaningless) - Z is a Luhn check digit
      *
      * @return self
      */
     public function setNationalIdNumber($national_id_number)
     {
         if (is_null($national_id_number)) {
-            throw new \InvalidArgumentException('non-nullable national_id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_id_number'] = $national_id_number;
 
@@ -407,7 +390,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets citizenship_status
      *
-     * @return string
+     * @return string|null
      */
     public function getCitizenshipStatus()
     {
@@ -417,14 +400,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets citizenship_status
      *
-     * @param string $citizenship_status Citizenship status of the individual.              Possible values: - Citizen - PermanentResident
+     * @param string|null $citizenship_status Citizenship status of the individual.              Possible values: - Citizen - PermanentResident - Refugee
      *
      * @return self
      */
     public function setCitizenshipStatus($citizenship_status)
     {
         if (is_null($citizenship_status)) {
-            throw new \InvalidArgumentException('non-nullable citizenship_status cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'citizenship_status');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('citizenship_status', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['citizenship_status'] = $citizenship_status;
 
@@ -434,7 +424,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -444,14 +434,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name First name of the individual.
+     * @param string|null $first_name First name of the individual.
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -461,7 +458,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -471,14 +468,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets family_name
      *
-     * @param string $family_name Family name of the individual.
+     * @param string|null $family_name Family name of the individual.
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 
@@ -488,7 +492,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -498,14 +502,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets full_name
      *
-     * @param string $full_name Full name of the individual.
+     * @param string|null $full_name Full name of the individual.
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -515,7 +526,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets sex
      *
-     * @return string
+     * @return string|null
      */
     public function getSex()
     {
@@ -525,14 +536,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets sex
      *
-     * @param string $sex Sex of the individual.              Possible values: - Male - Female
+     * @param string|null $sex Sex of the individual.              Possible values: - Male - Female
      *
      * @return self
      */
     public function setSex($sex)
     {
         if (is_null($sex)) {
-            throw new \InvalidArgumentException('non-nullable sex cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sex', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sex'] = $sex;
 
@@ -542,7 +560,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -552,14 +570,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth Date of birth of the individual.
+     * @param \DateTime|null $date_of_birth Date of birth of the individual.
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -569,7 +594,7 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets nationality
      *
-     * @return string
+     * @return string|null
      */
     public function getNationality()
     {
@@ -579,14 +604,21 @@ class SouthAfricaNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets nationality
      *
-     * @param string $nationality Nationality of the individual as an ISO 3166-1 alpha-2 country code.
+     * @param string|null $nationality Nationality of the individual as an ISO 3166-1 alpha-2 country code.              Set to ZA when CitizenshipStatus is Citizen. Null when not a South African citizen (Permanent Resident or Refugee).
      *
      * @return self
      */
     public function setNationality($nationality)
     {
         if (is_null($nationality)) {
-            throw new \InvalidArgumentException('non-nullable nationality cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'nationality');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nationality', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['nationality'] = $nationality;
 

@@ -82,9 +82,9 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'personal_code' => false
+        'first_name' => true,
+        'last_name' => true,
+        'personal_code' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['personal_code'] === null) {
-            $invalidProperties[] = "'personal_code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -326,14 +317,21 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name of the verified individual
+     * @param string|null $first_name The first name of the verified individual
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -343,7 +341,7 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -353,14 +351,21 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name of the verified individual
+     * @param string|null $last_name The last name of the verified individual
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -370,7 +375,7 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets personal_code
      *
-     * @return string
+     * @return string|null
      */
     public function getPersonalCode()
     {
@@ -380,14 +385,21 @@ class LatviaEparakstsMobileProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets personal_code
      *
-     * @param string $personal_code The 11-digit Latvian personal code (\"personas kods\") of the verified individual.              This has two possible formats, depending on whether the personal code was issued after July 1, 2017.              For personal codes issued before July 1, 2017, the format is DDMMYY-CZZZQ, where: - DDMMYY is the date of birth, followed by an optional hyphen - C represents the century of birth ('0' for 1800-1899, '1' for 1900-1999, '2' for 2000-2099) - ZZZ is a serial number - Q is a checksum digit              For personal codes issued on or after July 1, 2017, the format is 32ZZZZZZZZQ, where: - 32 is a fixed prefix - ZZZZZZZQ are 8 random digits - Q is a checksum digit              NOTE: Individuals born before July 1, 2017 can elect to be issued a new personal code which does not contain their birthdate. Therefore, no concrete assumptions may be made about an individual's date of birth based solely on the format of their personal code.
+     * @param string|null $personal_code The 11-digit Latvian personal code (\"personas kods\") of the verified individual.              This has two possible formats, depending on whether the personal code was issued after July 1, 2017.              For personal codes issued before July 1, 2017, the format is DDMMYY-CZZZQ, where: - DDMMYY is the date of birth, followed by an optional hyphen - C represents the century of birth ('0' for 1800-1899, '1' for 1900-1999, '2' for 2000-2099) - ZZZ is a serial number - Q is a checksum digit              For personal codes issued on or after July 1, 2017, the format is 32ZZZZZZZZQ, where: - 32 is a fixed prefix - ZZZZZZZQ are 8 random digits - Q is a checksum digit              NOTE: Individuals born before July 1, 2017 can elect to be issued a new personal code which does not contain their birthdate. Therefore, no concrete assumptions may be made about an individual's date of birth based solely on the format of their personal code.
      *
      * @return self
      */
     public function setPersonalCode($personal_code)
     {
         if (is_null($personal_code)) {
-            throw new \InvalidArgumentException('non-nullable personal_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'personal_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('personal_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['personal_code'] = $personal_code;
 

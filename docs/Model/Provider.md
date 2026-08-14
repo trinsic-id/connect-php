@@ -8,8 +8,6 @@ Name | Type | Description | Notes
 **name** | **string** | The display name of the provider |
 **logo_url** | **string** | The URL of the provider&#39;s logo |
 **subtext** | **string** | The Provider&#39;s subtext recommended to be shown next to the name.              This is flavor text, not a full, human-readable description of the provider. |
-**description** | **string** | A description of the provider&#39;s capabilities | [readonly]
-**geography** | **string[]** | Geographic regions where this provider operates |
 **regions** | **string[]** | Specific regions supported by this provider |
 **countries** | **string[]** | The countries where this Provider is available (as alpha-2 ISO codes). |
 **subdivisions** | **string[]** | The subdivisions (states, provinces, etc.) where this Provider is available (as alpha-2 ISO codes). |

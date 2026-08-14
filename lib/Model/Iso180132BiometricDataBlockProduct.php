@@ -80,8 +80,8 @@ class Iso180132BiometricDataBlockProduct implements ModelInterface, ArrayAccess,
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'product_owner' => false,
-        'product_type' => false
+        'product_owner' => true,
+        'product_type' => true
     ];
 
     /**
@@ -282,12 +282,6 @@ class Iso180132BiometricDataBlockProduct implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['product_owner'] === null) {
-            $invalidProperties[] = "'product_owner' can't be null";
-        }
-        if ($this->container['product_type'] === null) {
-            $invalidProperties[] = "'product_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -306,7 +300,7 @@ class Iso180132BiometricDataBlockProduct implements ModelInterface, ArrayAccess,
     /**
      * Gets product_owner
      *
-     * @return int
+     * @return int|null
      */
     public function getProductOwner()
     {
@@ -316,14 +310,21 @@ class Iso180132BiometricDataBlockProduct implements ModelInterface, ArrayAccess,
     /**
      * Sets product_owner
      *
-     * @param int $product_owner Identifier of the product owner.
+     * @param int|null $product_owner Identifier of the product owner.
      *
      * @return self
      */
     public function setProductOwner($product_owner)
     {
         if (is_null($product_owner)) {
-            throw new \InvalidArgumentException('non-nullable product_owner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_owner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_owner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_owner'] = $product_owner;
 
@@ -333,7 +334,7 @@ class Iso180132BiometricDataBlockProduct implements ModelInterface, ArrayAccess,
     /**
      * Gets product_type
      *
-     * @return int
+     * @return int|null
      */
     public function getProductType()
     {
@@ -343,14 +344,21 @@ class Iso180132BiometricDataBlockProduct implements ModelInterface, ArrayAccess,
     /**
      * Sets product_type
      *
-     * @param int $product_type Identifier of the product type.
+     * @param int|null $product_type Identifier of the product type.
      *
      * @return self
      */
     public function setProductType($product_type)
     {
         if (is_null($product_type)) {
-            throw new \InvalidArgumentException('non-nullable product_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'product_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('product_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['product_type'] = $product_type;
 

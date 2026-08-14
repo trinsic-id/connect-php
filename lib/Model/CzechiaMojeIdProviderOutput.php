@@ -84,10 +84,10 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'date_of_birth' => false,
-        'open_id2_identifier' => false
+        'first_name' => true,
+        'last_name' => true,
+        'date_of_birth' => true,
+        'open_id2_identifier' => true
     ];
 
     /**
@@ -296,18 +296,6 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['open_id2_identifier'] === null) {
-            $invalidProperties[] = "'open_id2_identifier' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -326,7 +314,7 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -336,14 +324,21 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name of the verified individual
+     * @param string|null $first_name The first name of the verified individual
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -353,7 +348,7 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -363,14 +358,21 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name of the verified individual
+     * @param string|null $last_name The last name of the verified individual
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -380,7 +382,7 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -390,14 +392,21 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The date of birth of the verified individual
+     * @param \DateTime|null $date_of_birth The date of birth of the verified individual
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -407,7 +416,7 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Gets open_id2_identifier
      *
-     * @return string
+     * @return string|null
      */
     public function getOpenId2Identifier()
     {
@@ -417,14 +426,21 @@ class CzechiaMojeIdProviderOutput implements ModelInterface, ArrayAccess, \JsonS
     /**
      * Sets open_id2_identifier
      *
-     * @param string $open_id2_identifier The OpenID 2.0 Identifier (\"openid2_id\") of the verified individual's MojeID account.              This is an HTTPS URL which uniquely identifies the individual within the MojeID system.
+     * @param string|null $open_id2_identifier The OpenID 2.0 Identifier (\"openid2_id\") of the verified individual's MojeID account.              This is an HTTPS URL which uniquely identifies the individual within the MojeID system.
      *
      * @return self
      */
     public function setOpenId2Identifier($open_id2_identifier)
     {
         if (is_null($open_id2_identifier)) {
-            throw new \InvalidArgumentException('non-nullable open_id2_identifier cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'open_id2_identifier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('open_id2_identifier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['open_id2_identifier'] = $open_id2_identifier;
 

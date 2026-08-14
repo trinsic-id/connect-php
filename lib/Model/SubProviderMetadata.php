@@ -61,7 +61,8 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'string',
         'name' => 'string',
         'subtext' => 'string',
-        'logo_url' => 'string'
+        'logo_url' => 'string',
+        'dark_mode_logo_url' => 'string'
     ];
 
     /**
@@ -75,7 +76,8 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => null,
         'name' => null,
         'subtext' => null,
-        'logo_url' => null
+        'logo_url' => null,
+        'dark_mode_logo_url' => null
     ];
 
     /**
@@ -87,7 +89,8 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => false,
         'name' => false,
         'subtext' => false,
-        'logo_url' => false
+        'logo_url' => false,
+        'dark_mode_logo_url' => true
     ];
 
     /**
@@ -179,7 +182,8 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'id',
         'name' => 'name',
         'subtext' => 'subtext',
-        'logo_url' => 'logoUrl'
+        'logo_url' => 'logoUrl',
+        'dark_mode_logo_url' => 'darkModeLogoUrl'
     ];
 
     /**
@@ -191,7 +195,8 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'setId',
         'name' => 'setName',
         'subtext' => 'setSubtext',
-        'logo_url' => 'setLogoUrl'
+        'logo_url' => 'setLogoUrl',
+        'dark_mode_logo_url' => 'setDarkModeLogoUrl'
     ];
 
     /**
@@ -203,7 +208,8 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
         'id' => 'getId',
         'name' => 'getName',
         'subtext' => 'getSubtext',
-        'logo_url' => 'getLogoUrl'
+        'logo_url' => 'getLogoUrl',
+        'dark_mode_logo_url' => 'getDarkModeLogoUrl'
     ];
 
     /**
@@ -267,6 +273,7 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('subtext', $data ?? [], null);
         $this->setIfExists('logo_url', $data ?? [], null);
+        $this->setIfExists('dark_mode_logo_url', $data ?? [], null);
     }
 
     /**
@@ -417,7 +424,7 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets logo_url
      *
-     * @param string $logo_url A URL pointing to the logo on Trinsic's CDN.              May be a PNG, JPG, or SVG image.
+     * @param string $logo_url A URL pointing to the logo on Trinsic's CDN.              It may be a PNG, JPG, or SVG image.
      *
      * @return self
      */
@@ -427,6 +434,40 @@ class SubProviderMetadata implements ModelInterface, ArrayAccess, \JsonSerializa
             throw new \InvalidArgumentException('non-nullable logo_url cannot be null');
         }
         $this->container['logo_url'] = $logo_url;
+
+        return $this;
+    }
+
+    /**
+     * Gets dark_mode_logo_url
+     *
+     * @return string|null
+     */
+    public function getDarkModeLogoUrl()
+    {
+        return $this->container['dark_mode_logo_url'];
+    }
+
+    /**
+     * Sets dark_mode_logo_url
+     *
+     * @param string|null $dark_mode_logo_url An optional URL pointing to a dark mode logo on Trinsic's CDN.              It may be a PNG, JPG, or SVG image. If omitted, use LogoUrl in dark mode.
+     *
+     * @return self
+     */
+    public function setDarkModeLogoUrl($dark_mode_logo_url)
+    {
+        if (is_null($dark_mode_logo_url)) {
+            array_push($this->openAPINullablesSetToNull, 'dark_mode_logo_url');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('dark_mode_logo_url', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['dark_mode_logo_url'] = $dark_mode_logo_url;
 
         return $this;
     }

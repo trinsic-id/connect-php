@@ -79,8 +79,8 @@ class NigeriaNinMatch2NationalIdNumberField implements ModelInterface, ArrayAcce
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'input_value' => false,
-        'outcome' => false
+        'input_value' => true,
+        'outcome' => true
     ];
 
     /**
@@ -281,12 +281,6 @@ class NigeriaNinMatch2NationalIdNumberField implements ModelInterface, ArrayAcce
     {
         $invalidProperties = [];
 
-        if ($this->container['input_value'] === null) {
-            $invalidProperties[] = "'input_value' can't be null";
-        }
-        if ($this->container['outcome'] === null) {
-            $invalidProperties[] = "'outcome' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -305,7 +299,7 @@ class NigeriaNinMatch2NationalIdNumberField implements ModelInterface, ArrayAcce
     /**
      * Gets input_value
      *
-     * @return string
+     * @return string|null
      */
     public function getInputValue()
     {
@@ -315,14 +309,21 @@ class NigeriaNinMatch2NationalIdNumberField implements ModelInterface, ArrayAcce
     /**
      * Sets input_value
      *
-     * @param string $input_value National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission (NIMC) upon enrollment.              Format: - 11 numeric digits - No personal information is encoded in the NIN
+     * @param string|null $input_value National Identification Number (NIN).              This is a unique, permanent identifier assigned by the National Identity Management Commission (NIMC) upon enrollment.              Format: - 11 numeric digits - No personal information is encoded in the NIN
      *
      * @return self
      */
     public function setInputValue($input_value)
     {
         if (is_null($input_value)) {
-            throw new \InvalidArgumentException('non-nullable input_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'input_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('input_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['input_value'] = $input_value;
 
@@ -332,7 +333,7 @@ class NigeriaNinMatch2NationalIdNumberField implements ModelInterface, ArrayAcce
     /**
      * Gets outcome
      *
-     * @return string
+     * @return string|null
      */
     public function getOutcome()
     {
@@ -342,14 +343,21 @@ class NigeriaNinMatch2NationalIdNumberField implements ModelInterface, ArrayAcce
     /**
      * Sets outcome
      *
-     * @param string $outcome The outcome of verifying the NIN against the National Identity Database.              Possible values: - Verified - Not Verified - Not Done - Issuer Unavailable - Not Returned
+     * @param string|null $outcome The outcome of verifying the NIN against the National Identity Database.              Possible values: - Verified - Not Verified - Not Done - Issuer Unavailable - Not Returned
      *
      * @return self
      */
     public function setOutcome($outcome)
     {
         if (is_null($outcome)) {
-            throw new \InvalidArgumentException('non-nullable outcome cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'outcome');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('outcome', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['outcome'] = $outcome;
 

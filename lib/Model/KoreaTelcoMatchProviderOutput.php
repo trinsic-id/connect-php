@@ -82,9 +82,9 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'phone_number' => false,
-        'tele_type' => false,
-        'result_code' => false
+        'phone_number' => true,
+        'tele_type' => true,
+        'result_code' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['phone_number'] === null) {
-            $invalidProperties[] = "'phone_number' can't be null";
-        }
-        if ($this->container['tele_type'] === null) {
-            $invalidProperties[] = "'tele_type' can't be null";
-        }
-        if ($this->container['result_code'] === null) {
-            $invalidProperties[] = "'result_code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets phone_number
      *
-     * @return string
+     * @return string|null
      */
     public function getPhoneNumber()
     {
@@ -326,14 +317,21 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets phone_number
      *
-     * @param string $phone_number The verified phone number as submitted by the relying party.
+     * @param string|null $phone_number The phone number submitted for the carrier match.
      *
      * @return self
      */
     public function setPhoneNumber($phone_number)
     {
         if (is_null($phone_number)) {
-            throw new \InvalidArgumentException('non-nullable phone_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'phone_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('phone_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['phone_number'] = $phone_number;
 
@@ -343,7 +341,7 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets tele_type
      *
-     * @return string
+     * @return string|null
      */
     public function getTeleType()
     {
@@ -353,14 +351,21 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets tele_type
      *
-     * @param string $tele_type The mobile carrier used for verification. Possible values: <list type=\"bullet\"><item><description>Lgu</description></item><item><description>Skt</description></item><item><description>Kt</description></item></list>
+     * @param string|null $tele_type The mobile carrier used for the match.              Supported values: Lgu, Skt, Kt.
      *
      * @return self
      */
     public function setTeleType($tele_type)
     {
         if (is_null($tele_type)) {
-            throw new \InvalidArgumentException('non-nullable tele_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'tele_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('tele_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['tele_type'] = $tele_type;
 
@@ -370,7 +375,7 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets result_code
      *
-     * @return string
+     * @return string|null
      */
     public function getResultCode()
     {
@@ -380,14 +385,21 @@ class KoreaTelcoMatchProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets result_code
      *
-     * @param string $result_code The RaonSecure result code returned by the carrier verification system. \"0000\" indicates a successful match.              Common error codes: - \"0000\": Successful match - \"0001\": Identity Verification Failed - Verification Information Mismatch (General) - \"0002\": Identity Verification Failed - Unable to Verify Phone Number - \"0004\": Identity Verification Failed - Date of Birth Verification Error - \"0005\": Identity Verification Failed - Gender Verification Error - \"0006\": Identity Verification Failed - Name Verification Error - \"0009\": Identity Verification Failed - Device OS Mismatch
+     * @param string|null $result_code The carrier match result code.              Common result codes: - \"0000\": Successful match - \"0001\": Failed - Verification Information Mismatch (General) - \"0002\": Failed - Unable to Verify Phone Number - \"0004\": Failed - Date of Birth Verification Error - \"0005\": Failed - Gender Verification Error - \"0006\": Failed - Name Verification Error - \"0009\": Failed - Device OS Mismatch
      *
      * @return self
      */
     public function setResultCode($result_code)
     {
         if (is_null($result_code)) {
-            throw new \InvalidArgumentException('non-nullable result_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'result_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('result_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['result_code'] = $result_code;
 

@@ -96,15 +96,15 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'patron_header_version' => false,
+        'patron_header_version' => true,
         'biometric_type' => true,
         'biometric_sub_type' => true,
         'creation_date' => true,
         'biometric_information_record_creator' => true,
         'validity_period' => true,
         'biometric_data_block_product' => true,
-        'biometric_data_block_format_owner' => false,
-        'biometric_data_block_format_type' => false,
+        'biometric_data_block_format_owner' => true,
+        'biometric_data_block_format_type' => true,
         'biometric_information_record_index' => true
     ];
 
@@ -338,15 +338,6 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['patron_header_version'] === null) {
-            $invalidProperties[] = "'patron_header_version' can't be null";
-        }
-        if ($this->container['biometric_data_block_format_owner'] === null) {
-            $invalidProperties[] = "'biometric_data_block_format_owner' can't be null";
-        }
-        if ($this->container['biometric_data_block_format_type'] === null) {
-            $invalidProperties[] = "'biometric_data_block_format_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -365,7 +356,7 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
     /**
      * Gets patron_header_version
      *
-     * @return int
+     * @return int|null
      */
     public function getPatronHeaderVersion()
     {
@@ -375,14 +366,21 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
     /**
      * Sets patron_header_version
      *
-     * @param int $patron_header_version Patron header version (defaults to 0x0101).
+     * @param int|null $patron_header_version Patron header version (defaults to 0x0101).
      *
      * @return self
      */
     public function setPatronHeaderVersion($patron_header_version)
     {
         if (is_null($patron_header_version)) {
-            throw new \InvalidArgumentException('non-nullable patron_header_version cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'patron_header_version');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('patron_header_version', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['patron_header_version'] = $patron_header_version;
 
@@ -596,7 +594,7 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
     /**
      * Gets biometric_data_block_format_owner
      *
-     * @return int
+     * @return int|null
      */
     public function getBiometricDataBlockFormatOwner()
     {
@@ -606,14 +604,21 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
     /**
      * Sets biometric_data_block_format_owner
      *
-     * @param int $biometric_data_block_format_owner Format owner of the biometric data block.
+     * @param int|null $biometric_data_block_format_owner Format owner of the biometric data block.
      *
      * @return self
      */
     public function setBiometricDataBlockFormatOwner($biometric_data_block_format_owner)
     {
         if (is_null($biometric_data_block_format_owner)) {
-            throw new \InvalidArgumentException('non-nullable biometric_data_block_format_owner cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'biometric_data_block_format_owner');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('biometric_data_block_format_owner', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['biometric_data_block_format_owner'] = $biometric_data_block_format_owner;
 
@@ -623,7 +628,7 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
     /**
      * Gets biometric_data_block_format_type
      *
-     * @return int
+     * @return int|null
      */
     public function getBiometricDataBlockFormatType()
     {
@@ -633,14 +638,21 @@ class Iso180132BiometricTemplateHeader implements ModelInterface, ArrayAccess, \
     /**
      * Sets biometric_data_block_format_type
      *
-     * @param int $biometric_data_block_format_type Format type of the biometric data block.
+     * @param int|null $biometric_data_block_format_type Format type of the biometric data block.
      *
      * @return self
      */
     public function setBiometricDataBlockFormatType($biometric_data_block_format_type)
     {
         if (is_null($biometric_data_block_format_type)) {
-            throw new \InvalidArgumentException('non-nullable biometric_data_block_format_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'biometric_data_block_format_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('biometric_data_block_format_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['biometric_data_block_format_type'] = $biometric_data_block_format_type;
 

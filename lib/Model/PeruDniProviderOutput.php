@@ -109,18 +109,18 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
      */
     protected static array $openAPINullables = [
         'address' => true,
-        'array_name' => false,
+        'array_name' => true,
         'civil_status' => true,
         'date_of_birth' => true,
-        'document_number' => false,
-        'document_type' => false,
+        'document_number' => true,
+        'document_type' => true,
         'expedition_date' => true,
         'expiration_date' => true,
-        'first_name' => false,
-        'full_name' => false,
-        'last_name' => false,
-        'maternal_last_name' => false,
-        'paternal_last_name' => false,
+        'first_name' => true,
+        'full_name' => true,
+        'last_name' => true,
+        'maternal_last_name' => true,
+        'paternal_last_name' => true,
         'sex' => true,
         'ubigeo_reniec' => true,
         'verification_digit' => true
@@ -380,30 +380,6 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     {
         $invalidProperties = [];
 
-        if ($this->container['array_name'] === null) {
-            $invalidProperties[] = "'array_name' can't be null";
-        }
-        if ($this->container['document_number'] === null) {
-            $invalidProperties[] = "'document_number' can't be null";
-        }
-        if ($this->container['document_type'] === null) {
-            $invalidProperties[] = "'document_type' can't be null";
-        }
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['maternal_last_name'] === null) {
-            $invalidProperties[] = "'maternal_last_name' can't be null";
-        }
-        if ($this->container['paternal_last_name'] === null) {
-            $invalidProperties[] = "'paternal_last_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -456,7 +432,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets array_name
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getArrayName()
     {
@@ -466,14 +442,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets array_name
      *
-     * @param string[] $array_name All names that appear on DNI, as an array of strings.              Format: - All uppercase - Ordered by paternal family name, then maternal family name, then given names.
+     * @param string[]|null $array_name All names that appear on DNI, as an array of strings.              Format: - All uppercase - Ordered by paternal family name, then maternal family name, then given names.
      *
      * @return self
      */
     public function setArrayName($array_name)
     {
         if (is_null($array_name)) {
-            throw new \InvalidArgumentException('non-nullable array_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'array_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('array_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['array_name'] = $array_name;
 
@@ -551,7 +534,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets document_number
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentNumber()
     {
@@ -561,14 +544,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets document_number
      *
-     * @param string $document_number The individual's National Identity Document number (Documento Nacional de Identidad or DNI).              Format: - 8 digits - Does NOT include verification digit. On the DNI card, a ninth digit appears next to the first eight. It is   0-9 or A-K. This is NOT included in the DNI number when returned from Peru's database. - Does NOT include dots or hyphens
+     * @param string|null $document_number The individual's National Identity Document number (Documento Nacional de Identidad or DNI).              Format: - 8 digits - Does NOT include verification digit. On the DNI card, a ninth digit appears next to the first eight. It is   0-9 or A-K. This is NOT included in the DNI number when returned from Peru's database. - Does NOT include dots or hyphens
      *
      * @return self
      */
     public function setDocumentNumber($document_number)
     {
         if (is_null($document_number)) {
-            throw new \InvalidArgumentException('non-nullable document_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_number'] = $document_number;
 
@@ -578,7 +568,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets document_type
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentType()
     {
@@ -588,14 +578,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets document_type
      *
-     * @param string $document_type Should always be \"DNI\".
+     * @param string|null $document_type Should always be \"DNI\".
      *
      * @return self
      */
     public function setDocumentType($document_type)
     {
         if (is_null($document_type)) {
-            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_type'] = $document_type;
 
@@ -673,7 +670,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -683,14 +680,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets first_name
      *
-     * @param string $first_name Given names as they appear on DNI.              Format: - All uppercase - Space-separated - Will include all given names
+     * @param string|null $first_name Given names as they appear on DNI.              Format: - All uppercase - Space-separated - Will include all given names
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -700,7 +704,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -710,14 +714,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets full_name
      *
-     * @param string $full_name All names as they appear on DNI.              Format: - All uppercase - Space-separated - Will include all names, given and family - Ordered by given names first, then paternal family name, then maternal family name
+     * @param string|null $full_name All names as they appear on DNI.              Format: - All uppercase - Space-separated - Will include all names, given and family - Ordered by given names first, then paternal family name, then maternal family name
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -727,7 +738,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -737,14 +748,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets last_name
      *
-     * @param string $last_name Family names as they appear on DNI.              Format: - All uppercase - Will include all family names - Ordered by paternal family name first, then maternal family name
+     * @param string|null $last_name Family names as they appear on DNI.              Format: - All uppercase - Will include all family names - Ordered by paternal family name first, then maternal family name
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -754,7 +772,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets maternal_last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getMaternalLastName()
     {
@@ -764,14 +782,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets maternal_last_name
      *
-     * @param string $maternal_last_name Maternal last name as it appears on DNI.              Format: - All uppercase
+     * @param string|null $maternal_last_name Maternal last name as it appears on DNI.              Format: - All uppercase
      *
      * @return self
      */
     public function setMaternalLastName($maternal_last_name)
     {
         if (is_null($maternal_last_name)) {
-            throw new \InvalidArgumentException('non-nullable maternal_last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'maternal_last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('maternal_last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['maternal_last_name'] = $maternal_last_name;
 
@@ -781,7 +806,7 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Gets paternal_last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getPaternalLastName()
     {
@@ -791,14 +816,21 @@ class PeruDniProviderOutput implements ModelInterface, ArrayAccess, \JsonSeriali
     /**
      * Sets paternal_last_name
      *
-     * @param string $paternal_last_name Paternal last name as it appears on DNI.              Format: - All uppercase
+     * @param string|null $paternal_last_name Paternal last name as it appears on DNI.              Format: - All uppercase
      *
      * @return self
      */
     public function setPaternalLastName($paternal_last_name)
     {
         if (is_null($paternal_last_name)) {
-            throw new \InvalidArgumentException('non-nullable paternal_last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'paternal_last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('paternal_last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['paternal_last_name'] = $paternal_last_name;
 

@@ -80,7 +80,7 @@ class Iso180135AamvaWeightRange implements ModelInterface, ArrayAccess, \JsonSer
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'min_kilograms' => false,
+        'min_kilograms' => true,
         'max_kilograms' => true
     ];
 
@@ -282,9 +282,6 @@ class Iso180135AamvaWeightRange implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['min_kilograms'] === null) {
-            $invalidProperties[] = "'min_kilograms' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -303,7 +300,7 @@ class Iso180135AamvaWeightRange implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets min_kilograms
      *
-     * @return int
+     * @return int|null
      */
     public function getMinKilograms()
     {
@@ -313,14 +310,21 @@ class Iso180135AamvaWeightRange implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets min_kilograms
      *
-     * @param int $min_kilograms Minimum weight in the range, in kilograms.
+     * @param int|null $min_kilograms Minimum weight in the range, in kilograms.
      *
      * @return self
      */
     public function setMinKilograms($min_kilograms)
     {
         if (is_null($min_kilograms)) {
-            throw new \InvalidArgumentException('non-nullable min_kilograms cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'min_kilograms');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('min_kilograms', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['min_kilograms'] = $min_kilograms;
 

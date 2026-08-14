@@ -58,6 +58,7 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $openAPITypes = [
         'cpf_number' => 'string',
+        'date_of_birth' => '\DateTime',
         'selfie_image' => 'string',
         'selfie_image_content_type' => 'string'
     ];
@@ -71,6 +72,7 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $openAPIFormats = [
         'cpf_number' => null,
+        'date_of_birth' => 'date',
         'selfie_image' => 'byte',
         'selfie_image_content_type' => null
     ];
@@ -82,6 +84,7 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static array $openAPINullables = [
         'cpf_number' => false,
+        'date_of_birth' => true,
         'selfie_image' => true,
         'selfie_image_content_type' => true
     ];
@@ -173,6 +176,7 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $attributeMap = [
         'cpf_number' => 'cpfNumber',
+        'date_of_birth' => 'dateOfBirth',
         'selfie_image' => 'selfieImage',
         'selfie_image_content_type' => 'selfieImageContentType'
     ];
@@ -184,6 +188,7 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $setters = [
         'cpf_number' => 'setCpfNumber',
+        'date_of_birth' => 'setDateOfBirth',
         'selfie_image' => 'setSelfieImage',
         'selfie_image_content_type' => 'setSelfieImageContentType'
     ];
@@ -195,6 +200,7 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     protected static $getters = [
         'cpf_number' => 'getCpfNumber',
+        'date_of_birth' => 'getDateOfBirth',
         'selfie_image' => 'getSelfieImage',
         'selfie_image_content_type' => 'getSelfieImageContentType'
     ];
@@ -257,6 +263,7 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
     public function __construct(?array $data = null)
     {
         $this->setIfExists('cpf_number', $data ?? [], null);
+        $this->setIfExists('date_of_birth', $data ?? [], null);
         $this->setIfExists('selfie_image', $data ?? [], null);
         $this->setIfExists('selfie_image_content_type', $data ?? [], null);
     }
@@ -351,6 +358,40 @@ class BrazilCpfCheckInput implements ModelInterface, ArrayAccess, \JsonSerializa
         }
 
         $this->container['cpf_number'] = $cpf_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_of_birth
+     *
+     * @return \DateTime|null
+     */
+    public function getDateOfBirth()
+    {
+        return $this->container['date_of_birth'];
+    }
+
+    /**
+     * Sets date_of_birth
+     *
+     * @param \DateTime|null $date_of_birth The user's date of birth. Optional, but date of birth will become required for lookups starting September 1, 2026.
+     *
+     * @return self
+     */
+    public function setDateOfBirth($date_of_birth)
+    {
+        if (is_null($date_of_birth)) {
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['date_of_birth'] = $date_of_birth;
 
         return $this;
     }

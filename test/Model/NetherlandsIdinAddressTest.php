@@ -98,6 +98,24 @@ class NetherlandsIdinAddressTest extends TestCase
     }
 
     /**
+     * Test attribute "house_number_suffix"
+     */
+    public function testPropertyHouseNumberSuffix()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "address_extra"
+     */
+    public function testPropertyAddressExtra()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "postal_code"
      */
     public function testPropertyPostalCode()
@@ -119,6 +137,33 @@ class NetherlandsIdinAddressTest extends TestCase
      * Test attribute "country_code"
      */
     public function testPropertyCountryCode()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "international_address_line1"
+     */
+    public function testPropertyInternationalAddressLine1()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "international_address_line2"
+     */
+    public function testPropertyInternationalAddressLine2()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "international_address_line3"
+     */
+    public function testPropertyInternationalAddressLine3()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

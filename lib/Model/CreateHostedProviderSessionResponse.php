@@ -352,7 +352,7 @@ class CreateHostedProviderSessionResponse implements ModelInterface, ArrayAccess
     /**
      * Sets launch_url
      *
-     * @param string $launch_url The URL that should be used to launch the Hosted Provider Session on your user's device.              There are two recommended ways to do so: - Redirect their browser to the `LaunchUrl` as a top-level navigation - Open a popup window and navigate it to the `LaunchUrl`              This URL is sensitive and as such can only be obtained once. If you need to obtain it again, you will need to create a new Acceptance Session.
+     * @param string $launch_url The URL that should be used to launch the Hosted Provider Session on your user's device.              Redirect the user's browser to the `LaunchUrl` as a top-level navigation              This URL is sensitive and as such can only be obtained once. If you need to obtain it again, you will need to create a new Acceptance Session.
      *
      * @return self
      */

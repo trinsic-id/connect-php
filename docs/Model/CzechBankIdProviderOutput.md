@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**subject_identifier** | **string** | The subject identifier for the verified individual. |
+**subject_identifier** | **string** | The subject identifier for the verified individual. | [optional]
 **full_name** | **string** | The individual&#39;s full name. | [optional]
 **given_name** | **string** | The individual&#39;s given or first name. | [optional]
 **family_name** | **string** | The individual&#39;s family or last name. | [optional]

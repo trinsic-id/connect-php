@@ -57,8 +57,7 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $openAPITypes = [
-        'document_number' => 'string',
-        'date_of_birth' => '\DateTime'
+        'document_number' => 'string'
     ];
 
     /**
@@ -69,8 +68,7 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'document_number' => null,
-        'date_of_birth' => 'date'
+        'document_number' => null
     ];
 
     /**
@@ -79,8 +77,7 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'document_number' => true,
-        'date_of_birth' => true
+        'document_number' => true
     ];
 
     /**
@@ -169,8 +166,7 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $attributeMap = [
-        'document_number' => 'documentNumber',
-        'date_of_birth' => 'dateOfBirth'
+        'document_number' => 'documentNumber'
     ];
 
     /**
@@ -179,8 +175,7 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $setters = [
-        'document_number' => 'setDocumentNumber',
-        'date_of_birth' => 'setDateOfBirth'
+        'document_number' => 'setDocumentNumber'
     ];
 
     /**
@@ -189,8 +184,7 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
      * @var string[]
      */
     protected static $getters = [
-        'document_number' => 'getDocumentNumber',
-        'date_of_birth' => 'getDateOfBirth'
+        'document_number' => 'getDocumentNumber'
     ];
 
     /**
@@ -251,7 +245,6 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
     public function __construct(?array $data = null)
     {
         $this->setIfExists('document_number', $data ?? [], null);
-        $this->setIfExists('date_of_birth', $data ?? [], null);
     }
 
     /**
@@ -326,40 +319,6 @@ class PanamaCedulaLookupInput implements ModelInterface, ArrayAccess, \JsonSeria
             }
         }
         $this->container['document_number'] = $document_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets date_of_birth
-     *
-     * @return \DateTime|null
-     */
-    public function getDateOfBirth()
-    {
-        return $this->container['date_of_birth'];
-    }
-
-    /**
-     * Sets date_of_birth
-     *
-     * @param \DateTime|null $date_of_birth The user's date of birth, in `YYYY-MM-DD` format.
-     *
-     * @return self
-     */
-    public function setDateOfBirth($date_of_birth)
-    {
-        if (is_null($date_of_birth)) {
-            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('date_of_birth', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['date_of_birth'] = $date_of_birth;
 
         return $this;
     }

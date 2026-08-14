@@ -96,16 +96,16 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'full_name' => false,
-        'given_name' => false,
-        'family_name' => false,
-        'date_of_birth' => false,
-        'sex' => false,
-        'is_alive' => false,
-        'document_number' => false,
-        'expedition_date' => false,
-        'expedition_place' => false,
-        'array_name' => false
+        'full_name' => true,
+        'given_name' => true,
+        'family_name' => true,
+        'date_of_birth' => true,
+        'sex' => true,
+        'is_alive' => true,
+        'document_number' => true,
+        'expedition_date' => true,
+        'expedition_place' => true,
+        'array_name' => true
     ];
 
     /**
@@ -338,36 +338,6 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['given_name'] === null) {
-            $invalidProperties[] = "'given_name' can't be null";
-        }
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['sex'] === null) {
-            $invalidProperties[] = "'sex' can't be null";
-        }
-        if ($this->container['is_alive'] === null) {
-            $invalidProperties[] = "'is_alive' can't be null";
-        }
-        if ($this->container['document_number'] === null) {
-            $invalidProperties[] = "'document_number' can't be null";
-        }
-        if ($this->container['expedition_date'] === null) {
-            $invalidProperties[] = "'expedition_date' can't be null";
-        }
-        if ($this->container['expedition_place'] === null) {
-            $invalidProperties[] = "'expedition_place' can't be null";
-        }
-        if ($this->container['array_name'] === null) {
-            $invalidProperties[] = "'array_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -386,7 +356,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -396,14 +366,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets full_name
      *
-     * @param string $full_name Full name as it appears on the CC.
+     * @param string|null $full_name Full name as it appears on the CC.
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -413,7 +390,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets given_name
      *
-     * @return string
+     * @return string|null
      */
     public function getGivenName()
     {
@@ -423,14 +400,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets given_name
      *
-     * @param string $given_name Given name(s) of the holder as they appear on the CC.
+     * @param string|null $given_name Given name(s) of the holder as they appear on the CC.
      *
      * @return self
      */
     public function setGivenName($given_name)
     {
         if (is_null($given_name)) {
-            throw new \InvalidArgumentException('non-nullable given_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'given_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('given_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['given_name'] = $given_name;
 
@@ -440,7 +424,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -450,14 +434,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets family_name
      *
-     * @param string $family_name Family name(s) of the holder as they appear on the CC. Space-separated when both paternal and maternal family names are present.
+     * @param string|null $family_name Family name(s) of the holder as they appear on the CC. Space-separated when both paternal and maternal family names are present.
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 
@@ -467,7 +458,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -477,14 +468,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth Date of birth as recorded in the civil registry (Registraduría Nacional).
+     * @param \DateTime|null $date_of_birth Date of birth as recorded in the civil registry (Registraduría Nacional).
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -494,7 +492,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets sex
      *
-     * @return string
+     * @return string|null
      */
     public function getSex()
     {
@@ -504,14 +502,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets sex
      *
-     * @param string $sex Sex of the holder as recorded in the civil registry (Registraduría Nacional).              Possible values: - Male - Female - Unknown (when the sex is not recorded or cannot be confidently determined)
+     * @param string|null $sex Sex of the holder as recorded in the civil registry (Registraduría Nacional).              Possible values: - Male - Female - Unknown (when the sex is not recorded or cannot be confidently determined)
      *
      * @return self
      */
     public function setSex($sex)
     {
         if (is_null($sex)) {
-            throw new \InvalidArgumentException('non-nullable sex cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sex', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sex'] = $sex;
 
@@ -521,7 +526,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets is_alive
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsAlive()
     {
@@ -531,14 +536,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets is_alive
      *
-     * @param bool $is_alive Whether the person is reported as alive in Colombia's official civil registry (Registraduría Nacional).              Used to detect identity fraud when the holder is deceased.
+     * @param bool|null $is_alive Whether the person is reported as alive in Colombia's official civil registry (Registraduría Nacional).              Used to detect identity fraud when the holder is deceased.
      *
      * @return self
      */
     public function setIsAlive($is_alive)
     {
         if (is_null($is_alive)) {
-            throw new \InvalidArgumentException('non-nullable is_alive cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_alive');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_alive', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_alive'] = $is_alive;
 
@@ -548,7 +560,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets document_number
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentNumber()
     {
@@ -558,14 +570,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets document_number
      *
-     * @param string $document_number The Cédula de Ciudadanía (CC) document number.              This is the unique identifier assigned by the Registraduría Nacional when the person is first issued a CC. It does not change when the person renews or receives a new physical card; it remains the same for the individual for life.              Cédulas issued after 2004 use the NUIP (Número Único de Identificación Personal), which is 10 digits. Older documents may have fewer than 10 digits and are still valid.
+     * @param string|null $document_number The Cédula de Ciudadanía (CC) document number.              This is the unique identifier assigned by the Registraduría Nacional when the person is first issued a CC. It does not change when the person renews or receives a new physical card; it remains the same for the individual for life.              Cédulas issued after 2004 use the NUIP (Número Único de Identificación Personal), which is 10 digits. Older documents may have fewer than 10 digits and are still valid.
      *
      * @return self
      */
     public function setDocumentNumber($document_number)
     {
         if (is_null($document_number)) {
-            throw new \InvalidArgumentException('non-nullable document_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_number'] = $document_number;
 
@@ -575,7 +594,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets expedition_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getExpeditionDate()
     {
@@ -585,14 +604,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets expedition_date
      *
-     * @param \DateTime $expedition_date Date the CC was issued (fecha de expedición).              Format: - yyyy-MM-dd
+     * @param \DateTime|null $expedition_date Date the CC was issued (fecha de expedición).              Format: - yyyy-MM-dd
      *
      * @return self
      */
     public function setExpeditionDate($expedition_date)
     {
         if (is_null($expedition_date)) {
-            throw new \InvalidArgumentException('non-nullable expedition_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expedition_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expedition_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expedition_date'] = $expedition_date;
 
@@ -602,7 +628,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets expedition_place
      *
-     * @return \Trinsic\Api\Model\ColombiaExpeditionPlace
+     * @return \Trinsic\Api\Model\ColombiaExpeditionPlace|null
      */
     public function getExpeditionPlace()
     {
@@ -612,14 +638,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets expedition_place
      *
-     * @param \Trinsic\Api\Model\ColombiaExpeditionPlace $expedition_place Place where the CC was issued (lugar de expedición): municipality and department as recorded by the Registraduría Nacional.
+     * @param \Trinsic\Api\Model\ColombiaExpeditionPlace|null $expedition_place Place where the CC was issued (lugar de expedición): municipality and department as recorded by the Registraduría Nacional.
      *
      * @return self
      */
     public function setExpeditionPlace($expedition_place)
     {
         if (is_null($expedition_place)) {
-            throw new \InvalidArgumentException('non-nullable expedition_place cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'expedition_place');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('expedition_place', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['expedition_place'] = $expedition_place;
 
@@ -629,7 +662,7 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets array_name
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getArrayName()
     {
@@ -639,14 +672,21 @@ class ColombiaCcProviderOutput implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets array_name
      *
-     * @param string[] $array_name All names as they appear on the CC, as an array of strings.              Format: - Order follows the civil registry: typically family name(s) first, then given name(s).
+     * @param string[]|null $array_name All names as they appear on the CC, as an array of strings.              Format: - Order follows the civil registry: typically family name(s) first, then given name(s).
      *
      * @return self
      */
     public function setArrayName($array_name)
     {
         if (is_null($array_name)) {
-            throw new \InvalidArgumentException('non-nullable array_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'array_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('array_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['array_name'] = $array_name;
 

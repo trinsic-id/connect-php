@@ -79,8 +79,8 @@ class SouthAfricaNidMatch2NationalIdNumberField implements ModelInterface, Array
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'input_value' => false,
-        'outcome' => false
+        'input_value' => true,
+        'outcome' => true
     ];
 
     /**
@@ -281,12 +281,6 @@ class SouthAfricaNidMatch2NationalIdNumberField implements ModelInterface, Array
     {
         $invalidProperties = [];
 
-        if ($this->container['input_value'] === null) {
-            $invalidProperties[] = "'input_value' can't be null";
-        }
-        if ($this->container['outcome'] === null) {
-            $invalidProperties[] = "'outcome' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -305,7 +299,7 @@ class SouthAfricaNidMatch2NationalIdNumberField implements ModelInterface, Array
     /**
      * Gets input_value
      *
-     * @return string
+     * @return string|null
      */
     public function getInputValue()
     {
@@ -315,14 +309,21 @@ class SouthAfricaNidMatch2NationalIdNumberField implements ModelInterface, Array
     /**
      * Sets input_value
      *
-     * @param string $input_value The South African National Identity Number (13 digits) is issued for life by the Department of Home Affairs (DHA) and stored in the Home Affairs National Identification System (HANIS) database. The same number is mandatory for banking, employment, taxation, and voting, and is printed on both the legacy green ID book and the Smart ID Card (rolled out from 2013 onward).              Format: - YYMMDD G(4) C A Z - YYMMDD is the date of birth - G(4) is the gender code (below 5000 female, 5000 or above male) - C is the citizenship indicator (0 citizen, 1 permanent resident) - A is reserved (it had a politically sensitive meaning in the past, but is currently   semantically meaningless) - Z is a Luhn check digit
+     * @param string|null $input_value The South African National Identity Number (13 digits) is issued for life by the Department of Home Affairs (DHA) and stored in the Home Affairs National Identification System (HANIS) database. The same number is mandatory for banking, employment, taxation, and voting, and is printed on both the legacy green ID book and the Smart ID Card (rolled out from 2013 onward).              Format: - YYMMDD G(4) C A Z - YYMMDD is the date of birth - G(4) is the gender code (below 5000 female, 5000 or above male) - C is the citizenship indicator (0 citizen, 1 permanent resident) - A is reserved (it had a politically sensitive meaning in the past, but is currently   semantically meaningless) - Z is a Luhn check digit
      *
      * @return self
      */
     public function setInputValue($input_value)
     {
         if (is_null($input_value)) {
-            throw new \InvalidArgumentException('non-nullable input_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'input_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('input_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['input_value'] = $input_value;
 
@@ -332,7 +333,7 @@ class SouthAfricaNidMatch2NationalIdNumberField implements ModelInterface, Array
     /**
      * Gets outcome
      *
-     * @return string
+     * @return string|null
      */
     public function getOutcome()
     {
@@ -342,14 +343,21 @@ class SouthAfricaNidMatch2NationalIdNumberField implements ModelInterface, Array
     /**
      * Sets outcome
      *
-     * @param string $outcome The outcome of verifying the national ID number.              Possible values: - Verified - Not Verified - Not Done - Issuer Unavailable - Not Returned
+     * @param string|null $outcome The outcome of verifying the national ID number.              Possible values: - Verified - Not Verified - Not Done - Issuer Unavailable - Not Returned
      *
      * @return self
      */
     public function setOutcome($outcome)
     {
         if (is_null($outcome)) {
-            throw new \InvalidArgumentException('non-nullable outcome cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'outcome');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('outcome', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['outcome'] = $outcome;
 

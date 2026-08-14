@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * ItsmeProviderOutputTest Class Doc Comment
  *
  * @category    Class
- * @description Exposed properties for the &#x60;a-itsme-login&#x60; Provider which do not directly map to the normalized IdentityData model.
+ * @description Exposed properties for the &#x60;itsme&#x60; Provider which do not directly map to the normalized IdentityData model.
  * @package     Trinsic\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -80,45 +80,9 @@ class ItsmeProviderOutputTest extends TestCase
     }
 
     /**
-     * Test attribute "first_name"
-     */
-    public function testPropertyFirstName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "last_name"
-     */
-    public function testPropertyLastName()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
      * Test attribute "date_of_birth"
      */
     public function testPropertyDateOfBirth()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "hashed_national_register_number"
-     */
-    public function testPropertyHashedNationalRegisterNumber()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "national_register_number"
-     */
-    public function testPropertyNationalRegisterNumber()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -143,6 +107,51 @@ class ItsmeProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "sub"
+     */
+    public function testPropertySub()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "full_name"
+     */
+    public function testPropertyFullName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "given_name"
+     */
+    public function testPropertyGivenName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "family_name"
+     */
+    public function testPropertyFamilyName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "date_of_birth_as_string"
+     */
+    public function testPropertyDateOfBirthAsString()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "gender"
      */
     public function testPropertyGender()
@@ -152,45 +161,36 @@ class ItsmeProviderOutputTest extends TestCase
     }
 
     /**
-     * Test attribute "nationality"
+     * Test attribute "locale"
      */
-    public function testPropertyNationality()
+    public function testPropertyLocale()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "birth_place"
+     * Test attribute "picture_url"
      */
-    public function testPropertyBirthPlace()
+    public function testPropertyPictureUrl()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "document_number"
+     * Test attribute "email_verified"
      */
-    public function testPropertyDocumentNumber()
+    public function testPropertyEmailVerified()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
     }
 
     /**
-     * Test attribute "identity_document_expiration_date"
+     * Test attribute "phone_number_verified"
      */
-    public function testPropertyIdentityDocumentExpirationDate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "language"
-     */
-    public function testPropertyLanguage()
+    public function testPropertyPhoneNumberVerified()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -200,6 +200,60 @@ class ItsmeProviderOutputTest extends TestCase
      * Test attribute "address"
      */
     public function testPropertyAddress()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "citizenship"
+     */
+    public function testPropertyCitizenship()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "belgian_national_number"
+     */
+    public function testPropertyBelgianNationalNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "belgian_identity_card"
+     */
+    public function testPropertyBelgianIdentityCard()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "identity_document"
+     */
+    public function testPropertyIdentityDocument()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "place_of_birth"
+     */
+    public function testPropertyPlaceOfBirth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "device"
+     */
+    public function testPropertyDevice()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

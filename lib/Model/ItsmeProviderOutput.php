@@ -35,7 +35,7 @@ use \Trinsic\Api\ObjectSerializer;
  * ItsmeProviderOutput Class Doc Comment
  *
  * @category Class
- * @description Exposed properties for the &#x60;a-itsme-login&#x60; Provider which do not directly map to the normalized IdentityData model.
+ * @description Exposed properties for the &#x60;itsme&#x60; Provider which do not directly map to the normalized IdentityData model.
  * @package  Trinsic\Api
  * @author   OpenAPI Generator team
  * @link     https://openapi-generator.tech
@@ -58,20 +58,26 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $openAPITypes = [
-        'first_name' => 'string',
-        'last_name' => 'string',
         'date_of_birth' => '\DateTime',
-        'hashed_national_register_number' => 'string',
-        'national_register_number' => 'string',
         'email' => 'string',
         'phone_number' => 'string',
+        'sub' => 'string',
+        'full_name' => 'string',
+        'given_name' => 'string',
+        'family_name' => 'string',
+        'date_of_birth_as_string' => 'string',
         'gender' => 'string',
-        'nationality' => 'string',
-        'birth_place' => 'string',
-        'document_number' => 'string',
-        'identity_document_expiration_date' => '\DateTime',
-        'language' => 'string',
-        'address' => '\Trinsic\Api\Model\ItsmeAddress'
+        'locale' => 'string',
+        'picture_url' => 'string',
+        'email_verified' => 'bool',
+        'phone_number_verified' => 'bool',
+        'address' => '\Trinsic\Api\Model\ItsmeProviderAddress',
+        'citizenship' => 'string',
+        'belgian_national_number' => '\Trinsic\Api\Model\ItsmeBelgianNationalNumber',
+        'belgian_identity_card' => '\Trinsic\Api\Model\ItsmeBelgianIdentityCard',
+        'identity_document' => '\Trinsic\Api\Model\ItsmeIdentityDocument',
+        'place_of_birth' => '\Trinsic\Api\Model\ItsmePlaceOfBirth',
+        'device' => '\Trinsic\Api\Model\ItsmeDirectDevice'
     ];
 
     /**
@@ -82,20 +88,26 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
      * @psalm-var array<string, string|null>
      */
     protected static $openAPIFormats = [
-        'first_name' => null,
-        'last_name' => null,
         'date_of_birth' => 'date',
-        'hashed_national_register_number' => null,
-        'national_register_number' => null,
         'email' => null,
         'phone_number' => null,
+        'sub' => null,
+        'full_name' => null,
+        'given_name' => null,
+        'family_name' => null,
+        'date_of_birth_as_string' => null,
         'gender' => null,
-        'nationality' => null,
-        'birth_place' => null,
-        'document_number' => null,
-        'identity_document_expiration_date' => 'date',
-        'language' => null,
-        'address' => null
+        'locale' => null,
+        'picture_url' => null,
+        'email_verified' => null,
+        'phone_number_verified' => null,
+        'address' => null,
+        'citizenship' => null,
+        'belgian_national_number' => null,
+        'belgian_identity_card' => null,
+        'identity_document' => null,
+        'place_of_birth' => null,
+        'device' => null
     ];
 
     /**
@@ -104,20 +116,26 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'date_of_birth' => false,
-        'hashed_national_register_number' => true,
-        'national_register_number' => true,
+        'date_of_birth' => true,
         'email' => true,
         'phone_number' => true,
+        'sub' => true,
+        'full_name' => true,
+        'given_name' => true,
+        'family_name' => true,
+        'date_of_birth_as_string' => true,
         'gender' => true,
-        'nationality' => true,
-        'birth_place' => true,
-        'document_number' => true,
-        'identity_document_expiration_date' => true,
-        'language' => true,
-        'address' => true
+        'locale' => true,
+        'picture_url' => true,
+        'email_verified' => true,
+        'phone_number_verified' => true,
+        'address' => true,
+        'citizenship' => true,
+        'belgian_national_number' => true,
+        'belgian_identity_card' => true,
+        'identity_document' => true,
+        'place_of_birth' => true,
+        'device' => true
     ];
 
     /**
@@ -206,20 +224,26 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $attributeMap = [
-        'first_name' => 'firstName',
-        'last_name' => 'lastName',
         'date_of_birth' => 'dateOfBirth',
-        'hashed_national_register_number' => 'hashedNationalRegisterNumber',
-        'national_register_number' => 'nationalRegisterNumber',
         'email' => 'email',
         'phone_number' => 'phoneNumber',
+        'sub' => 'sub',
+        'full_name' => 'fullName',
+        'given_name' => 'givenName',
+        'family_name' => 'familyName',
+        'date_of_birth_as_string' => 'dateOfBirthAsString',
         'gender' => 'gender',
-        'nationality' => 'nationality',
-        'birth_place' => 'birthPlace',
-        'document_number' => 'documentNumber',
-        'identity_document_expiration_date' => 'identityDocumentExpirationDate',
-        'language' => 'language',
-        'address' => 'address'
+        'locale' => 'locale',
+        'picture_url' => 'pictureUrl',
+        'email_verified' => 'emailVerified',
+        'phone_number_verified' => 'phoneNumberVerified',
+        'address' => 'address',
+        'citizenship' => 'citizenship',
+        'belgian_national_number' => 'belgianNationalNumber',
+        'belgian_identity_card' => 'belgianIdentityCard',
+        'identity_document' => 'identityDocument',
+        'place_of_birth' => 'placeOfBirth',
+        'device' => 'device'
     ];
 
     /**
@@ -228,20 +252,26 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $setters = [
-        'first_name' => 'setFirstName',
-        'last_name' => 'setLastName',
         'date_of_birth' => 'setDateOfBirth',
-        'hashed_national_register_number' => 'setHashedNationalRegisterNumber',
-        'national_register_number' => 'setNationalRegisterNumber',
         'email' => 'setEmail',
         'phone_number' => 'setPhoneNumber',
+        'sub' => 'setSub',
+        'full_name' => 'setFullName',
+        'given_name' => 'setGivenName',
+        'family_name' => 'setFamilyName',
+        'date_of_birth_as_string' => 'setDateOfBirthAsString',
         'gender' => 'setGender',
-        'nationality' => 'setNationality',
-        'birth_place' => 'setBirthPlace',
-        'document_number' => 'setDocumentNumber',
-        'identity_document_expiration_date' => 'setIdentityDocumentExpirationDate',
-        'language' => 'setLanguage',
-        'address' => 'setAddress'
+        'locale' => 'setLocale',
+        'picture_url' => 'setPictureUrl',
+        'email_verified' => 'setEmailVerified',
+        'phone_number_verified' => 'setPhoneNumberVerified',
+        'address' => 'setAddress',
+        'citizenship' => 'setCitizenship',
+        'belgian_national_number' => 'setBelgianNationalNumber',
+        'belgian_identity_card' => 'setBelgianIdentityCard',
+        'identity_document' => 'setIdentityDocument',
+        'place_of_birth' => 'setPlaceOfBirth',
+        'device' => 'setDevice'
     ];
 
     /**
@@ -250,20 +280,26 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
      * @var string[]
      */
     protected static $getters = [
-        'first_name' => 'getFirstName',
-        'last_name' => 'getLastName',
         'date_of_birth' => 'getDateOfBirth',
-        'hashed_national_register_number' => 'getHashedNationalRegisterNumber',
-        'national_register_number' => 'getNationalRegisterNumber',
         'email' => 'getEmail',
         'phone_number' => 'getPhoneNumber',
+        'sub' => 'getSub',
+        'full_name' => 'getFullName',
+        'given_name' => 'getGivenName',
+        'family_name' => 'getFamilyName',
+        'date_of_birth_as_string' => 'getDateOfBirthAsString',
         'gender' => 'getGender',
-        'nationality' => 'getNationality',
-        'birth_place' => 'getBirthPlace',
-        'document_number' => 'getDocumentNumber',
-        'identity_document_expiration_date' => 'getIdentityDocumentExpirationDate',
-        'language' => 'getLanguage',
-        'address' => 'getAddress'
+        'locale' => 'getLocale',
+        'picture_url' => 'getPictureUrl',
+        'email_verified' => 'getEmailVerified',
+        'phone_number_verified' => 'getPhoneNumberVerified',
+        'address' => 'getAddress',
+        'citizenship' => 'getCitizenship',
+        'belgian_national_number' => 'getBelgianNationalNumber',
+        'belgian_identity_card' => 'getBelgianIdentityCard',
+        'identity_document' => 'getIdentityDocument',
+        'place_of_birth' => 'getPlaceOfBirth',
+        'device' => 'getDevice'
     ];
 
     /**
@@ -323,20 +359,26 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
      */
     public function __construct(?array $data = null)
     {
-        $this->setIfExists('first_name', $data ?? [], null);
-        $this->setIfExists('last_name', $data ?? [], null);
         $this->setIfExists('date_of_birth', $data ?? [], null);
-        $this->setIfExists('hashed_national_register_number', $data ?? [], null);
-        $this->setIfExists('national_register_number', $data ?? [], null);
         $this->setIfExists('email', $data ?? [], null);
         $this->setIfExists('phone_number', $data ?? [], null);
+        $this->setIfExists('sub', $data ?? [], null);
+        $this->setIfExists('full_name', $data ?? [], null);
+        $this->setIfExists('given_name', $data ?? [], null);
+        $this->setIfExists('family_name', $data ?? [], null);
+        $this->setIfExists('date_of_birth_as_string', $data ?? [], null);
         $this->setIfExists('gender', $data ?? [], null);
-        $this->setIfExists('nationality', $data ?? [], null);
-        $this->setIfExists('birth_place', $data ?? [], null);
-        $this->setIfExists('document_number', $data ?? [], null);
-        $this->setIfExists('identity_document_expiration_date', $data ?? [], null);
-        $this->setIfExists('language', $data ?? [], null);
+        $this->setIfExists('locale', $data ?? [], null);
+        $this->setIfExists('picture_url', $data ?? [], null);
+        $this->setIfExists('email_verified', $data ?? [], null);
+        $this->setIfExists('phone_number_verified', $data ?? [], null);
         $this->setIfExists('address', $data ?? [], null);
+        $this->setIfExists('citizenship', $data ?? [], null);
+        $this->setIfExists('belgian_national_number', $data ?? [], null);
+        $this->setIfExists('belgian_identity_card', $data ?? [], null);
+        $this->setIfExists('identity_document', $data ?? [], null);
+        $this->setIfExists('place_of_birth', $data ?? [], null);
+        $this->setIfExists('device', $data ?? [], null);
     }
 
     /**
@@ -366,15 +408,6 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -391,63 +424,9 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
 
 
     /**
-     * Gets first_name
-     *
-     * @return string
-     */
-    public function getFirstName()
-    {
-        return $this->container['first_name'];
-    }
-
-    /**
-     * Sets first_name
-     *
-     * @param string $first_name The first name of the verified individual
-     *
-     * @return self
-     */
-    public function setFirstName($first_name)
-    {
-        if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
-        }
-        $this->container['first_name'] = $first_name;
-
-        return $this;
-    }
-
-    /**
-     * Gets last_name
-     *
-     * @return string
-     */
-    public function getLastName()
-    {
-        return $this->container['last_name'];
-    }
-
-    /**
-     * Sets last_name
-     *
-     * @param string $last_name The last name of the verified individual
-     *
-     * @return self
-     */
-    public function setLastName($last_name)
-    {
-        if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
-        }
-        $this->container['last_name'] = $last_name;
-
-        return $this;
-    }
-
-    /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -457,84 +436,23 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The date of birth of the verified individual
+     * @param \DateTime|null $date_of_birth The date of birth of the verified individual.              Availability by ID document issuing country: always returned for supported issuing countries except Belgium, where it is best effort.
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
-
-        return $this;
-    }
-
-    /**
-     * Gets hashed_national_register_number
-     *
-     * @return string|null
-     */
-    public function getHashedNationalRegisterNumber()
-    {
-        return $this->container['hashed_national_register_number'];
-    }
-
-    /**
-     * Sets hashed_national_register_number
-     *
-     * @param string|null $hashed_national_register_number The hashed version of the Belgian National Register Number of the verified individual.              By default, itsme does not return the raw National Register Number of the individual; instead, only a hashed version is returned.              Your account must be approved by itsme to receive the raw, unhashed National Register Number.
-     *
-     * @return self
-     */
-    public function setHashedNationalRegisterNumber($hashed_national_register_number)
-    {
-        if (is_null($hashed_national_register_number)) {
-            array_push($this->openAPINullablesSetToNull, 'hashed_national_register_number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('hashed_national_register_number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['hashed_national_register_number'] = $hashed_national_register_number;
-
-        return $this;
-    }
-
-    /**
-     * Gets national_register_number
-     *
-     * @return string|null
-     */
-    public function getNationalRegisterNumber()
-    {
-        return $this->container['national_register_number'];
-    }
-
-    /**
-     * Sets national_register_number
-     *
-     * @param string|null $national_register_number The raw (not hashed) Belgian National Register Number (\"Rijksregisternummer\") of the verified individual.              Only returned if your account has been explicitly authorized to receive it by itsme; by law, this data is considered sensitive personal data.              This is an 11-digit number in the format YYMMDDXXXCC, where: - YYMMDD represents the individual's date of birth (year, month, day). - XXX is a sequential birth number, odd for females and even for males. - CC is a checksum, calculated with the equation: 97 - (YYMMDDXXX mod 97)              For births in the year 2000 or later, the digit '2' is prepended to the first 9 digits during checksum calculation.
-     *
-     * @return self
-     */
-    public function setNationalRegisterNumber($national_register_number)
-    {
-        if (is_null($national_register_number)) {
-            array_push($this->openAPINullablesSetToNull, 'national_register_number');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('national_register_number', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['national_register_number'] = $national_register_number;
 
         return $this;
     }
@@ -552,7 +470,7 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets email
      *
-     * @param string|null $email The individual's email address.
+     * @param string|null $email The email address of the verified individual.              Availability by ID document issuing country: best effort for all supported issuing countries.
      *
      * @return self
      */
@@ -586,7 +504,7 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets phone_number
      *
-     * @param string|null $phone_number The individual's phone number in international format.
+     * @param string|null $phone_number The phone number of the verified individual, with a leading + country calling code.              Availability by ID document issuing country: always returned for all supported issuing countries.
      *
      * @return self
      */
@@ -608,6 +526,176 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
+     * Gets sub
+     *
+     * @return string|null
+     */
+    public function getSub()
+    {
+        return $this->container['sub'];
+    }
+
+    /**
+     * Sets sub
+     *
+     * @param string|null $sub The stable OpenID Connect (OIDC) subject (sub) identifier.              This should be a stable identifier, however, if a user deletes and recreates an account, this identifier will change.
+     *
+     * @return self
+     */
+    public function setSub($sub)
+    {
+        if (is_null($sub)) {
+            array_push($this->openAPINullablesSetToNull, 'sub');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sub', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['sub'] = $sub;
+
+        return $this;
+    }
+
+    /**
+     * Gets full_name
+     *
+     * @return string|null
+     */
+    public function getFullName()
+    {
+        return $this->container['full_name'];
+    }
+
+    /**
+     * Sets full_name
+     *
+     * @param string|null $full_name The full name of the verified individual.              Availability by ID document issuing country: always returned for all supported issuing countries.
+     *
+     * @return self
+     */
+    public function setFullName($full_name)
+    {
+        if (is_null($full_name)) {
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['full_name'] = $full_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets given_name
+     *
+     * @return string|null
+     */
+    public function getGivenName()
+    {
+        return $this->container['given_name'];
+    }
+
+    /**
+     * Sets given_name
+     *
+     * @param string|null $given_name The given name of the verified individual.              Availability by ID document issuing country: best effort for all supported issuing countries.
+     *
+     * @return self
+     */
+    public function setGivenName($given_name)
+    {
+        if (is_null($given_name)) {
+            array_push($this->openAPINullablesSetToNull, 'given_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('given_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['given_name'] = $given_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets family_name
+     *
+     * @return string|null
+     */
+    public function getFamilyName()
+    {
+        return $this->container['family_name'];
+    }
+
+    /**
+     * Sets family_name
+     *
+     * @param string|null $family_name The family name of the verified individual.              Availability by ID document issuing country: always returned for all supported issuing countries.
+     *
+     * @return self
+     */
+    public function setFamilyName($family_name)
+    {
+        if (is_null($family_name)) {
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['family_name'] = $family_name;
+
+        return $this;
+    }
+
+    /**
+     * Gets date_of_birth_as_string
+     *
+     * @return string|null
+     */
+    public function getDateOfBirthAsString()
+    {
+        return $this->container['date_of_birth_as_string'];
+    }
+
+    /**
+     * Sets date_of_birth_as_string
+     *
+     * @param string|null $date_of_birth_as_string The date of birth of the verified individual in itsme's document-facing string format.              Availability by ID document issuing country: best effort for Belgian-issued ID documents; not returned for other supported issuing countries.
+     *
+     * @return self
+     */
+    public function setDateOfBirthAsString($date_of_birth_as_string)
+    {
+        if (is_null($date_of_birth_as_string)) {
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth_as_string');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth_as_string', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['date_of_birth_as_string'] = $date_of_birth_as_string;
+
+        return $this;
+    }
+
+    /**
      * Gets gender
      *
      * @return string|null
@@ -620,7 +708,7 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets gender
      *
-     * @param string|null $gender The individual's gender.              Possible values: - Male - Female - Unknown - Not Applicable
+     * @param string|null $gender The gender claim for the verified individual.              Availability by ID document issuing country: always returned for supported issuing countries except Netherlands, where it is best effort.              Known values: - Female - Male - Unknown
      *
      * @return self
      */
@@ -642,171 +730,137 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     }
 
     /**
-     * Gets nationality
+     * Gets locale
      *
      * @return string|null
      */
-    public function getNationality()
+    public function getLocale()
     {
-        return $this->container['nationality'];
+        return $this->container['locale'];
     }
 
     /**
-     * Sets nationality
+     * Sets locale
      *
-     * @param string|null $nationality The individual's nationality as an ISO 3166-1 alpha-3 code.
+     * @param string|null $locale The itsme app language as an uppercase language code.              Availability by ID document issuing country: best effort for all supported issuing countries.              Known values: - NL - FR - DE - EN
      *
      * @return self
      */
-    public function setNationality($nationality)
+    public function setLocale($locale)
     {
-        if (is_null($nationality)) {
-            array_push($this->openAPINullablesSetToNull, 'nationality');
+        if (is_null($locale)) {
+            array_push($this->openAPINullablesSetToNull, 'locale');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('nationality', $nullablesSetToNull);
+            $index = array_search('locale', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['nationality'] = $nationality;
+        $this->container['locale'] = $locale;
 
         return $this;
     }
 
     /**
-     * Gets birth_place
+     * Gets picture_url
      *
      * @return string|null
      */
-    public function getBirthPlace()
+    public function getPictureUrl()
     {
-        return $this->container['birth_place'];
+        return $this->container['picture_url'];
     }
 
     /**
-     * Sets birth_place
+     * Sets picture_url
      *
-     * @param string|null $birth_place The individual's place of birth.
+     * @param string|null $picture_url The URL of the profile picture resource.              Availability by ID document issuing country: always returned for supported issuing countries except Belgium, where it is best effort.
      *
      * @return self
      */
-    public function setBirthPlace($birth_place)
+    public function setPictureUrl($picture_url)
     {
-        if (is_null($birth_place)) {
-            array_push($this->openAPINullablesSetToNull, 'birth_place');
+        if (is_null($picture_url)) {
+            array_push($this->openAPINullablesSetToNull, 'picture_url');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('birth_place', $nullablesSetToNull);
+            $index = array_search('picture_url', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['birth_place'] = $birth_place;
+        $this->container['picture_url'] = $picture_url;
 
         return $this;
     }
 
     /**
-     * Gets document_number
+     * Gets email_verified
      *
-     * @return string|null
+     * @return bool|null
      */
-    public function getDocumentNumber()
+    public function getEmailVerified()
     {
-        return $this->container['document_number'];
+        return $this->container['email_verified'];
     }
 
     /**
-     * Sets document_number
+     * Sets email_verified
      *
-     * @param string|null $document_number The document number
+     * @param bool|null $email_verified Whether itsme reports the email address as verified.              Availability by ID document issuing country: returned only if `email` is available.              Note: itsme currently documents that this value is usually false because email verification is not implemented in its systems.
      *
      * @return self
      */
-    public function setDocumentNumber($document_number)
+    public function setEmailVerified($email_verified)
     {
-        if (is_null($document_number)) {
-            array_push($this->openAPINullablesSetToNull, 'document_number');
+        if (is_null($email_verified)) {
+            array_push($this->openAPINullablesSetToNull, 'email_verified');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('document_number', $nullablesSetToNull);
+            $index = array_search('email_verified', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['document_number'] = $document_number;
+        $this->container['email_verified'] = $email_verified;
 
         return $this;
     }
 
     /**
-     * Gets identity_document_expiration_date
+     * Gets phone_number_verified
      *
-     * @return \DateTime|null
+     * @return bool|null
      */
-    public function getIdentityDocumentExpirationDate()
+    public function getPhoneNumberVerified()
     {
-        return $this->container['identity_document_expiration_date'];
+        return $this->container['phone_number_verified'];
     }
 
     /**
-     * Sets identity_document_expiration_date
+     * Sets phone_number_verified
      *
-     * @param \DateTime|null $identity_document_expiration_date The expiration date of the identity document.
+     * @param bool|null $phone_number_verified Whether itsme reports the phone number as verified.              Availability by ID document issuing country: always returned for all supported issuing countries.
      *
      * @return self
      */
-    public function setIdentityDocumentExpirationDate($identity_document_expiration_date)
+    public function setPhoneNumberVerified($phone_number_verified)
     {
-        if (is_null($identity_document_expiration_date)) {
-            array_push($this->openAPINullablesSetToNull, 'identity_document_expiration_date');
+        if (is_null($phone_number_verified)) {
+            array_push($this->openAPINullablesSetToNull, 'phone_number_verified');
         } else {
             $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('identity_document_expiration_date', $nullablesSetToNull);
+            $index = array_search('phone_number_verified', $nullablesSetToNull);
             if ($index !== FALSE) {
                 unset($nullablesSetToNull[$index]);
                 $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
             }
         }
-        $this->container['identity_document_expiration_date'] = $identity_document_expiration_date;
-
-        return $this;
-    }
-
-    /**
-     * Gets language
-     *
-     * @return string|null
-     */
-    public function getLanguage()
-    {
-        return $this->container['language'];
-    }
-
-    /**
-     * Sets language
-     *
-     * @param string|null $language The individual's language as an ISO 639-1 code. Expected values: NL, FR, DE, EN.
-     *
-     * @return self
-     */
-    public function setLanguage($language)
-    {
-        if (is_null($language)) {
-            array_push($this->openAPINullablesSetToNull, 'language');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('language', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['language'] = $language;
+        $this->container['phone_number_verified'] = $phone_number_verified;
 
         return $this;
     }
@@ -814,7 +868,7 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Gets address
      *
-     * @return \Trinsic\Api\Model\ItsmeAddress|null
+     * @return \Trinsic\Api\Model\ItsmeProviderAddress|null
      */
     public function getAddress()
     {
@@ -824,7 +878,7 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
     /**
      * Sets address
      *
-     * @param \Trinsic\Api\Model\ItsmeAddress|null $address The individual's address
+     * @param \Trinsic\Api\Model\ItsmeProviderAddress|null $address The address of the verified individual.              Availability by ID document issuing country: always returned for Belgian-issued ID documents, best effort for Netherlands-issued ID documents, and not returned for other supported issuing countries.
      *
      * @return self
      */
@@ -841,6 +895,210 @@ class ItsmeProviderOutput implements ModelInterface, ArrayAccess, \JsonSerializa
             }
         }
         $this->container['address'] = $address;
+
+        return $this;
+    }
+
+    /**
+     * Gets citizenship
+     *
+     * @return string|null
+     */
+    public function getCitizenship()
+    {
+        return $this->container['citizenship'];
+    }
+
+    /**
+     * Sets citizenship
+     *
+     * @param string|null $citizenship The citizenship of the verified individual as an ISO 3166-1 alpha-2 country code.              Availability by ID document issuing country: always returned for supported issuing countries except Belgium, where it is best effort.
+     *
+     * @return self
+     */
+    public function setCitizenship($citizenship)
+    {
+        if (is_null($citizenship)) {
+            array_push($this->openAPINullablesSetToNull, 'citizenship');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('citizenship', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['citizenship'] = $citizenship;
+
+        return $this;
+    }
+
+    /**
+     * Gets belgian_national_number
+     *
+     * @return \Trinsic\Api\Model\ItsmeBelgianNationalNumber|null
+     */
+    public function getBelgianNationalNumber()
+    {
+        return $this->container['belgian_national_number'];
+    }
+
+    /**
+     * Sets belgian_national_number
+     *
+     * @param \Trinsic\Api\Model\ItsmeBelgianNationalNumber|null $belgian_national_number The Belgian National Register Number and related metadata.              Availability by ID document issuing country: returned only for Belgian-issued ID documents.
+     *
+     * @return self
+     */
+    public function setBelgianNationalNumber($belgian_national_number)
+    {
+        if (is_null($belgian_national_number)) {
+            array_push($this->openAPINullablesSetToNull, 'belgian_national_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('belgian_national_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['belgian_national_number'] = $belgian_national_number;
+
+        return $this;
+    }
+
+    /**
+     * Gets belgian_identity_card
+     *
+     * @return \Trinsic\Api\Model\ItsmeBelgianIdentityCard|null
+     */
+    public function getBelgianIdentityCard()
+    {
+        return $this->container['belgian_identity_card'];
+    }
+
+    /**
+     * Sets belgian_identity_card
+     *
+     * @param \Trinsic\Api\Model\ItsmeBelgianIdentityCard|null $belgian_identity_card The Belgian eID card document number and related metadata.              Availability by ID document issuing country: returned only for Belgian-issued ID documents.
+     *
+     * @return self
+     */
+    public function setBelgianIdentityCard($belgian_identity_card)
+    {
+        if (is_null($belgian_identity_card)) {
+            array_push($this->openAPINullablesSetToNull, 'belgian_identity_card');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('belgian_identity_card', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['belgian_identity_card'] = $belgian_identity_card;
+
+        return $this;
+    }
+
+    /**
+     * Gets identity_document
+     *
+     * @return \Trinsic\Api\Model\ItsmeIdentityDocument|null
+     */
+    public function getIdentityDocument()
+    {
+        return $this->container['identity_document'];
+    }
+
+    /**
+     * Sets identity_document
+     *
+     * @param \Trinsic\Api\Model\ItsmeIdentityDocument|null $identity_document The identity document and related metadata.              Availability by ID document issuing country: always returned for all supported issuing countries.
+     *
+     * @return self
+     */
+    public function setIdentityDocument($identity_document)
+    {
+        if (is_null($identity_document)) {
+            array_push($this->openAPINullablesSetToNull, 'identity_document');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('identity_document', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['identity_document'] = $identity_document;
+
+        return $this;
+    }
+
+    /**
+     * Gets place_of_birth
+     *
+     * @return \Trinsic\Api\Model\ItsmePlaceOfBirth|null
+     */
+    public function getPlaceOfBirth()
+    {
+        return $this->container['place_of_birth'];
+    }
+
+    /**
+     * Sets place_of_birth
+     *
+     * @param \Trinsic\Api\Model\ItsmePlaceOfBirth|null $place_of_birth The place of birth.              Availability by ID document issuing country: best effort for Belgian-issued ID documents; not returned for other supported issuing countries.
+     *
+     * @return self
+     */
+    public function setPlaceOfBirth($place_of_birth)
+    {
+        if (is_null($place_of_birth)) {
+            array_push($this->openAPINullablesSetToNull, 'place_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('place_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['place_of_birth'] = $place_of_birth;
+
+        return $this;
+    }
+
+    /**
+     * Gets device
+     *
+     * @return \Trinsic\Api\Model\ItsmeDirectDevice|null
+     */
+    public function getDevice()
+    {
+        return $this->container['device'];
+    }
+
+    /**
+     * Sets device
+     *
+     * @param \Trinsic\Api\Model\ItsmeDirectDevice|null $device The device metadata for the verification.              Availability by ID document issuing country: best effort for all supported issuing countries.
+     *
+     * @return self
+     */
+    public function setDevice($device)
+    {
+        if (is_null($device)) {
+            array_push($this->openAPINullablesSetToNull, 'device');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('device', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['device'] = $device;
 
         return $this;
     }

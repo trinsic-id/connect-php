@@ -80,7 +80,7 @@ class AppleWalletDigitalIdBirthDate implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'date_of_birth' => false,
+        'date_of_birth' => true,
         'approximate_mask' => true
     ];
 
@@ -282,9 +282,6 @@ class AppleWalletDigitalIdBirthDate implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -303,7 +300,7 @@ class AppleWalletDigitalIdBirthDate implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -313,14 +310,21 @@ class AppleWalletDigitalIdBirthDate implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The encoded date of birth.
+     * @param \DateTime|null $date_of_birth The encoded date of birth.
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 

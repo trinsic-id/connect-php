@@ -61,8 +61,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'string',
         'logo_url' => 'string',
         'subtext' => 'string',
-        'description' => 'string',
-        'geography' => 'string[]',
         'regions' => 'string[]',
         'countries' => 'string[]',
         'subdivisions' => 'string[]',
@@ -94,8 +92,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => null,
         'logo_url' => null,
         'subtext' => null,
-        'description' => null,
-        'geography' => null,
         'regions' => null,
         'countries' => null,
         'subdivisions' => null,
@@ -125,8 +121,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => false,
         'logo_url' => false,
         'subtext' => false,
-        'description' => false,
-        'geography' => false,
         'regions' => false,
         'countries' => false,
         'subdivisions' => false,
@@ -236,8 +230,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'name',
         'logo_url' => 'logoUrl',
         'subtext' => 'subtext',
-        'description' => 'description',
-        'geography' => 'geography',
         'regions' => 'regions',
         'countries' => 'countries',
         'subdivisions' => 'subdivisions',
@@ -267,8 +259,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'setName',
         'logo_url' => 'setLogoUrl',
         'subtext' => 'setSubtext',
-        'description' => 'setDescription',
-        'geography' => 'setGeography',
         'regions' => 'setRegions',
         'countries' => 'setCountries',
         'subdivisions' => 'setSubdivisions',
@@ -298,8 +288,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         'name' => 'getName',
         'logo_url' => 'getLogoUrl',
         'subtext' => 'getSubtext',
-        'description' => 'getDescription',
-        'geography' => 'getGeography',
         'regions' => 'getRegions',
         'countries' => 'getCountries',
         'subdivisions' => 'getSubdivisions',
@@ -380,8 +368,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         $this->setIfExists('name', $data ?? [], null);
         $this->setIfExists('logo_url', $data ?? [], null);
         $this->setIfExists('subtext', $data ?? [], null);
-        $this->setIfExists('description', $data ?? [], null);
-        $this->setIfExists('geography', $data ?? [], null);
         $this->setIfExists('regions', $data ?? [], null);
         $this->setIfExists('countries', $data ?? [], null);
         $this->setIfExists('subdivisions', $data ?? [], null);
@@ -439,12 +425,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
         }
         if ($this->container['subtext'] === null) {
             $invalidProperties[] = "'subtext' can't be null";
-        }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
-        if ($this->container['geography'] === null) {
-            $invalidProperties[] = "'geography' can't be null";
         }
         if ($this->container['regions'] === null) {
             $invalidProperties[] = "'regions' can't be null";
@@ -604,64 +584,6 @@ class Provider implements ModelInterface, ArrayAccess, \JsonSerializable
             throw new \InvalidArgumentException('non-nullable subtext cannot be null');
         }
         $this->container['subtext'] = $subtext;
-
-        return $this;
-    }
-
-    /**
-     * Gets description
-     *
-     * @return string
-     * @deprecated
-     */
-    public function getDescription()
-    {
-        return $this->container['description'];
-    }
-
-    /**
-     * Sets description
-     *
-     * @param string $description A description of the provider's capabilities
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setDescription($description)
-    {
-        if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
-        }
-        $this->container['description'] = $description;
-
-        return $this;
-    }
-
-    /**
-     * Gets geography
-     *
-     * @return string[]
-     * @deprecated
-     */
-    public function getGeography()
-    {
-        return $this->container['geography'];
-    }
-
-    /**
-     * Sets geography
-     *
-     * @param string[] $geography Geographic regions where this provider operates
-     *
-     * @return self
-     * @deprecated
-     */
-    public function setGeography($geography)
-    {
-        if (is_null($geography)) {
-            throw new \InvalidArgumentException('non-nullable geography cannot be null');
-        }
-        $this->container['geography'] = $geography;
 
         return $this;
     }

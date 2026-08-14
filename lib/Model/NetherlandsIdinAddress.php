@@ -59,9 +59,14 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPITypes = [
         'street' => 'string',
         'house_number' => 'string',
+        'house_number_suffix' => 'string',
+        'address_extra' => 'string',
         'postal_code' => 'string',
         'city' => 'string',
-        'country_code' => 'string'
+        'country_code' => 'string',
+        'international_address_line1' => 'string',
+        'international_address_line2' => 'string',
+        'international_address_line3' => 'string'
     ];
 
     /**
@@ -74,9 +79,14 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $openAPIFormats = [
         'street' => null,
         'house_number' => null,
+        'house_number_suffix' => null,
+        'address_extra' => null,
         'postal_code' => null,
         'city' => null,
-        'country_code' => null
+        'country_code' => null,
+        'international_address_line1' => null,
+        'international_address_line2' => null,
+        'international_address_line3' => null
     ];
 
     /**
@@ -85,11 +95,16 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'street' => false,
-        'house_number' => false,
-        'postal_code' => false,
-        'city' => false,
-        'country_code' => false
+        'street' => true,
+        'house_number' => true,
+        'house_number_suffix' => true,
+        'address_extra' => true,
+        'postal_code' => true,
+        'city' => true,
+        'country_code' => true,
+        'international_address_line1' => true,
+        'international_address_line2' => true,
+        'international_address_line3' => true
     ];
 
     /**
@@ -180,9 +195,14 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $attributeMap = [
         'street' => 'street',
         'house_number' => 'houseNumber',
+        'house_number_suffix' => 'houseNumberSuffix',
+        'address_extra' => 'addressExtra',
         'postal_code' => 'postalCode',
         'city' => 'city',
-        'country_code' => 'countryCode'
+        'country_code' => 'countryCode',
+        'international_address_line1' => 'internationalAddressLine1',
+        'international_address_line2' => 'internationalAddressLine2',
+        'international_address_line3' => 'internationalAddressLine3'
     ];
 
     /**
@@ -193,9 +213,14 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $setters = [
         'street' => 'setStreet',
         'house_number' => 'setHouseNumber',
+        'house_number_suffix' => 'setHouseNumberSuffix',
+        'address_extra' => 'setAddressExtra',
         'postal_code' => 'setPostalCode',
         'city' => 'setCity',
-        'country_code' => 'setCountryCode'
+        'country_code' => 'setCountryCode',
+        'international_address_line1' => 'setInternationalAddressLine1',
+        'international_address_line2' => 'setInternationalAddressLine2',
+        'international_address_line3' => 'setInternationalAddressLine3'
     ];
 
     /**
@@ -206,9 +231,14 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     protected static $getters = [
         'street' => 'getStreet',
         'house_number' => 'getHouseNumber',
+        'house_number_suffix' => 'getHouseNumberSuffix',
+        'address_extra' => 'getAddressExtra',
         'postal_code' => 'getPostalCode',
         'city' => 'getCity',
-        'country_code' => 'getCountryCode'
+        'country_code' => 'getCountryCode',
+        'international_address_line1' => 'getInternationalAddressLine1',
+        'international_address_line2' => 'getInternationalAddressLine2',
+        'international_address_line3' => 'getInternationalAddressLine3'
     ];
 
     /**
@@ -270,9 +300,14 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $this->setIfExists('street', $data ?? [], null);
         $this->setIfExists('house_number', $data ?? [], null);
+        $this->setIfExists('house_number_suffix', $data ?? [], null);
+        $this->setIfExists('address_extra', $data ?? [], null);
         $this->setIfExists('postal_code', $data ?? [], null);
         $this->setIfExists('city', $data ?? [], null);
         $this->setIfExists('country_code', $data ?? [], null);
+        $this->setIfExists('international_address_line1', $data ?? [], null);
+        $this->setIfExists('international_address_line2', $data ?? [], null);
+        $this->setIfExists('international_address_line3', $data ?? [], null);
     }
 
     /**
@@ -302,21 +337,6 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['street'] === null) {
-            $invalidProperties[] = "'street' can't be null";
-        }
-        if ($this->container['house_number'] === null) {
-            $invalidProperties[] = "'house_number' can't be null";
-        }
-        if ($this->container['postal_code'] === null) {
-            $invalidProperties[] = "'postal_code' can't be null";
-        }
-        if ($this->container['city'] === null) {
-            $invalidProperties[] = "'city' can't be null";
-        }
-        if ($this->container['country_code'] === null) {
-            $invalidProperties[] = "'country_code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -335,7 +355,7 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets street
      *
-     * @return string
+     * @return string|null
      */
     public function getStreet()
     {
@@ -345,14 +365,21 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets street
      *
-     * @param string $street Street name of the individual's address.
+     * @param string|null $street Street name of the individual's domestic address.
      *
      * @return self
      */
     public function setStreet($street)
     {
         if (is_null($street)) {
-            throw new \InvalidArgumentException('non-nullable street cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'street');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('street', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['street'] = $street;
 
@@ -362,7 +389,7 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets house_number
      *
-     * @return string
+     * @return string|null
      */
     public function getHouseNumber()
     {
@@ -372,14 +399,21 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets house_number
      *
-     * @param string $house_number House number of the individual's address.
+     * @param string|null $house_number House number of the individual's domestic address.
      *
      * @return self
      */
     public function setHouseNumber($house_number)
     {
         if (is_null($house_number)) {
-            throw new \InvalidArgumentException('non-nullable house_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'house_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('house_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['house_number'] = $house_number;
 
@@ -387,9 +421,77 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     }
 
     /**
+     * Gets house_number_suffix
+     *
+     * @return string|null
+     */
+    public function getHouseNumberSuffix()
+    {
+        return $this->container['house_number_suffix'];
+    }
+
+    /**
+     * Sets house_number_suffix
+     *
+     * @param string|null $house_number_suffix House number suffix of the individual's domestic address.
+     *
+     * @return self
+     */
+    public function setHouseNumberSuffix($house_number_suffix)
+    {
+        if (is_null($house_number_suffix)) {
+            array_push($this->openAPINullablesSetToNull, 'house_number_suffix');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('house_number_suffix', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['house_number_suffix'] = $house_number_suffix;
+
+        return $this;
+    }
+
+    /**
+     * Gets address_extra
+     *
+     * @return string|null
+     */
+    public function getAddressExtra()
+    {
+        return $this->container['address_extra'];
+    }
+
+    /**
+     * Sets address_extra
+     *
+     * @param string|null $address_extra Additional domestic address information returned by iDIN.
+     *
+     * @return self
+     */
+    public function setAddressExtra($address_extra)
+    {
+        if (is_null($address_extra)) {
+            array_push($this->openAPINullablesSetToNull, 'address_extra');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address_extra', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['address_extra'] = $address_extra;
+
+        return $this;
+    }
+
+    /**
      * Gets postal_code
      *
-     * @return string
+     * @return string|null
      */
     public function getPostalCode()
     {
@@ -399,14 +501,21 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets postal_code
      *
-     * @param string $postal_code Postal code of the individual's address.              A postal code in The Netherlands is a 4-digit number and two letters.
+     * @param string|null $postal_code Postal code of the individual's domestic address.              A postal code in The Netherlands is a 4-digit number and two letters.
      *
      * @return self
      */
     public function setPostalCode($postal_code)
     {
         if (is_null($postal_code)) {
-            throw new \InvalidArgumentException('non-nullable postal_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'postal_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('postal_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['postal_code'] = $postal_code;
 
@@ -416,7 +525,7 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets city
      *
-     * @return string
+     * @return string|null
      */
     public function getCity()
     {
@@ -426,14 +535,21 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets city
      *
-     * @param string $city City of the individual's address.
+     * @param string|null $city City of the individual's domestic address.
      *
      * @return self
      */
     public function setCity($city)
     {
         if (is_null($city)) {
-            throw new \InvalidArgumentException('non-nullable city cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'city');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('city', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['city'] = $city;
 
@@ -443,7 +559,7 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets country_code
      *
-     * @return string
+     * @return string|null
      */
     public function getCountryCode()
     {
@@ -453,16 +569,125 @@ class NetherlandsIdinAddress implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets country_code
      *
-     * @param string $country_code Country code of the individual's address in ISO 3166-1 alpha-2 format.
+     * @param string|null $country_code Country code of the individual's address in ISO 3166-1 alpha-2 format.
      *
      * @return self
      */
     public function setCountryCode($country_code)
     {
         if (is_null($country_code)) {
-            throw new \InvalidArgumentException('non-nullable country_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'country_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
+     * Gets international_address_line1
+     *
+     * @return string|null
+     */
+    public function getInternationalAddressLine1()
+    {
+        return $this->container['international_address_line1'];
+    }
+
+    /**
+     * Sets international_address_line1
+     *
+     * @param string|null $international_address_line1 First line of the individual's international address.
+     *
+     * @return self
+     */
+    public function setInternationalAddressLine1($international_address_line1)
+    {
+        if (is_null($international_address_line1)) {
+            array_push($this->openAPINullablesSetToNull, 'international_address_line1');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('international_address_line1', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['international_address_line1'] = $international_address_line1;
+
+        return $this;
+    }
+
+    /**
+     * Gets international_address_line2
+     *
+     * @return string|null
+     */
+    public function getInternationalAddressLine2()
+    {
+        return $this->container['international_address_line2'];
+    }
+
+    /**
+     * Sets international_address_line2
+     *
+     * @param string|null $international_address_line2 Second line of the individual's international address.
+     *
+     * @return self
+     */
+    public function setInternationalAddressLine2($international_address_line2)
+    {
+        if (is_null($international_address_line2)) {
+            array_push($this->openAPINullablesSetToNull, 'international_address_line2');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('international_address_line2', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['international_address_line2'] = $international_address_line2;
+
+        return $this;
+    }
+
+    /**
+     * Gets international_address_line3
+     *
+     * @return string|null
+     */
+    public function getInternationalAddressLine3()
+    {
+        return $this->container['international_address_line3'];
+    }
+
+    /**
+     * Sets international_address_line3
+     *
+     * @param string|null $international_address_line3 Third line of the individual's international address.
+     *
+     * @return self
+     */
+    public function setInternationalAddressLine3($international_address_line3)
+    {
+        if (is_null($international_address_line3)) {
+            array_push($this->openAPINullablesSetToNull, 'international_address_line3');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('international_address_line3', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['international_address_line3'] = $international_address_line3;
 
         return $this;
     }

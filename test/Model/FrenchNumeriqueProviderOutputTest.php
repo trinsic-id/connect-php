@@ -80,9 +80,27 @@ class FrenchNumeriqueProviderOutputTest extends TestCase
     }
 
     /**
+     * Test attribute "sub"
+     */
+    public function testPropertySub()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "given_name"
      */
     public function testPropertyGivenName()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "splitted_given_name"
+     */
+    public function testPropertySplittedGivenName()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');
@@ -146,6 +164,15 @@ class FrenchNumeriqueProviderOutputTest extends TestCase
      * Test attribute "phone_number"
      */
     public function testPropertyPhoneNumber()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
+     * Test attribute "splitted_phone"
+     */
+    public function testPropertySplittedPhone()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

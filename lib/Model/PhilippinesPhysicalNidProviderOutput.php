@@ -94,7 +94,7 @@ class PhilippinesPhysicalNidProviderOutput implements ModelInterface, ArrayAcces
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'philsys_card_number' => false,
+        'philsys_card_number' => true,
         'given_name' => true,
         'middle_name' => true,
         'family_name' => true,
@@ -331,9 +331,6 @@ class PhilippinesPhysicalNidProviderOutput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['philsys_card_number'] === null) {
-            $invalidProperties[] = "'philsys_card_number' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -352,7 +349,7 @@ class PhilippinesPhysicalNidProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets philsys_card_number
      *
-     * @return string
+     * @return string|null
      */
     public function getPhilsysCardNumber()
     {
@@ -362,14 +359,21 @@ class PhilippinesPhysicalNidProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets philsys_card_number
      *
-     * @param string $philsys_card_number The PhilSys Card Number (PCN). Every citizen or resident alien registered in PhilSys has a PhilSys Number (PSN). This number is tokenized into a card number to protect the PSN. The PhilSys Card Number is 12 characters long, and often is written in octets with dashes in between.
+     * @param string|null $philsys_card_number The PhilSys Card Number (PCN). Every citizen or resident alien registered in PhilSys has a PhilSys Number (PSN). This number is tokenized into a card number to protect the PSN. The PhilSys Card Number is 12 characters long, and often is written in octets with dashes in between.
      *
      * @return self
      */
     public function setPhilsysCardNumber($philsys_card_number)
     {
         if (is_null($philsys_card_number)) {
-            throw new \InvalidArgumentException('non-nullable philsys_card_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'philsys_card_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('philsys_card_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['philsys_card_number'] = $philsys_card_number;
 

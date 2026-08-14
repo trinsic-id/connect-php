@@ -82,9 +82,9 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'region' => false,
-        'province' => false,
-        'district' => false
+        'region' => true,
+        'province' => true,
+        'district' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['region'] === null) {
-            $invalidProperties[] = "'region' can't be null";
-        }
-        if ($this->container['province'] === null) {
-            $invalidProperties[] = "'province' can't be null";
-        }
-        if ($this->container['district'] === null) {
-            $invalidProperties[] = "'district' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets region
      *
-     * @return string
+     * @return string|null
      */
     public function getRegion()
     {
@@ -326,14 +317,21 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets region
      *
-     * @param string $region Region in Peru (also known as department). This is the first level subdivision in the country.              Format: - All uppercase.
+     * @param string|null $region Region in Peru (also known as department). This is the first level subdivision in the country.              Format: - All uppercase.
      *
      * @return self
      */
     public function setRegion($region)
     {
         if (is_null($region)) {
-            throw new \InvalidArgumentException('non-nullable region cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'region');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('region', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['region'] = $region;
 
@@ -343,7 +341,7 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets province
      *
-     * @return string
+     * @return string|null
      */
     public function getProvince()
     {
@@ -353,14 +351,21 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets province
      *
-     * @param string $province Province within the region. This is the second level subdivision in the country.              Format: - All uppercase.
+     * @param string|null $province Province within the region. This is the second level subdivision in the country.              Format: - All uppercase.
      *
      * @return self
      */
     public function setProvince($province)
     {
         if (is_null($province)) {
-            throw new \InvalidArgumentException('non-nullable province cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'province');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('province', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['province'] = $province;
 
@@ -370,7 +375,7 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets district
      *
-     * @return string
+     * @return string|null
      */
     public function getDistrict()
     {
@@ -380,14 +385,21 @@ class PeruDniAddress implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets district
      *
-     * @param string $district District within the province. This is the third level subdivision in the country.              Format: - All uppercase.
+     * @param string|null $district District within the province. This is the third level subdivision in the country.              Format: - All uppercase.
      *
      * @return self
      */
     public function setDistrict($district)
     {
         if (is_null($district)) {
-            throw new \InvalidArgumentException('non-nullable district cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'district');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('district', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['district'] = $district;
 

@@ -86,11 +86,11 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'full_name' => false,
-        'given_name' => false,
-        'family_name' => false,
+        'full_name' => true,
+        'given_name' => true,
+        'family_name' => true,
         'date_of_birth' => true,
-        'document_number' => false
+        'document_number' => true
     ];
 
     /**
@@ -303,18 +303,6 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     {
         $invalidProperties = [];
 
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['given_name'] === null) {
-            $invalidProperties[] = "'given_name' can't be null";
-        }
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
-        }
-        if ($this->container['document_number'] === null) {
-            $invalidProperties[] = "'document_number' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -333,7 +321,7 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -343,14 +331,21 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets full_name
      *
-     * @param string $full_name Full name as it appears on the CI (Cédula de Identidad).
+     * @param string|null $full_name Full name as it appears on the CI (Cédula de Identidad).
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -360,7 +355,7 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets given_name
      *
-     * @return string
+     * @return string|null
      */
     public function getGivenName()
     {
@@ -370,14 +365,21 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets given_name
      *
-     * @param string $given_name Given name(s) of the holder as they appear on the CI (Cédula de Identidad).
+     * @param string|null $given_name Given name(s) of the holder as they appear on the CI (Cédula de Identidad).
      *
      * @return self
      */
     public function setGivenName($given_name)
     {
         if (is_null($given_name)) {
-            throw new \InvalidArgumentException('non-nullable given_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'given_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('given_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['given_name'] = $given_name;
 
@@ -387,7 +389,7 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -397,14 +399,21 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets family_name
      *
-     * @param string $family_name Family name(s) of the holder (paternal and maternal) as they appear on the CI (Cédula de Identidad).
+     * @param string|null $family_name Family name(s) of the holder (paternal and maternal) as they appear on the CI (Cédula de Identidad).
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 
@@ -448,7 +457,7 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Gets document_number
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentNumber()
     {
@@ -458,14 +467,21 @@ class BoliviaCiProviderOutput implements ModelInterface, ArrayAccess, \JsonSeria
     /**
      * Sets document_number
      *
-     * @param string $document_number The CI (Cédula de Identidad) document number for the matched record.              The document is officially called the Cédula de Identidad and is commonly called carnet or carnet de identidad in Bolivia. This is the identifier assigned by the Servicio General de Identificación Personal (SEGIP) in the Registro Único de Identificación (RUI). The value is entirely numeric. There is no verification digit or other data encoded in the number.              Published regulations do not define a fixed length; digit count may vary.
+     * @param string|null $document_number The CI (Cédula de Identidad) document number for the matched record.              The document is officially called the Cédula de Identidad and is commonly called carnet or carnet de identidad in Bolivia. This is the identifier assigned by the Servicio General de Identificación Personal (SEGIP) in the Registro Único de Identificación (RUI). The value is entirely numeric. There is no verification digit or other data encoded in the number.              Published regulations do not define a fixed length; digit count may vary.
      *
      * @return self
      */
     public function setDocumentNumber($document_number)
     {
         if (is_null($document_number)) {
-            throw new \InvalidArgumentException('non-nullable document_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_number'] = $document_number;
 

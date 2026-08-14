@@ -504,7 +504,7 @@ class PolandMobywatelMatchProviderOutput implements ModelInterface, ArrayAccess,
     /**
      * Sets nationality
      *
-     * @param string|null $nationality Nationality as provided by the individual.
+     * @param string|null $nationality Nationality as provided by the individual.              This is not necessarily the same as the raw input that was provided. This is the normalized value, which was used to match against the individual's mObywatel wallet.              Format: - 3-letter ISO 3166-1 alpha-3 code (e.g. POL)
      *
      * @return self
      */

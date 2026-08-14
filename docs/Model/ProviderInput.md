@@ -4,8 +4,10 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
+**trinsic_mock_output** | [**\Trinsic\Api\Model\MockOutputProviderInput**](MockOutputProviderInput.md) | *TEST MODE ONLY.*              Input for the &#x60;trinsic-mock-output&#x60; provider. | [optional]
 **indonesia_nik_lookup** | [**\Trinsic\Api\Model\IndonesiaNikInput**](IndonesiaNikInput.md) | Input for the &#x60;indonesia-nik-lookup&#x60; provider | [optional]
 **china_resident_id_match** | [**\Trinsic\Api\Model\ChinaResidentIdMatchInput**](ChinaResidentIdMatchInput.md) | Input for the &#x60;china-resident-id-match&#x60; provider | [optional]
+**evrotrust** | [**\Trinsic\Api\Model\EvrotrustInput**](EvrotrustInput.md) | Input for the &#x60;evrotrust&#x60; provider | [optional]
 **indonesia_dukcapil_match** | [**\Trinsic\Api\Model\IndonesiaDukcapilMatchInput**](IndonesiaDukcapilMatchInput.md) | Input for the &#x60;indonesia-dukcapil-match&#x60; provider | [optional]
 **mexico_curp_lookup** | [**\Trinsic\Api\Model\MexicoCurpInput**](MexicoCurpInput.md) | Input for the &#x60;mexico-curp-lookup&#x60; provider | [optional]
 **south_africa_nid_lookup** | [**\Trinsic\Api\Model\SouthAfricaNidInput**](SouthAfricaNidInput.md) | Input for the &#x60;south-africa-nid-lookup&#x60; provider | [optional]
@@ -15,6 +17,8 @@ Name | Type | Description | Notes
 **south_africa_nid_lookup_2** | [**\Trinsic\Api\Model\SouthAfricaNidLookup2Input**](SouthAfricaNidLookup2Input.md) | Input for the &#x60;south-africa-nid-lookup-2&#x60; provider | [optional]
 **south_africa_nid_match_2** | [**\Trinsic\Api\Model\SouthAfricaNidMatch2Input**](SouthAfricaNidMatch2Input.md) | Input for the &#x60;south-africa-nid-match-2&#x60; provider | [optional]
 **nigeria_nin_lookup_2** | [**\Trinsic\Api\Model\NigeriaNinLookup2Input**](NigeriaNinLookup2Input.md) | Input for the &#x60;nigeria-nin-lookup-2&#x60; provider | [optional]
+**nigeria_nin_lookup_3** | [**\Trinsic\Api\Model\NigeriaNinLookup3Input**](NigeriaNinLookup3Input.md) | Input for the &#x60;nigeria-nin-lookup-3&#x60; provider | [optional]
+**kenya_nid_lookup_3** | [**\Trinsic\Api\Model\KenyaNidLookup3Input**](KenyaNidLookup3Input.md) | Input for the &#x60;kenya-nid-lookup-3&#x60; provider | [optional]
 **cote_divoire_nid_lookup_2** | [**\Trinsic\Api\Model\CoteDIvoireNidLookup2Input**](CoteDIvoireNidLookup2Input.md) | Input for the &#x60;cote-divoire-nid-lookup-2&#x60; provider | [optional]
 **zimbabwe_nid_lookup_2** | [**\Trinsic\Api\Model\ZimbabweNidLookup2Input**](ZimbabweNidLookup2Input.md) | Input for the &#x60;zimbabwe-nid-lookup-2&#x60; provider | [optional]
 **nigeria_nin_match_2** | [**\Trinsic\Api\Model\NigeriaNinMatch2Input**](NigeriaNinMatch2Input.md) | Input for the &#x60;nigeria-nin-match-2&#x60; provider | [optional]
@@ -36,6 +40,11 @@ Name | Type | Description | Notes
 **apple_wallet** | [**\Trinsic\Api\Model\AppleWalletInput**](AppleWalletInput.md) | Input for the &#x60;apple-wallet&#x60; provider | [optional]
 **samsung_wallet** | [**\Trinsic\Api\Model\SamsungWalletInput**](SamsungWalletInput.md) | Input for the &#x60;samsung-wallet&#x60; provider | [optional]
 **france_identite** | [**\Trinsic\Api\Model\FranceIdentiteInput**](FranceIdentiteInput.md) | Input for the &#x60;france-identite&#x60; provider | [optional]
+**moldova_evo_wallet** | [**\Trinsic\Api\Model\MoldovaEvoWalletInput**](MoldovaEvoWalletInput.md) | Input for the &#x60;moldova-evo-wallet&#x60; provider | [optional]
+**germany_eudi_sandbox** | [**\Trinsic\Api\Model\GermanyEudiSandboxInput**](GermanyEudiSandboxInput.md) |  | [optional]
+**denmark_altid** | [**\Trinsic\Api\Model\DenmarkAltIdInput**](DenmarkAltIdInput.md) |  | [optional]
+**austria_valera_eudi_sandbox** | [**\Trinsic\Api\Model\AustriaValeraEudiSandboxInput**](AustriaValeraEudiSandboxInput.md) |  | [optional]
+**netherlands_eudi_sandbox** | [**\Trinsic\Api\Model\NetherlandsEudiSandboxInput**](NetherlandsEudiSandboxInput.md) | Input for the &#x60;netherlands-eudi-sandbox&#x60; provider | [optional]
 **poland_mobywatel_match** | [**\Trinsic\Api\Model\PolandMobywatelMatchInput**](PolandMobywatelMatchInput.md) | Input for the &#x60;poland-mobywatel-match&#x60; provider | [optional]
 **bolivia_ci_lookup** | [**\Trinsic\Api\Model\BoliviaCiLookupInput**](BoliviaCiLookupInput.md) | Input for the &#x60;bolivia-ci-lookup&#x60; provider | [optional]
 **colombia_cc_lookup** | [**\Trinsic\Api\Model\ColombiaCcLookupInput**](ColombiaCcLookupInput.md) | Input for the &#x60;colombia-cc-lookup&#x60; provider | [optional]

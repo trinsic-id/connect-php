@@ -82,9 +82,9 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'national_id_number' => false,
-        'secondary_id_number' => false,
-        'date_of_birth' => false
+        'national_id_number' => true,
+        'secondary_id_number' => true,
+        'date_of_birth' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['national_id_number'] === null) {
-            $invalidProperties[] = "'national_id_number' can't be null";
-        }
-        if ($this->container['secondary_id_number'] === null) {
-            $invalidProperties[] = "'secondary_id_number' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets national_id_number
      *
-     * @return \Trinsic\Api\Model\UgandaNidMatch2NationalIdNumberField
+     * @return \Trinsic\Api\Model\UgandaNidMatch2NationalIdNumberField|null
      */
     public function getNationalIdNumber()
     {
@@ -326,14 +317,21 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets national_id_number
      *
-     * @param \Trinsic\Api\Model\UgandaNidMatch2NationalIdNumberField $national_id_number Outcome of verifying the national identification number in the NIRA database.
+     * @param \Trinsic\Api\Model\UgandaNidMatch2NationalIdNumberField|null $national_id_number Outcome of verifying the national identification number in the NIRA database.
      *
      * @return self
      */
     public function setNationalIdNumber($national_id_number)
     {
         if (is_null($national_id_number)) {
-            throw new \InvalidArgumentException('non-nullable national_id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_id_number'] = $national_id_number;
 
@@ -343,7 +341,7 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets secondary_id_number
      *
-     * @return \Trinsic\Api\Model\UgandaNidMatch2SecondaryIdNumberField
+     * @return \Trinsic\Api\Model\UgandaNidMatch2SecondaryIdNumberField|null
      */
     public function getSecondaryIdNumber()
     {
@@ -353,14 +351,21 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets secondary_id_number
      *
-     * @param \Trinsic\Api\Model\UgandaNidMatch2SecondaryIdNumberField $secondary_id_number Outcome of comparing the submitted card number with the NIRA database.
+     * @param \Trinsic\Api\Model\UgandaNidMatch2SecondaryIdNumberField|null $secondary_id_number Outcome of comparing the submitted card number with the NIRA database.
      *
      * @return self
      */
     public function setSecondaryIdNumber($secondary_id_number)
     {
         if (is_null($secondary_id_number)) {
-            throw new \InvalidArgumentException('non-nullable secondary_id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'secondary_id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('secondary_id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['secondary_id_number'] = $secondary_id_number;
 
@@ -370,7 +375,7 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets date_of_birth
      *
-     * @return \Trinsic\Api\Model\UgandaNidMatch2DateOfBirthField
+     * @return \Trinsic\Api\Model\UgandaNidMatch2DateOfBirthField|null
      */
     public function getDateOfBirth()
     {
@@ -380,14 +385,21 @@ class UgandaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets date_of_birth
      *
-     * @param \Trinsic\Api\Model\UgandaNidMatch2DateOfBirthField $date_of_birth Outcome of comparing the submitted date of birth with the NIRA database.
+     * @param \Trinsic\Api\Model\UgandaNidMatch2DateOfBirthField|null $date_of_birth Outcome of comparing the submitted date of birth with the NIRA database.
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 

@@ -60,6 +60,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
         'serial_number' => 'string',
         'common_name' => 'string',
         'state_or_province_name' => 'string',
+        'country_code' => 'string',
         'not_before' => '\DateTime',
         'not_after' => '\DateTime'
     ];
@@ -75,6 +76,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
         'serial_number' => null,
         'common_name' => null,
         'state_or_province_name' => null,
+        'country_code' => null,
         'not_before' => 'date-time',
         'not_after' => 'date-time'
     ];
@@ -85,11 +87,12 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'serial_number' => false,
-        'common_name' => false,
-        'state_or_province_name' => false,
-        'not_before' => false,
-        'not_after' => false
+        'serial_number' => true,
+        'common_name' => true,
+        'state_or_province_name' => true,
+        'country_code' => true,
+        'not_before' => true,
+        'not_after' => true
     ];
 
     /**
@@ -181,6 +184,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
         'serial_number' => 'serialNumber',
         'common_name' => 'commonName',
         'state_or_province_name' => 'stateOrProvinceName',
+        'country_code' => 'countryCode',
         'not_before' => 'notBefore',
         'not_after' => 'notAfter'
     ];
@@ -194,6 +198,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
         'serial_number' => 'setSerialNumber',
         'common_name' => 'setCommonName',
         'state_or_province_name' => 'setStateOrProvinceName',
+        'country_code' => 'setCountryCode',
         'not_before' => 'setNotBefore',
         'not_after' => 'setNotAfter'
     ];
@@ -207,6 +212,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
         'serial_number' => 'getSerialNumber',
         'common_name' => 'getCommonName',
         'state_or_province_name' => 'getStateOrProvinceName',
+        'country_code' => 'getCountryCode',
         'not_before' => 'getNotBefore',
         'not_after' => 'getNotAfter'
     ];
@@ -271,6 +277,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
         $this->setIfExists('serial_number', $data ?? [], null);
         $this->setIfExists('common_name', $data ?? [], null);
         $this->setIfExists('state_or_province_name', $data ?? [], null);
+        $this->setIfExists('country_code', $data ?? [], null);
         $this->setIfExists('not_before', $data ?? [], null);
         $this->setIfExists('not_after', $data ?? [], null);
     }
@@ -302,21 +309,6 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     {
         $invalidProperties = [];
 
-        if ($this->container['serial_number'] === null) {
-            $invalidProperties[] = "'serial_number' can't be null";
-        }
-        if ($this->container['common_name'] === null) {
-            $invalidProperties[] = "'common_name' can't be null";
-        }
-        if ($this->container['state_or_province_name'] === null) {
-            $invalidProperties[] = "'state_or_province_name' can't be null";
-        }
-        if ($this->container['not_before'] === null) {
-            $invalidProperties[] = "'not_before' can't be null";
-        }
-        if ($this->container['not_after'] === null) {
-            $invalidProperties[] = "'not_after' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -335,7 +327,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets serial_number
      *
-     * @return string
+     * @return string|null
      */
     public function getSerialNumber()
     {
@@ -345,14 +337,21 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets serial_number
      *
-     * @param string $serial_number The serial number of the certificate
+     * @param string|null $serial_number The serial number of the certificate
      *
      * @return self
      */
     public function setSerialNumber($serial_number)
     {
         if (is_null($serial_number)) {
-            throw new \InvalidArgumentException('non-nullable serial_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'serial_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('serial_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['serial_number'] = $serial_number;
 
@@ -362,7 +361,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets common_name
      *
-     * @return string
+     * @return string|null
      */
     public function getCommonName()
     {
@@ -372,14 +371,21 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets common_name
      *
-     * @param string $common_name The common name (CN) of the certificate
+     * @param string|null $common_name The common name (CN) of the certificate
      *
      * @return self
      */
     public function setCommonName($common_name)
     {
         if (is_null($common_name)) {
-            throw new \InvalidArgumentException('non-nullable common_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'common_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('common_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['common_name'] = $common_name;
 
@@ -389,7 +395,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets state_or_province_name
      *
-     * @return string
+     * @return string|null
      */
     public function getStateOrProvinceName()
     {
@@ -399,14 +405,21 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets state_or_province_name
      *
-     * @param string $state_or_province_name The stateOrProvinceName field from the signing certificate.              Per the ISO 18013-5 (mDL) spec, this is an ISO 3166-2:2020 country subdivision code (e.g., \"US-CA\" for California, USA).              May be an empty string for certificates which are not state-specific (e.g., Google Wallet's ID Pass certificates).
+     * @param string|null $state_or_province_name The stateOrProvinceName field from the certificate
      *
      * @return self
      */
     public function setStateOrProvinceName($state_or_province_name)
     {
         if (is_null($state_or_province_name)) {
-            throw new \InvalidArgumentException('non-nullable state_or_province_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'state_or_province_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('state_or_province_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['state_or_province_name'] = $state_or_province_name;
 
@@ -414,9 +427,43 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     }
 
     /**
+     * Gets country_code
+     *
+     * @return string|null
+     */
+    public function getCountryCode()
+    {
+        return $this->container['country_code'];
+    }
+
+    /**
+     * Sets country_code
+     *
+     * @param string|null $country_code The countryCode field from the certificate
+     *
+     * @return self
+     */
+    public function setCountryCode($country_code)
+    {
+        if (is_null($country_code)) {
+            array_push($this->openAPINullablesSetToNull, 'country_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
+        }
+        $this->container['country_code'] = $country_code;
+
+        return $this;
+    }
+
+    /**
      * Gets not_before
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getNotBefore()
     {
@@ -426,14 +473,21 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets not_before
      *
-     * @param \DateTime $not_before The date before which this certificate is not valid.
+     * @param \DateTime|null $not_before The date before which this certificate is not valid.
      *
      * @return self
      */
     public function setNotBefore($not_before)
     {
         if (is_null($not_before)) {
-            throw new \InvalidArgumentException('non-nullable not_before cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_before');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_before', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_before'] = $not_before;
 
@@ -443,7 +497,7 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Gets not_after
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getNotAfter()
     {
@@ -453,14 +507,21 @@ class MdlOutputCertificateData implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets not_after
      *
-     * @param \DateTime $not_after The date after which this certificate is not valid.
+     * @param \DateTime|null $not_after The date after which this certificate is not valid.
      *
      * @return self
      */
     public function setNotAfter($not_after)
     {
         if (is_null($not_after)) {
-            throw new \InvalidArgumentException('non-nullable not_after cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_after');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_after', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_after'] = $not_after;
 

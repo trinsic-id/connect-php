@@ -89,11 +89,11 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'type' => false,
+        'type' => true,
         'description' => true,
-        'country' => false,
-        'number' => false,
-        'valid_to' => false,
+        'country' => true,
+        'number' => true,
+        'valid_to' => true,
         'issuer' => true,
         'issue_date' => true
     ];
@@ -316,18 +316,6 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['type'] === null) {
-            $invalidProperties[] = "'type' can't be null";
-        }
-        if ($this->container['country'] === null) {
-            $invalidProperties[] = "'country' can't be null";
-        }
-        if ($this->container['number'] === null) {
-            $invalidProperties[] = "'number' can't be null";
-        }
-        if ($this->container['valid_to'] === null) {
-            $invalidProperties[] = "'valid_to' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -346,7 +334,7 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets type
      *
-     * @return string
+     * @return string|null
      */
     public function getType()
     {
@@ -356,14 +344,21 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets type
      *
-     * @param string $type The identity document type code.              Possible values are:              - ID - Identity card - P - Passport - DL - Driving license - IR - Residence permit - VS - Visa permit label - PS - Residential label - IX - Book with residence permit - IE - Form with temporary residence - OP - Identity card – without machine readable zone - CA - Passport of the Czech Republic resident – without machine readable zone - UNKNOWN - Unknown id card type
+     * @param string|null $type The identity document type code.              Possible values are:              - ID - Identity card - P - Passport - DL - Driving license - IR - Residence permit - VS - Visa permit label - PS - Residential label - IX - Book with residence permit - IE - Form with temporary residence - OP - Identity card – without machine readable zone - CA - Passport of the Czech Republic resident – without machine readable zone - UNKNOWN - Unknown id card type
      *
      * @return self
      */
     public function setType($type)
     {
         if (is_null($type)) {
-            throw new \InvalidArgumentException('non-nullable type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['type'] = $type;
 
@@ -407,7 +402,7 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets country
      *
-     * @return string
+     * @return string|null
      */
     public function getCountry()
     {
@@ -417,14 +412,21 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets country
      *
-     * @param string $country The country for which the identity document is valid.
+     * @param string|null $country The country for which the identity document is valid.
      *
      * @return self
      */
     public function setCountry($country)
     {
         if (is_null($country)) {
-            throw new \InvalidArgumentException('non-nullable country cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'country');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('country', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['country'] = $country;
 
@@ -434,7 +436,7 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets number
      *
-     * @return string
+     * @return string|null
      */
     public function getNumber()
     {
@@ -444,14 +446,21 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets number
      *
-     * @param string $number The identity document number.
+     * @param string|null $number The identity document number.
      *
      * @return self
      */
     public function setNumber($number)
     {
         if (is_null($number)) {
-            throw new \InvalidArgumentException('non-nullable number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['number'] = $number;
 
@@ -461,7 +470,7 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets valid_to
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getValidTo()
     {
@@ -471,14 +480,21 @@ class CzechBankIdCard implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets valid_to
      *
-     * @param \DateTime $valid_to The identity document expiration date.
+     * @param \DateTime|null $valid_to The identity document expiration date.
      *
      * @return self
      */
     public function setValidTo($valid_to)
     {
         if (is_null($valid_to)) {
-            throw new \InvalidArgumentException('non-nullable valid_to cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'valid_to');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('valid_to', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['valid_to'] = $valid_to;
 

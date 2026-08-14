@@ -138,7 +138,7 @@ class CzechBankIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'subject_identifier' => false,
+        'subject_identifier' => true,
         'full_name' => true,
         'given_name' => true,
         'family_name' => true,
@@ -485,9 +485,6 @@ class CzechBankIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
     {
         $invalidProperties = [];
 
-        if ($this->container['subject_identifier'] === null) {
-            $invalidProperties[] = "'subject_identifier' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -506,7 +503,7 @@ class CzechBankIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Gets subject_identifier
      *
-     * @return string
+     * @return string|null
      */
     public function getSubjectIdentifier()
     {
@@ -516,14 +513,21 @@ class CzechBankIdProviderOutput implements ModelInterface, ArrayAccess, \JsonSer
     /**
      * Sets subject_identifier
      *
-     * @param string $subject_identifier The subject identifier for the verified individual.
+     * @param string|null $subject_identifier The subject identifier for the verified individual.
      *
      * @return self
      */
     public function setSubjectIdentifier($subject_identifier)
     {
         if (is_null($subject_identifier)) {
-            throw new \InvalidArgumentException('non-nullable subject_identifier cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'subject_identifier');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('subject_identifier', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['subject_identifier'] = $subject_identifier;
 

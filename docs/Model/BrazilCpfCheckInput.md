@@ -5,6 +5,7 @@
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **cpf_number** | **string** | The user&#39;s 11-digit, numeric CPF Number |
+**date_of_birth** | **\DateTime** | The user&#39;s date of birth. Optional, but date of birth will become required for lookups starting September 1, 2026. | [optional]
 **selfie_image** | **string** | The raw bytes of the selfie image collected from the user. | [optional]
 **selfie_image_content_type** | **string** | The MIME Type of the file contained in &#x60;SelfieImage&#x60;.              Must be one of &#x60;image/jpeg&#x60; or &#x60;image/png&#x60;. | [optional]
 

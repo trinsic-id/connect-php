@@ -84,8 +84,8 @@ class KenyaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'national_id_number' => false,
-        'full_name' => false,
+        'national_id_number' => true,
+        'full_name' => true,
         'date_of_birth' => true,
         'sex' => true
     ];
@@ -296,12 +296,6 @@ class KenyaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['national_id_number'] === null) {
-            $invalidProperties[] = "'national_id_number' can't be null";
-        }
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -320,7 +314,7 @@ class KenyaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets national_id_number
      *
-     * @return \Trinsic\Api\Model\KenyaNidMatch2NationalIdNumberField
+     * @return \Trinsic\Api\Model\KenyaNidMatch2NationalIdNumberField|null
      */
     public function getNationalIdNumber()
     {
@@ -330,14 +324,21 @@ class KenyaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets national_id_number
      *
-     * @param \Trinsic\Api\Model\KenyaNidMatch2NationalIdNumberField $national_id_number Outcome of the verification of the national ID number.
+     * @param \Trinsic\Api\Model\KenyaNidMatch2NationalIdNumberField|null $national_id_number Outcome of the verification of the national ID number.
      *
      * @return self
      */
     public function setNationalIdNumber($national_id_number)
     {
         if (is_null($national_id_number)) {
-            throw new \InvalidArgumentException('non-nullable national_id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_id_number'] = $national_id_number;
 
@@ -347,7 +348,7 @@ class KenyaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets full_name
      *
-     * @return \Trinsic\Api\Model\KenyaNidMatch2FullNameField
+     * @return \Trinsic\Api\Model\KenyaNidMatch2FullNameField|null
      */
     public function getFullName()
     {
@@ -357,14 +358,21 @@ class KenyaNidMatch2ProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets full_name
      *
-     * @param \Trinsic\Api\Model\KenyaNidMatch2FullNameField $full_name Outcome of the verification of the full name.
+     * @param \Trinsic\Api\Model\KenyaNidMatch2FullNameField|null $full_name Outcome of the verification of the full name.
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 

@@ -79,8 +79,8 @@ class IndiaDigilockerAadhaarMatchDateOfBirthField implements ModelInterface, Arr
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'input_value' => false,
-        'outcome' => false
+        'input_value' => true,
+        'outcome' => true
     ];
 
     /**
@@ -281,12 +281,6 @@ class IndiaDigilockerAadhaarMatchDateOfBirthField implements ModelInterface, Arr
     {
         $invalidProperties = [];
 
-        if ($this->container['input_value'] === null) {
-            $invalidProperties[] = "'input_value' can't be null";
-        }
-        if ($this->container['outcome'] === null) {
-            $invalidProperties[] = "'outcome' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -305,7 +299,7 @@ class IndiaDigilockerAadhaarMatchDateOfBirthField implements ModelInterface, Arr
     /**
      * Gets input_value
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getInputValue()
     {
@@ -315,14 +309,21 @@ class IndiaDigilockerAadhaarMatchDateOfBirthField implements ModelInterface, Arr
     /**
      * Sets input_value
      *
-     * @param \DateTime $input_value The date of birth submitted for this check, as provided in the match input.
+     * @param \DateTime|null $input_value The date of birth submitted for this check, as provided in the match input.
      *
      * @return self
      */
     public function setInputValue($input_value)
     {
         if (is_null($input_value)) {
-            throw new \InvalidArgumentException('non-nullable input_value cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'input_value');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('input_value', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['input_value'] = $input_value;
 
@@ -332,7 +333,7 @@ class IndiaDigilockerAadhaarMatchDateOfBirthField implements ModelInterface, Arr
     /**
      * Gets outcome
      *
-     * @return bool
+     * @return bool|null
      */
     public function getOutcome()
     {
@@ -342,14 +343,21 @@ class IndiaDigilockerAadhaarMatchDateOfBirthField implements ModelInterface, Arr
     /**
      * Sets outcome
      *
-     * @param bool $outcome Whether the submitted date of birth matched the issuer record for this session.
+     * @param bool|null $outcome Whether the submitted date of birth matched the issuer record for this session.
      *
      * @return self
      */
     public function setOutcome($outcome)
     {
         if (is_null($outcome)) {
-            throw new \InvalidArgumentException('non-nullable outcome cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'outcome');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('outcome', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['outcome'] = $outcome;
 

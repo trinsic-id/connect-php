@@ -89,6 +89,15 @@ class BrazilCpfCheckInputTest extends TestCase
     }
 
     /**
+     * Test attribute "date_of_birth"
+     */
+    public function testPropertyDateOfBirth()
+    {
+        // TODO: implement
+        self::markTestIncomplete('Not implemented');
+    }
+
+    /**
      * Test attribute "selfie_image"
      */
     public function testPropertySelfieImage()

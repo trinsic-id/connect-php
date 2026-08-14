@@ -96,14 +96,14 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'authority_id' => false,
-        'authority_name' => false,
-        'customer_id' => false,
-        'initials' => false,
-        'family_name' => false,
-        'address' => false,
-        'birth_date' => false,
-        'gender' => false,
+        'authority_id' => true,
+        'authority_name' => true,
+        'customer_id' => true,
+        'initials' => true,
+        'family_name' => true,
+        'address' => true,
+        'birth_date' => true,
+        'gender' => true,
         'phone_number' => true,
         'email' => true
     ];
@@ -338,30 +338,6 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['authority_id'] === null) {
-            $invalidProperties[] = "'authority_id' can't be null";
-        }
-        if ($this->container['authority_name'] === null) {
-            $invalidProperties[] = "'authority_name' can't be null";
-        }
-        if ($this->container['customer_id'] === null) {
-            $invalidProperties[] = "'customer_id' can't be null";
-        }
-        if ($this->container['initials'] === null) {
-            $invalidProperties[] = "'initials' can't be null";
-        }
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
-        }
-        if ($this->container['address'] === null) {
-            $invalidProperties[] = "'address' can't be null";
-        }
-        if ($this->container['birth_date'] === null) {
-            $invalidProperties[] = "'birth_date' can't be null";
-        }
-        if ($this->container['gender'] === null) {
-            $invalidProperties[] = "'gender' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -380,7 +356,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets authority_id
      *
-     * @return string
+     * @return string|null
      */
     public function getAuthorityId()
     {
@@ -390,14 +366,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets authority_id
      *
-     * @param string $authority_id Unique identifier of the authority that was used to verify the individual.              For banks this follows the SWIFT/BIC (Bank Identification Code) format.
+     * @param string|null $authority_id Unique identifier of the authority that was used to verify the individual.              For banks this follows the SWIFT/BIC (Bank Identification Code) format.
      *
      * @return self
      */
     public function setAuthorityId($authority_id)
     {
         if (is_null($authority_id)) {
-            throw new \InvalidArgumentException('non-nullable authority_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'authority_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('authority_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['authority_id'] = $authority_id;
 
@@ -407,7 +390,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets authority_name
      *
-     * @return string
+     * @return string|null
      */
     public function getAuthorityName()
     {
@@ -417,14 +400,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets authority_name
      *
-     * @param string $authority_name Name of the authority that was used to verify the individual.
+     * @param string|null $authority_name Name of the authority that was used to verify the individual.
      *
      * @return self
      */
     public function setAuthorityName($authority_name)
     {
         if (is_null($authority_name)) {
-            throw new \InvalidArgumentException('non-nullable authority_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'authority_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('authority_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['authority_name'] = $authority_name;
 
@@ -434,7 +424,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets customer_id
      *
-     * @return string
+     * @return string|null
      */
     public function getCustomerId()
     {
@@ -444,14 +434,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets customer_id
      *
-     * @param string $customer_id Unique identifier of the customer's account with the issuing authority.              This identifier is generated by each authority and is unique per customer registration, authority, and individual. The identifier should be treated as a unique opaque string.
+     * @param string|null $customer_id Unique identifier of the customer's account with the issuing authority.              This identifier is generated by each authority and is unique per customer registration, authority, and individual. The identifier should be treated as a unique opaque string.
      *
      * @return self
      */
     public function setCustomerId($customer_id)
     {
         if (is_null($customer_id)) {
-            throw new \InvalidArgumentException('non-nullable customer_id cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'customer_id');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('customer_id', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['customer_id'] = $customer_id;
 
@@ -461,7 +458,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets initials
      *
-     * @return string
+     * @return string|null
      */
     public function getInitials()
     {
@@ -471,14 +468,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets initials
      *
-     * @param string $initials Initials of the individual.
+     * @param string|null $initials The initials of the Consumer, defined as the first letter of each of the Consumer’s first names.              Maximum of 24 capitalized letters. Only the first letter of each first name is used which must be capitalized and returned without spaces or dots. Given the name “Jan-Jaap Christaan Jozefszoon” or “jan-jaap christaan jozefszoon”, the value of this field will be “JC”.
      *
      * @return self
      */
     public function setInitials($initials)
     {
         if (is_null($initials)) {
-            throw new \InvalidArgumentException('non-nullable initials cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'initials');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('initials', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['initials'] = $initials;
 
@@ -488,7 +492,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -498,14 +502,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets family_name
      *
-     * @param string $family_name Last/family name of the individual.
+     * @param string|null $family_name Last/family name of the individual.
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 
@@ -515,7 +526,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets address
      *
-     * @return \Trinsic\Api\Model\NetherlandsIdinAddress
+     * @return \Trinsic\Api\Model\NetherlandsIdinAddress|null
      */
     public function getAddress()
     {
@@ -525,14 +536,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets address
      *
-     * @param \Trinsic\Api\Model\NetherlandsIdinAddress $address Address of the individual.
+     * @param \Trinsic\Api\Model\NetherlandsIdinAddress|null $address Address of the individual.
      *
      * @return self
      */
     public function setAddress($address)
     {
         if (is_null($address)) {
-            throw new \InvalidArgumentException('non-nullable address cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'address');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('address', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['address'] = $address;
 
@@ -542,7 +560,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets birth_date
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getBirthDate()
     {
@@ -552,14 +570,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets birth_date
      *
-     * @param \DateTime $birth_date Date of birth of the individual.
+     * @param \DateTime|null $birth_date Date of birth of the individual.
      *
      * @return self
      */
     public function setBirthDate($birth_date)
     {
         if (is_null($birth_date)) {
-            throw new \InvalidArgumentException('non-nullable birth_date cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'birth_date');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('birth_date', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['birth_date'] = $birth_date;
 
@@ -569,7 +594,7 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets gender
      *
-     * @return string
+     * @return string|null
      */
     public function getGender()
     {
@@ -579,14 +604,21 @@ class NetherlandsIdinProviderOutput implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets gender
      *
-     * @param string $gender Gender of the individual.              Possible values: - Male - Female - Unknown
+     * @param string|null $gender Gender of the individual.              Possible values: - Male - Female - Unknown
      *
      * @return self
      */
     public function setGender($gender)
     {
         if (is_null($gender)) {
-            throw new \InvalidArgumentException('non-nullable gender cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'gender');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('gender', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['gender'] = $gender;
 

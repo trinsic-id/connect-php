@@ -84,8 +84,8 @@ class Iso180135AamvaDomesticVehicleClass implements ModelInterface, ArrayAccess,
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'code' => false,
-        'description' => false,
+        'code' => true,
+        'description' => true,
         'issue_date' => true,
         'expiry_date' => true
     ];
@@ -296,12 +296,6 @@ class Iso180135AamvaDomesticVehicleClass implements ModelInterface, ArrayAccess,
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
-        if ($this->container['description'] === null) {
-            $invalidProperties[] = "'description' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -320,7 +314,7 @@ class Iso180135AamvaDomesticVehicleClass implements ModelInterface, ArrayAccess,
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -330,14 +324,21 @@ class Iso180135AamvaDomesticVehicleClass implements ModelInterface, ArrayAccess,
     /**
      * Sets code
      *
-     * @param string $code Vehicle class code.
+     * @param string|null $code Vehicle class code.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 
@@ -347,7 +348,7 @@ class Iso180135AamvaDomesticVehicleClass implements ModelInterface, ArrayAccess,
     /**
      * Gets description
      *
-     * @return string
+     * @return string|null
      */
     public function getDescription()
     {
@@ -357,14 +358,21 @@ class Iso180135AamvaDomesticVehicleClass implements ModelInterface, ArrayAccess,
     /**
      * Sets description
      *
-     * @param string $description Human-readable description of the vehicle class.
+     * @param string|null $description Human-readable description of the vehicle class.
      *
      * @return self
      */
     public function setDescription($description)
     {
         if (is_null($description)) {
-            throw new \InvalidArgumentException('non-nullable description cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'description');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('description', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['description'] = $description;
 

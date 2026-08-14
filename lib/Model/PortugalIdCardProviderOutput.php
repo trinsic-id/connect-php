@@ -84,10 +84,10 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'first_name' => false,
-        'last_name' => false,
-        'date_of_birth' => false,
-        'civil_identification_number' => false
+        'first_name' => true,
+        'last_name' => true,
+        'date_of_birth' => true,
+        'civil_identification_number' => true
     ];
 
     /**
@@ -296,18 +296,6 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['first_name'] === null) {
-            $invalidProperties[] = "'first_name' can't be null";
-        }
-        if ($this->container['last_name'] === null) {
-            $invalidProperties[] = "'last_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['civil_identification_number'] === null) {
-            $invalidProperties[] = "'civil_identification_number' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -326,7 +314,7 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets first_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFirstName()
     {
@@ -336,14 +324,21 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets first_name
      *
-     * @param string $first_name The first name of the verified individual
+     * @param string|null $first_name The first name of the verified individual
      *
      * @return self
      */
     public function setFirstName($first_name)
     {
         if (is_null($first_name)) {
-            throw new \InvalidArgumentException('non-nullable first_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'first_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('first_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['first_name'] = $first_name;
 
@@ -353,7 +348,7 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets last_name
      *
-     * @return string
+     * @return string|null
      */
     public function getLastName()
     {
@@ -363,14 +358,21 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets last_name
      *
-     * @param string $last_name The last name of the verified individual
+     * @param string|null $last_name The last name of the verified individual
      *
      * @return self
      */
     public function setLastName($last_name)
     {
         if (is_null($last_name)) {
-            throw new \InvalidArgumentException('non-nullable last_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'last_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('last_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['last_name'] = $last_name;
 
@@ -380,7 +382,7 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -390,14 +392,21 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth The date of birth of the verified individual
+     * @param \DateTime|null $date_of_birth The date of birth of the verified individual
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -407,7 +416,7 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets civil_identification_number
      *
-     * @return string
+     * @return string|null
      */
     public function getCivilIdentificationNumber()
     {
@@ -417,14 +426,21 @@ class PortugalIdCardProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets civil_identification_number
      *
-     * @param string $civil_identification_number The 8-digit Portuguese Civil Identification Number (número de identificação civil) of the verified individual.
+     * @param string|null $civil_identification_number The 8-digit Portuguese Civil Identification Number (número de identificação civil) of the verified individual.
      *
      * @return self
      */
     public function setCivilIdentificationNumber($civil_identification_number)
     {
         if (is_null($civil_identification_number)) {
-            throw new \InvalidArgumentException('non-nullable civil_identification_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'civil_identification_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('civil_identification_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['civil_identification_number'] = $civil_identification_number;
 

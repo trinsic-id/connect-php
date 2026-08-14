@@ -83,10 +83,10 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'iaca_root_certificate' => false,
-        'document_signer_certificate' => false,
-        'document_type' => false,
-        'name_spaces' => false
+        'iaca_root_certificate' => true,
+        'document_signer_certificate' => true,
+        'document_type' => true,
+        'name_spaces' => true
     ];
 
     /**
@@ -295,18 +295,6 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['iaca_root_certificate'] === null) {
-            $invalidProperties[] = "'iaca_root_certificate' can't be null";
-        }
-        if ($this->container['document_signer_certificate'] === null) {
-            $invalidProperties[] = "'document_signer_certificate' can't be null";
-        }
-        if ($this->container['document_type'] === null) {
-            $invalidProperties[] = "'document_type' can't be null";
-        }
-        if ($this->container['name_spaces'] === null) {
-            $invalidProperties[] = "'name_spaces' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -325,7 +313,7 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets iaca_root_certificate
      *
-     * @return \Trinsic\Api\Model\MdlOutputCertificateData
+     * @return \Trinsic\Api\Model\MdlOutputCertificateData|null
      */
     public function getIacaRootCertificate()
     {
@@ -335,14 +323,21 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets iaca_root_certificate
      *
-     * @param \Trinsic\Api\Model\MdlOutputCertificateData $iaca_root_certificate Information about the IACA Root Certificate which signed (directly or indirectly) the Document Signer Certificate for this mDL.
+     * @param \Trinsic\Api\Model\MdlOutputCertificateData|null $iaca_root_certificate Information about the IACA Root Certificate which signed (directly or indirectly) the Document Signer Certificate for this mDoc.
      *
      * @return self
      */
     public function setIacaRootCertificate($iaca_root_certificate)
     {
         if (is_null($iaca_root_certificate)) {
-            throw new \InvalidArgumentException('non-nullable iaca_root_certificate cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'iaca_root_certificate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('iaca_root_certificate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['iaca_root_certificate'] = $iaca_root_certificate;
 
@@ -352,7 +347,7 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets document_signer_certificate
      *
-     * @return \Trinsic\Api\Model\MdlOutputCertificateData
+     * @return \Trinsic\Api\Model\MdlOutputCertificateData|null
      */
     public function getDocumentSignerCertificate()
     {
@@ -362,14 +357,21 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets document_signer_certificate
      *
-     * @param \Trinsic\Api\Model\MdlOutputCertificateData $document_signer_certificate Information about the Document Signer Certificate which signed the mDL presented by the individual.
+     * @param \Trinsic\Api\Model\MdlOutputCertificateData|null $document_signer_certificate Information about the Document Signer Certificate which signed the mDoc presented by the individual.
      *
      * @return self
      */
     public function setDocumentSignerCertificate($document_signer_certificate)
     {
         if (is_null($document_signer_certificate)) {
-            throw new \InvalidArgumentException('non-nullable document_signer_certificate cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_signer_certificate');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_signer_certificate', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_signer_certificate'] = $document_signer_certificate;
 
@@ -379,7 +381,7 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets document_type
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentType()
     {
@@ -389,14 +391,21 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets document_type
      *
-     * @param string $document_type The document type of the mDL presented by the individual.              Common values: - \"org.iso.18013.5.1.mDL\" for ISO 18013-5 mDLs - \"com.google.wallet.idcard.1\" for Google Wallet ID Cards
+     * @param string|null $document_type The document type of the mDoc presented by the individual.              Common values: - \"org.iso.18013.5.1.mDL\" for ISO 18013-5 mDLs - \"com.google.wallet.idcard.1\" for Google Wallet ID Cards
      *
      * @return self
      */
     public function setDocumentType($document_type)
     {
         if (is_null($document_type)) {
-            throw new \InvalidArgumentException('non-nullable document_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_type'] = $document_type;
 
@@ -406,7 +415,7 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets name_spaces
      *
-     * @return array<string,array<string,\Trinsic\Api\Model\MdlOutputFieldData>>
+     * @return array<string,array<string,\Trinsic\Api\Model\MdlOutputFieldData>>|null
      */
     public function getNameSpaces()
     {
@@ -416,14 +425,21 @@ class MdlOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets name_spaces
      *
-     * @param array<string,array<string,\Trinsic\Api\Model\MdlOutputFieldData>> $name_spaces The namespaces, and fields within those namespaces, which were present in the processed mDL.
+     * @param array<string,array<string,\Trinsic\Api\Model\MdlOutputFieldData>>|null $name_spaces The namespaces, and fields within those namespaces, which were present in the processed mDL.
      *
      * @return self
      */
     public function setNameSpaces($name_spaces)
     {
         if (is_null($name_spaces)) {
-            throw new \InvalidArgumentException('non-nullable name_spaces cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'name_spaces');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('name_spaces', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['name_spaces'] = $name_spaces;
 

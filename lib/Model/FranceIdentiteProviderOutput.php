@@ -84,7 +84,7 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
     protected static array $openAPINullables = [
         'pid' => true,
         'age_verification' => true,
-        'raw18013_output' => false
+        'raw18013_output' => true
     ];
 
     /**
@@ -289,9 +289,6 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
     {
         $invalidProperties = [];
 
-        if ($this->container['raw18013_output'] === null) {
-            $invalidProperties[] = "'raw18013_output' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -378,7 +375,7 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Gets raw18013_output
      *
-     * @return \Trinsic\Api\Model\MdlOutput
+     * @return \Trinsic\Api\Model\MdlOutput|null
      */
     public function getRaw18013Output()
     {
@@ -388,14 +385,21 @@ class FranceIdentiteProviderOutput implements ModelInterface, ArrayAccess, \Json
     /**
      * Sets raw18013_output
      *
-     * @param \Trinsic\Api\Model\MdlOutput $raw18013_output The raw output of the 18013-7 exchange performed through France Identité.
+     * @param \Trinsic\Api\Model\MdlOutput|null $raw18013_output The raw output of the 18013-7 exchange performed through France Identité.
      *
      * @return self
      */
     public function setRaw18013Output($raw18013_output)
     {
         if (is_null($raw18013_output)) {
-            throw new \InvalidArgumentException('non-nullable raw18013_output cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'raw18013_output');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('raw18013_output', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['raw18013_output'] = $raw18013_output;
 

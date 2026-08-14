@@ -89,7 +89,7 @@ class IdentityData implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'originating_provider_id' => true,
+        'originating_provider_id' => false,
         'originating_sub_provider_id' => true,
         'person' => true,
         'document' => true,
@@ -316,6 +316,9 @@ class IdentityData implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
+        if ($this->container['originating_provider_id'] === null) {
+            $invalidProperties[] = "'originating_provider_id' can't be null";
+        }
         if ($this->container['attachments'] === null) {
             $invalidProperties[] = "'attachments' can't be null";
         }
@@ -337,7 +340,7 @@ class IdentityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets originating_provider_id
      *
-     * @return string|null
+     * @return string
      */
     public function getOriginatingProviderId()
     {
@@ -347,21 +350,14 @@ class IdentityData implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets originating_provider_id
      *
-     * @param string|null $originating_provider_id The ID of the provider from which this data originated (eg \"yoti\", \"clear\")
+     * @param string $originating_provider_id The ID of the provider from which this data originated (eg \"yoti\", \"clear\")
      *
      * @return self
      */
     public function setOriginatingProviderId($originating_provider_id)
     {
         if (is_null($originating_provider_id)) {
-            array_push($this->openAPINullablesSetToNull, 'originating_provider_id');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('originating_provider_id', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
+            throw new \InvalidArgumentException('non-nullable originating_provider_id cannot be null');
         }
         $this->container['originating_provider_id'] = $originating_provider_id;
 

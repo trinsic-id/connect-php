@@ -4,8 +4,8 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**first_name** | **string** | The individual&#39;s given name. |
-**last_name** | **string** | The individual&#39;s family name. |
+**first_name** | **string** | The individual&#39;s given name. | [optional]
+**last_name** | **string** | The individual&#39;s family name. | [optional]
 **middle_name** | **string** | The individual&#39;s middle name, if provided. | [optional]
 **suffix** | **string** | The individual&#39;s name suffix, if provided. | [optional]
 **birth_date** | **\DateTime** | The individual&#39;s birth date. | [optional]

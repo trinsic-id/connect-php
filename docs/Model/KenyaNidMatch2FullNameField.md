@@ -4,7 +4,7 @@
 
 Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
-**input_value** | **string** | The full name string submitted for this check (as provided in the match input). |
-**outcome** | **string** | The outcome of comparing the submitted full name against the Integrated Population Registration System (IPRS).              Possible values: - Exact Match - Partial Match - Transposed - No Match - Not Returned |
+**input_value** | **string** | The full name string submitted for this check (as provided in the match input). | [optional]
+**outcome** | **string** | The outcome of comparing the submitted full name against the Integrated Population Registration System (IPRS).              Possible values: - Exact Match - Partial Match - Transposed - No Match - Not Returned | [optional]
 
 [[Back to Model list]](../../README.md#models) [[Back to API list]](../../README.md#endpoints) [[Back to README]](../../README.md)

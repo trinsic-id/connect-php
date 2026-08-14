@@ -80,8 +80,8 @@ class AgeOverOutput implements ModelInterface, ArrayAccess, \JsonSerializable
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'age' => false,
-        'is_over' => false
+        'age' => true,
+        'is_over' => true
     ];
 
     /**
@@ -282,12 +282,6 @@ class AgeOverOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     {
         $invalidProperties = [];
 
-        if ($this->container['age'] === null) {
-            $invalidProperties[] = "'age' can't be null";
-        }
-        if ($this->container['is_over'] === null) {
-            $invalidProperties[] = "'is_over' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -306,7 +300,7 @@ class AgeOverOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets age
      *
-     * @return int
+     * @return int|null
      */
     public function getAge()
     {
@@ -316,14 +310,21 @@ class AgeOverOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets age
      *
-     * @param int $age The age threshold from the `age over X` claim.
+     * @param int|null $age The age threshold from the `age over X` claim.
      *
      * @return self
      */
     public function setAge($age)
     {
         if (is_null($age)) {
-            throw new \InvalidArgumentException('non-nullable age cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'age');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('age', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['age'] = $age;
 
@@ -333,7 +334,7 @@ class AgeOverOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Gets is_over
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsOver()
     {
@@ -343,14 +344,21 @@ class AgeOverOutput implements ModelInterface, ArrayAccess, \JsonSerializable
     /**
      * Sets is_over
      *
-     * @param bool $is_over Whether the individual is at least the given age.
+     * @param bool|null $is_over Whether the individual is at least the given age.
      *
      * @return self
      */
     public function setIsOver($is_over)
     {
         if (is_null($is_over)) {
-            throw new \InvalidArgumentException('non-nullable is_over cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_over');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_over', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_over'] = $is_over;
 

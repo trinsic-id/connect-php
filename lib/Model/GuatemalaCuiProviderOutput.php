@@ -96,16 +96,16 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'full_name' => false,
-        'given_name' => false,
-        'family_name' => false,
+        'full_name' => true,
+        'given_name' => true,
+        'family_name' => true,
         'date_of_birth' => true,
-        'document_number' => false,
-        'serial_digits' => false,
-        'verifier_digit' => false,
-        'geographic_digits' => false,
-        'sex' => false,
-        'array_name' => false
+        'document_number' => true,
+        'serial_digits' => true,
+        'verifier_digit' => true,
+        'geographic_digits' => true,
+        'sex' => true,
+        'array_name' => true
     ];
 
     /**
@@ -338,33 +338,6 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['given_name'] === null) {
-            $invalidProperties[] = "'given_name' can't be null";
-        }
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
-        }
-        if ($this->container['document_number'] === null) {
-            $invalidProperties[] = "'document_number' can't be null";
-        }
-        if ($this->container['serial_digits'] === null) {
-            $invalidProperties[] = "'serial_digits' can't be null";
-        }
-        if ($this->container['verifier_digit'] === null) {
-            $invalidProperties[] = "'verifier_digit' can't be null";
-        }
-        if ($this->container['geographic_digits'] === null) {
-            $invalidProperties[] = "'geographic_digits' can't be null";
-        }
-        if ($this->container['sex'] === null) {
-            $invalidProperties[] = "'sex' can't be null";
-        }
-        if ($this->container['array_name'] === null) {
-            $invalidProperties[] = "'array_name' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -383,7 +356,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -393,14 +366,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets full_name
      *
-     * @param string $full_name Full name, including given and family names of the CUI holder.
+     * @param string|null $full_name Full name, including given and family names of the CUI holder.
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -410,7 +390,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets given_name
      *
-     * @return string
+     * @return string|null
      */
     public function getGivenName()
     {
@@ -420,14 +400,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets given_name
      *
-     * @param string $given_name Given name(s) of the CUI holder.
+     * @param string|null $given_name Given name(s) of the CUI holder.
      *
      * @return self
      */
     public function setGivenName($given_name)
     {
         if (is_null($given_name)) {
-            throw new \InvalidArgumentException('non-nullable given_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'given_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('given_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['given_name'] = $given_name;
 
@@ -437,7 +424,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -447,14 +434,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets family_name
      *
-     * @param string $family_name Family name(s) of the CUI holder, including maternal and paternal names.
+     * @param string|null $family_name Family name(s) of the CUI holder, including maternal and paternal names.
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 
@@ -498,7 +492,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets document_number
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentNumber()
     {
@@ -508,14 +502,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets document_number
      *
-     * @param string $document_number The Guatemalan Código Único de Identificación (CUI) number.              Assigned and maintained by RENAP (Registro Nacional de las Personas). Official format: exactly 13 numeric digits. 8 RENAP-assigned serial digits, 1 verifier digit (dígito verificador), and 4 geographic digits for department and municipality of birth. The CUI is printed on the Documento Personal de Identificación (DPI) in three groups (4–5–4) separated by spaces.              Trinsic normalizes to digits-only when returning the result, automatically removing spaces, dots, hyphens, and other non-alphanumeric characters.              No verifier algorithm appears in publicly accessible RENAP resources. Community-maintained validators often use modulus-11 (non-official).
+     * @param string|null $document_number The Guatemalan Código Único de Identificación (CUI) number.              Assigned and maintained by RENAP (Registro Nacional de las Personas). Official format: exactly 13 numeric digits. 8 RENAP-assigned serial digits, 1 verifier digit (dígito verificador), and 4 geographic digits for department and municipality of birth. The CUI is printed on the Documento Personal de Identificación (DPI) in three groups (4–5–4) separated by spaces.              Trinsic normalizes to digits-only when returning the result, automatically removing spaces, dots, hyphens, and other non-alphanumeric characters.              No verifier algorithm appears in publicly accessible RENAP resources. Community-maintained validators often use modulus-11 (non-official).
      *
      * @return self
      */
     public function setDocumentNumber($document_number)
     {
         if (is_null($document_number)) {
-            throw new \InvalidArgumentException('non-nullable document_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_number'] = $document_number;
 
@@ -525,7 +526,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets serial_digits
      *
-     * @return string
+     * @return string|null
      */
     public function getSerialDigits()
     {
@@ -535,14 +536,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets serial_digits
      *
-     * @param string $serial_digits The first 8 digits of the CUI: the portion RENAP assigns from its registration system, before the verifier digit and the four-place geographic codes. Called the “serial” numbers in community-maintained validators.
+     * @param string|null $serial_digits The first 8 digits of the CUI: the portion RENAP assigns from its registration system, before the verifier digit and the four-place geographic codes. Called the “serial” numbers in community-maintained validators.
      *
      * @return self
      */
     public function setSerialDigits($serial_digits)
     {
         if (is_null($serial_digits)) {
-            throw new \InvalidArgumentException('non-nullable serial_digits cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'serial_digits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('serial_digits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['serial_digits'] = $serial_digits;
 
@@ -552,7 +560,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets verifier_digit
      *
-     * @return string
+     * @return string|null
      */
     public function getVerifierDigit()
     {
@@ -562,14 +570,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets verifier_digit
      *
-     * @param string $verifier_digit The 9th digit of the CUI (verifier digit / dígito verificador). No verifier algorithm appears in publicly accessible RENAP resources.              However, community-maintained validators often use modulus-11 (non-official).
+     * @param string|null $verifier_digit The 9th digit of the CUI (verifier digit / dígito verificador). No verifier algorithm appears in publicly accessible RENAP resources.              However, community-maintained validators often use modulus-11 (non-official).
      *
      * @return self
      */
     public function setVerifierDigit($verifier_digit)
     {
         if (is_null($verifier_digit)) {
-            throw new \InvalidArgumentException('non-nullable verifier_digit cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'verifier_digit');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('verifier_digit', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['verifier_digit'] = $verifier_digit;
 
@@ -579,7 +594,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets geographic_digits
      *
-     * @return string
+     * @return string|null
      */
     public function getGeographicDigits()
     {
@@ -589,14 +604,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets geographic_digits
      *
-     * @param string $geographic_digits The last four digits encode birthplace department and municipality. There is not a publicly accessible dataset from RENAP for geographic codes. The INE (Instituto Nacional de Estadística y Censos) provides a dictionary of variables (Educación Formal 2024) that includes statistical codes for decoding departments and municipalities. Be careful using these resources, as these codes are not official RENAP codes. They may not always map to the correct department and municipality for consular registrations, naturalizations, foreign residents, and other edge cases.              For the dataset, see: https://datos.ine.gob.gt/dataset/educacion-formal-2024 under \"Diccionario de Variables (Educación Formal 2024)\"
+     * @param string|null $geographic_digits The last four digits encode birthplace department and municipality. There is not a publicly accessible dataset from RENAP for geographic codes. The INE (Instituto Nacional de Estadística y Censos) provides a dictionary of variables (Educación Formal 2024) that includes statistical codes for decoding departments and municipalities. Be careful using these resources, as these codes are not official RENAP codes. They may not always map to the correct department and municipality for consular registrations, naturalizations, foreign residents, and other edge cases.              For the dataset, see: https://datos.ine.gob.gt/dataset/educacion-formal-2024 under \"Diccionario de Variables (Educación Formal 2024)\"
      *
      * @return self
      */
     public function setGeographicDigits($geographic_digits)
     {
         if (is_null($geographic_digits)) {
-            throw new \InvalidArgumentException('non-nullable geographic_digits cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'geographic_digits');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('geographic_digits', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['geographic_digits'] = $geographic_digits;
 
@@ -606,7 +628,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets sex
      *
-     * @return string
+     * @return string|null
      */
     public function getSex()
     {
@@ -616,14 +638,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets sex
      *
-     * @param string $sex Sex of the CUI holder.              Possible values: - Male - Female - Unknown
+     * @param string|null $sex Sex of the CUI holder.              Possible values: - Male - Female - Unknown
      *
      * @return self
      */
     public function setSex($sex)
     {
         if (is_null($sex)) {
-            throw new \InvalidArgumentException('non-nullable sex cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sex', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sex'] = $sex;
 
@@ -633,7 +662,7 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets array_name
      *
-     * @return string[]
+     * @return string[]|null
      */
     public function getArrayName()
     {
@@ -643,14 +672,21 @@ class GuatemalaCuiProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets array_name
      *
-     * @param string[] $array_name All names of the CUI holder, as an array of strings (e.g. given and family name parts).
+     * @param string[]|null $array_name All names of the CUI holder, as an array of strings (e.g. given and family name parts).
      *
      * @return self
      */
     public function setArrayName($array_name)
     {
         if (is_null($array_name)) {
-            throw new \InvalidArgumentException('non-nullable array_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'array_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('array_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['array_name'] = $array_name;
 

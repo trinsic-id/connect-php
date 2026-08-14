@@ -34,7 +34,7 @@ use PHPUnit\Framework\TestCase;
  * EudiAgeVerificationCredentialTest Class Doc Comment
  *
  * @category    Class
- * @description An EUDI Age Verification credential, with document type &#x60;eu.europa.ec.eudi.av.1&#x60;.              This is the age verification credential type defined in the EUDI Wallet framework.
+ * @description An EUDI Age Verification credential, with document type &#x60;eu.europa.ec.av.1&#x60;.
  * @package     Trinsic\Api
  * @author      OpenAPI Generator team
  * @link        https://openapi-generator.tech
@@ -83,24 +83,6 @@ class EudiAgeVerificationCredentialTest extends TestCase
      * Test attribute "age_over"
      */
     public function testPropertyAgeOver()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "expiry_date"
-     */
-    public function testPropertyExpiryDate()
-    {
-        // TODO: implement
-        self::markTestIncomplete('Not implemented');
-    }
-
-    /**
-     * Test attribute "issuing_country"
-     */
-    public function testPropertyIssuingCountry()
     {
         // TODO: implement
         self::markTestIncomplete('Not implemented');

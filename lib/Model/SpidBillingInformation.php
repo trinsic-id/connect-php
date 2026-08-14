@@ -82,9 +82,9 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'is_billable' => false,
-        'verification_type' => false,
-        'verification_level' => false
+        'is_billable' => true,
+        'verification_type' => true,
+        'verification_level' => true
     ];
 
     /**
@@ -289,15 +289,6 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
     {
         $invalidProperties = [];
 
-        if ($this->container['is_billable'] === null) {
-            $invalidProperties[] = "'is_billable' can't be null";
-        }
-        if ($this->container['verification_type'] === null) {
-            $invalidProperties[] = "'verification_type' can't be null";
-        }
-        if ($this->container['verification_level'] === null) {
-            $invalidProperties[] = "'verification_level' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -316,7 +307,7 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets is_billable
      *
-     * @return bool
+     * @return bool|null
      */
     public function getIsBillable()
     {
@@ -326,14 +317,21 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets is_billable
      *
-     * @param bool $is_billable Whether this SPID verification has resulted in a billable event.
+     * @param bool|null $is_billable Whether this SPID verification has resulted in a billable event.
      *
      * @return self
      */
     public function setIsBillable($is_billable)
     {
         if (is_null($is_billable)) {
-            throw new \InvalidArgumentException('non-nullable is_billable cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'is_billable');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('is_billable', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['is_billable'] = $is_billable;
 
@@ -343,7 +341,7 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets verification_type
      *
-     * @return string
+     * @return string|null
      */
     public function getVerificationType()
     {
@@ -353,14 +351,21 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets verification_type
      *
-     * @param string $verification_type The billable verification type for this SPID verification.              Possible values: \"Authentication\" | \"Registration\"
+     * @param string|null $verification_type The billable verification type for this SPID verification.              Possible values: \"Authentication\" | \"Registration\"
      *
      * @return self
      */
     public function setVerificationType($verification_type)
     {
         if (is_null($verification_type)) {
-            throw new \InvalidArgumentException('non-nullable verification_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'verification_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('verification_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['verification_type'] = $verification_type;
 
@@ -370,7 +375,7 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Gets verification_level
      *
-     * @return int
+     * @return int|null
      */
     public function getVerificationLevel()
     {
@@ -380,14 +385,21 @@ class SpidBillingInformation implements ModelInterface, ArrayAccess, \JsonSerial
     /**
      * Sets verification_level
      *
-     * @param int $verification_level The billable verification level for this SPID verification.              Possible values: 1 | 2 | 3
+     * @param int|null $verification_level The billable verification level for this SPID verification.              Possible values: 1 | 2 | 3
      *
      * @return self
      */
     public function setVerificationLevel($verification_level)
     {
         if (is_null($verification_level)) {
-            throw new \InvalidArgumentException('non-nullable verification_level cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'verification_level');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('verification_level', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['verification_level'] = $verification_level;
 

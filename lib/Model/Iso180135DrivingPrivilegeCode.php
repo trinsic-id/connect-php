@@ -82,7 +82,7 @@ class Iso180135DrivingPrivilegeCode implements ModelInterface, ArrayAccess, \Jso
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'code' => false,
+        'code' => true,
         'sign' => true,
         'value' => true
     ];
@@ -289,9 +289,6 @@ class Iso180135DrivingPrivilegeCode implements ModelInterface, ArrayAccess, \Jso
     {
         $invalidProperties = [];
 
-        if ($this->container['code'] === null) {
-            $invalidProperties[] = "'code' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -310,7 +307,7 @@ class Iso180135DrivingPrivilegeCode implements ModelInterface, ArrayAccess, \Jso
     /**
      * Gets code
      *
-     * @return string
+     * @return string|null
      */
     public function getCode()
     {
@@ -320,14 +317,21 @@ class Iso180135DrivingPrivilegeCode implements ModelInterface, ArrayAccess, \Jso
     /**
      * Sets code
      *
-     * @param string $code The code identifier.
+     * @param string|null $code The code identifier.
      *
      * @return self
      */
     public function setCode($code)
     {
         if (is_null($code)) {
-            throw new \InvalidArgumentException('non-nullable code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['code'] = $code;
 

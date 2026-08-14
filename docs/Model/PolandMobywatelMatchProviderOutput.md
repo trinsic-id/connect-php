@@ -6,7 +6,7 @@ Name | Type | Description | Notes
 ------------ | ------------- | ------------- | -------------
 **given_name** | **string** | Given name as provided by the individual. | [optional]
 **family_name** | **string** | Current legal family name (nazwisko) as provided by the individual.              In Poland the current legal family name (nazwisko) is a separate concept from your birth family name (nazwisko rodowe). They often match, but they can differ after marriage, adoption, or a court-ordered change. | [optional]
-**nationality** | **string** | Nationality as provided by the individual. | [optional]
+**nationality** | **string** | Nationality as provided by the individual.              This is not necessarily the same as the raw input that was provided. This is the normalized value, which was used to match against the individual&#39;s mObywatel wallet.              Format: - 3-letter ISO 3166-1 alpha-3 code (e.g. POL) | [optional]
 **date_of_birth** | **\DateTime** | Date of birth as provided by the individual. | [optional]
 **personal_number** | **string** | Personal number (PESEL) as provided by the individual. | [optional]
 **expiration_date** | **\DateTime** | Expiration date as provided by the individual. | [optional]

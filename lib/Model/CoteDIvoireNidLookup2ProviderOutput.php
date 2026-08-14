@@ -94,12 +94,12 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'full_name' => false,
-        'given_name' => false,
-        'family_name' => false,
-        'date_of_birth' => false,
-        'sex' => false,
-        'nationality' => false,
+        'full_name' => true,
+        'given_name' => true,
+        'family_name' => true,
+        'date_of_birth' => true,
+        'sex' => true,
+        'nationality' => true,
         'address' => true,
         'document_number' => true,
         'national_id_number' => true
@@ -331,24 +331,6 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     {
         $invalidProperties = [];
 
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['given_name'] === null) {
-            $invalidProperties[] = "'given_name' can't be null";
-        }
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['sex'] === null) {
-            $invalidProperties[] = "'sex' can't be null";
-        }
-        if ($this->container['nationality'] === null) {
-            $invalidProperties[] = "'nationality' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -367,7 +349,7 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -377,14 +359,21 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets full_name
      *
-     * @param string $full_name Full name as returned by ONECI (National Civil Registry and Identification Office).
+     * @param string|null $full_name Full name as returned by ONECI (National Civil Registry and Identification Office).
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -394,7 +383,7 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets given_name
      *
-     * @return string
+     * @return string|null
      */
     public function getGivenName()
     {
@@ -404,14 +393,21 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets given_name
      *
-     * @param string $given_name Given name of the ID holder as returned by ONECI (National Civil Registry and Identification Office).
+     * @param string|null $given_name Given name of the ID holder as returned by ONECI (National Civil Registry and Identification Office).
      *
      * @return self
      */
     public function setGivenName($given_name)
     {
         if (is_null($given_name)) {
-            throw new \InvalidArgumentException('non-nullable given_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'given_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('given_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['given_name'] = $given_name;
 
@@ -421,7 +417,7 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -431,14 +427,21 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets family_name
      *
-     * @param string $family_name Family name of the ID holder as returned by ONECI (National Civil Registry and Identification Office).
+     * @param string|null $family_name Family name of the ID holder as returned by ONECI (National Civil Registry and Identification Office).
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 
@@ -448,7 +451,7 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets date_of_birth
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getDateOfBirth()
     {
@@ -458,14 +461,21 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets date_of_birth
      *
-     * @param \DateTime $date_of_birth Date of birth as returned by ONECI (National Civil Registry and Identification Office).
+     * @param \DateTime|null $date_of_birth Date of birth as returned by ONECI (National Civil Registry and Identification Office).
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -475,7 +485,7 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets sex
      *
-     * @return string
+     * @return string|null
      */
     public function getSex()
     {
@@ -485,14 +495,21 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets sex
      *
-     * @param string $sex Sex of the ID holder as returned by ONECI (National Civil Registry and Identification Office). Possible values: - Male - Female
+     * @param string|null $sex Sex of the ID holder as returned by ONECI (National Civil Registry and Identification Office). Possible values: - Male - Female
      *
      * @return self
      */
     public function setSex($sex)
     {
         if (is_null($sex)) {
-            throw new \InvalidArgumentException('non-nullable sex cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sex');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sex', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sex'] = $sex;
 
@@ -502,7 +519,7 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Gets nationality
      *
-     * @return string
+     * @return string|null
      */
     public function getNationality()
     {
@@ -512,14 +529,21 @@ class CoteDIvoireNidLookup2ProviderOutput implements ModelInterface, ArrayAccess
     /**
      * Sets nationality
      *
-     * @param string $nationality Nationality as ISO 3166-1 alpha-2 country code (e.g. \"CI\" for Côte d'Ivoire).
+     * @param string|null $nationality Nationality as ISO 3166-1 alpha-2 country code (e.g. \"CI\" for Côte d'Ivoire).
      *
      * @return self
      */
     public function setNationality($nationality)
     {
         if (is_null($nationality)) {
-            throw new \InvalidArgumentException('non-nullable nationality cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'nationality');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nationality', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['nationality'] = $nationality;
 

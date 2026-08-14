@@ -98,16 +98,16 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'national_id_number' => false,
-        'full_name' => false,
-        'date_of_birth' => false,
-        'province_code' => false,
-        'regency_or_city_code' => false,
-        'district_code' => false,
-        'sex_national_id_number' => false,
-        'serial_number' => false,
+        'national_id_number' => true,
+        'full_name' => true,
+        'date_of_birth' => true,
+        'province_code' => true,
+        'regency_or_city_code' => true,
+        'district_code' => true,
+        'sex_national_id_number' => true,
+        'serial_number' => true,
         'phone_number' => true,
-        'consent_given_at' => false,
+        'consent_given_at' => true,
         'email' => true
     ];
 
@@ -345,33 +345,6 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     {
         $invalidProperties = [];
 
-        if ($this->container['national_id_number'] === null) {
-            $invalidProperties[] = "'national_id_number' can't be null";
-        }
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['date_of_birth'] === null) {
-            $invalidProperties[] = "'date_of_birth' can't be null";
-        }
-        if ($this->container['province_code'] === null) {
-            $invalidProperties[] = "'province_code' can't be null";
-        }
-        if ($this->container['regency_or_city_code'] === null) {
-            $invalidProperties[] = "'regency_or_city_code' can't be null";
-        }
-        if ($this->container['district_code'] === null) {
-            $invalidProperties[] = "'district_code' can't be null";
-        }
-        if ($this->container['sex_national_id_number'] === null) {
-            $invalidProperties[] = "'sex_national_id_number' can't be null";
-        }
-        if ($this->container['serial_number'] === null) {
-            $invalidProperties[] = "'serial_number' can't be null";
-        }
-        if ($this->container['consent_given_at'] === null) {
-            $invalidProperties[] = "'consent_given_at' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -390,7 +363,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets national_id_number
      *
-     * @return \Trinsic\Api\Model\IndonesiaDukcapilMatchNationalIdNumberField
+     * @return \Trinsic\Api\Model\IndonesiaDukcapilMatchNationalIdNumberField|null
      */
     public function getNationalIdNumber()
     {
@@ -400,14 +373,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets national_id_number
      *
-     * @param \Trinsic\Api\Model\IndonesiaDukcapilMatchNationalIdNumberField $national_id_number NIK submitted for this Dukcapil match and the assessment result returned for that value.
+     * @param \Trinsic\Api\Model\IndonesiaDukcapilMatchNationalIdNumberField|null $national_id_number NIK submitted for this Dukcapil match and the assessment result returned for that value.
      *
      * @return self
      */
     public function setNationalIdNumber($national_id_number)
     {
         if (is_null($national_id_number)) {
-            throw new \InvalidArgumentException('non-nullable national_id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'national_id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('national_id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['national_id_number'] = $national_id_number;
 
@@ -417,7 +397,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets full_name
      *
-     * @return \Trinsic\Api\Model\IndonesiaDukcapilMatchFullNameField
+     * @return \Trinsic\Api\Model\IndonesiaDukcapilMatchFullNameField|null
      */
     public function getFullName()
     {
@@ -427,14 +407,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets full_name
      *
-     * @param \Trinsic\Api\Model\IndonesiaDukcapilMatchFullNameField $full_name Full name submitted for this Dukcapil match and the assessment result returned for that value.
+     * @param \Trinsic\Api\Model\IndonesiaDukcapilMatchFullNameField|null $full_name Full name submitted for this Dukcapil match and the assessment result returned for that value.
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -444,7 +431,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets date_of_birth
      *
-     * @return \Trinsic\Api\Model\IndonesiaDukcapilMatchDateOfBirthField
+     * @return \Trinsic\Api\Model\IndonesiaDukcapilMatchDateOfBirthField|null
      */
     public function getDateOfBirth()
     {
@@ -454,14 +441,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets date_of_birth
      *
-     * @param \Trinsic\Api\Model\IndonesiaDukcapilMatchDateOfBirthField $date_of_birth Date of birth submitted for this Dukcapil match and the assessment result returned for that value.
+     * @param \Trinsic\Api\Model\IndonesiaDukcapilMatchDateOfBirthField|null $date_of_birth Date of birth submitted for this Dukcapil match and the assessment result returned for that value.
      *
      * @return self
      */
     public function setDateOfBirth($date_of_birth)
     {
         if (is_null($date_of_birth)) {
-            throw new \InvalidArgumentException('non-nullable date_of_birth cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('date_of_birth', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['date_of_birth'] = $date_of_birth;
 
@@ -471,7 +465,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets province_code
      *
-     * @return string
+     * @return string|null
      */
     public function getProvinceCode()
     {
@@ -481,14 +475,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets province_code
      *
-     * @param string $province_code Two-digit Indonesian government administrative region code for the province, extracted from digits 1-2 of the submitted NIK number.              Source system: Kode Wilayah Administrasi Pemerintahan, maintained by Indonesia's Ministry of Home Affairs. The first digit indicates the island group: 1-2 Sumatra, 3-4 Java, 5 Bali and Nusa Tenggara, 6 Kalimantan, 7 Sulawesi, 8 Maluku, and 9 Papua. The second digit follows the province creation order.
+     * @param string|null $province_code Two-digit Indonesian government administrative region code for the province, extracted from digits 1-2 of the submitted NIK number.              Source system: Kode Wilayah Administrasi Pemerintahan, maintained by Indonesia's Ministry of Home Affairs. The first digit indicates the island group: 1-2 Sumatra, 3-4 Java, 5 Bali and Nusa Tenggara, 6 Kalimantan, 7 Sulawesi, 8 Maluku, and 9 Papua. The second digit follows the province creation order.
      *
      * @return self
      */
     public function setProvinceCode($province_code)
     {
         if (is_null($province_code)) {
-            throw new \InvalidArgumentException('non-nullable province_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'province_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('province_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['province_code'] = $province_code;
 
@@ -498,7 +499,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets regency_or_city_code
      *
-     * @return string
+     * @return string|null
      */
     public function getRegencyOrCityCode()
     {
@@ -508,14 +509,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets regency_or_city_code
      *
-     * @param string $regency_or_city_code Four-digit Indonesian government administrative region code for the regency or city, extracted from digits 1-4 of the submitted NIK number.              Source system: Kode Wilayah Administrasi Pemerintahan, maintained by Indonesia's Ministry of Home Affairs. Format: two-digit province code followed by a two-digit regency or city sequence; suffixes 01-69 identify regencies and suffixes 71-99 identify cities. The NIK stores this value without dot separators.
+     * @param string|null $regency_or_city_code Four-digit Indonesian government administrative region code for the regency or city, extracted from digits 1-4 of the submitted NIK number.              Source system: Kode Wilayah Administrasi Pemerintahan, maintained by Indonesia's Ministry of Home Affairs. Format: two-digit province code followed by a two-digit regency or city sequence; suffixes 01-69 identify regencies and suffixes 71-99 identify cities. The NIK stores this value without dot separators.
      *
      * @return self
      */
     public function setRegencyOrCityCode($regency_or_city_code)
     {
         if (is_null($regency_or_city_code)) {
-            throw new \InvalidArgumentException('non-nullable regency_or_city_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'regency_or_city_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('regency_or_city_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['regency_or_city_code'] = $regency_or_city_code;
 
@@ -525,7 +533,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets district_code
      *
-     * @return string
+     * @return string|null
      */
     public function getDistrictCode()
     {
@@ -535,14 +543,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets district_code
      *
-     * @param string $district_code Six-digit Indonesian government administrative region code for the district (kecamatan), extracted from digits 1-6 of the submitted NIK number.              Source system: Kode Wilayah Administrasi Pemerintahan, maintained by Indonesia's Ministry of Home Affairs. Format: two-digit province code, two-digit regency or city code, and two-digit district sequence. The NIK stores this value without dot separators.
+     * @param string|null $district_code Six-digit Indonesian government administrative region code for the district (kecamatan), extracted from digits 1-6 of the submitted NIK number.              Source system: Kode Wilayah Administrasi Pemerintahan, maintained by Indonesia's Ministry of Home Affairs. Format: two-digit province code, two-digit regency or city code, and two-digit district sequence. The NIK stores this value without dot separators.
      *
      * @return self
      */
     public function setDistrictCode($district_code)
     {
         if (is_null($district_code)) {
-            throw new \InvalidArgumentException('non-nullable district_code cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'district_code');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('district_code', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['district_code'] = $district_code;
 
@@ -552,7 +567,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets sex_national_id_number
      *
-     * @return string
+     * @return string|null
      */
     public function getSexNationalIdNumber()
     {
@@ -562,14 +577,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets sex_national_id_number
      *
-     * @param string $sex_national_id_number Sex extracted from the birth-day portion of the submitted NIK number.              Known values: - Male: The encoded day value is 40 or lower. - Female: The encoded day value is greater than 40.
+     * @param string|null $sex_national_id_number Sex extracted from the birth-day portion of the submitted NIK number.              Known values: - Male: The encoded day value is 40 or lower. - Female: The encoded day value is greater than 40.
      *
      * @return self
      */
     public function setSexNationalIdNumber($sex_national_id_number)
     {
         if (is_null($sex_national_id_number)) {
-            throw new \InvalidArgumentException('non-nullable sex_national_id_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'sex_national_id_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('sex_national_id_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['sex_national_id_number'] = $sex_national_id_number;
 
@@ -579,7 +601,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets serial_number
      *
-     * @return string
+     * @return string|null
      */
     public function getSerialNumber()
     {
@@ -589,14 +611,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets serial_number
      *
-     * @param string $serial_number Four-digit issuance serial number extracted from digits 13-16 of the submitted NIK number.
+     * @param string|null $serial_number Four-digit issuance serial number extracted from digits 13-16 of the submitted NIK number.
      *
      * @return self
      */
     public function setSerialNumber($serial_number)
     {
         if (is_null($serial_number)) {
-            throw new \InvalidArgumentException('non-nullable serial_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'serial_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('serial_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['serial_number'] = $serial_number;
 
@@ -640,7 +669,7 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Gets consent_given_at
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getConsentGivenAt()
     {
@@ -650,14 +679,21 @@ class IndonesiaDukcapilMatchProviderOutput implements ModelInterface, ArrayAcces
     /**
      * Sets consent_given_at
      *
-     * @param \DateTime $consent_given_at The consent timestamp submitted for this verification.
+     * @param \DateTime|null $consent_given_at The consent timestamp submitted for this verification.
      *
      * @return self
      */
     public function setConsentGivenAt($consent_given_at)
     {
         if (is_null($consent_given_at)) {
-            throw new \InvalidArgumentException('non-nullable consent_given_at cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'consent_given_at');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('consent_given_at', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['consent_given_at'] = $consent_given_at;
 

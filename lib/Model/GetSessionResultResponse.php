@@ -312,7 +312,7 @@ class GetSessionResultResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets session
      *
-     * @param \Trinsic\Api\Model\Session $session session
+     * @param \Trinsic\Api\Model\Session $session The Session in its current state.
      *
      * @return self
      */
@@ -339,7 +339,7 @@ class GetSessionResultResponse implements ModelInterface, ArrayAccess, \JsonSeri
     /**
      * Sets identity_data
      *
-     * @param \Trinsic\Api\Model\IdentityData|null $identity_data identity_data
+     * @param \Trinsic\Api\Model\IdentityData|null $identity_data The IdentityData which resulted from the Session, if not HPKE-encrypted.
      *
      * @return self
      */

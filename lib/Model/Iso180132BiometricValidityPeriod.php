@@ -80,8 +80,8 @@ class Iso180132BiometricValidityPeriod implements ModelInterface, ArrayAccess, \
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'not_before' => false,
-        'not_after' => false
+        'not_before' => true,
+        'not_after' => true
     ];
 
     /**
@@ -282,12 +282,6 @@ class Iso180132BiometricValidityPeriod implements ModelInterface, ArrayAccess, \
     {
         $invalidProperties = [];
 
-        if ($this->container['not_before'] === null) {
-            $invalidProperties[] = "'not_before' can't be null";
-        }
-        if ($this->container['not_after'] === null) {
-            $invalidProperties[] = "'not_after' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -306,7 +300,7 @@ class Iso180132BiometricValidityPeriod implements ModelInterface, ArrayAccess, \
     /**
      * Gets not_before
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getNotBefore()
     {
@@ -316,14 +310,21 @@ class Iso180132BiometricValidityPeriod implements ModelInterface, ArrayAccess, \
     /**
      * Sets not_before
      *
-     * @param \DateTime $not_before Date the biometric data block becomes valid.
+     * @param \DateTime|null $not_before Date the biometric data block becomes valid.
      *
      * @return self
      */
     public function setNotBefore($not_before)
     {
         if (is_null($not_before)) {
-            throw new \InvalidArgumentException('non-nullable not_before cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_before');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_before', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_before'] = $not_before;
 
@@ -333,7 +334,7 @@ class Iso180132BiometricValidityPeriod implements ModelInterface, ArrayAccess, \
     /**
      * Gets not_after
      *
-     * @return \DateTime
+     * @return \DateTime|null
      */
     public function getNotAfter()
     {
@@ -343,14 +344,21 @@ class Iso180132BiometricValidityPeriod implements ModelInterface, ArrayAccess, \
     /**
      * Sets not_after
      *
-     * @param \DateTime $not_after Date the biometric data block expires.
+     * @param \DateTime|null $not_after Date the biometric data block expires.
      *
      * @return self
      */
     public function setNotAfter($not_after)
     {
         if (is_null($not_after)) {
-            throw new \InvalidArgumentException('non-nullable not_after cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'not_after');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('not_after', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['not_after'] = $not_after;
 

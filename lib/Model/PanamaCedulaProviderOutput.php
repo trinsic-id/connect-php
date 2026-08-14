@@ -61,7 +61,6 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
         'full_name' => 'string',
         'given_name' => 'string',
         'family_name' => 'string',
-        'date_of_birth' => '\DateTime',
         'document_number' => 'string',
         'nationality_or_residence_type' => 'string',
         'subdivision_of_origin' => 'string',
@@ -79,7 +78,6 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
         'full_name' => null,
         'given_name' => null,
         'family_name' => null,
-        'date_of_birth' => 'date',
         'document_number' => null,
         'nationality_or_residence_type' => null,
         'subdivision_of_origin' => null,
@@ -92,12 +90,11 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
      * @var boolean[]
      */
     protected static array $openAPINullables = [
-        'full_name' => false,
-        'given_name' => false,
-        'family_name' => false,
-        'date_of_birth' => true,
-        'document_number' => false,
-        'nationality_or_residence_type' => false,
+        'full_name' => true,
+        'given_name' => true,
+        'family_name' => true,
+        'document_number' => true,
+        'nationality_or_residence_type' => true,
         'subdivision_of_origin' => true,
         'subdivision_of_origin_name' => true
     ];
@@ -191,7 +188,6 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
         'full_name' => 'fullName',
         'given_name' => 'givenName',
         'family_name' => 'familyName',
-        'date_of_birth' => 'dateOfBirth',
         'document_number' => 'documentNumber',
         'nationality_or_residence_type' => 'nationalityOrResidenceType',
         'subdivision_of_origin' => 'subdivisionOfOrigin',
@@ -207,7 +203,6 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
         'full_name' => 'setFullName',
         'given_name' => 'setGivenName',
         'family_name' => 'setFamilyName',
-        'date_of_birth' => 'setDateOfBirth',
         'document_number' => 'setDocumentNumber',
         'nationality_or_residence_type' => 'setNationalityOrResidenceType',
         'subdivision_of_origin' => 'setSubdivisionOfOrigin',
@@ -223,7 +218,6 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
         'full_name' => 'getFullName',
         'given_name' => 'getGivenName',
         'family_name' => 'getFamilyName',
-        'date_of_birth' => 'getDateOfBirth',
         'document_number' => 'getDocumentNumber',
         'nationality_or_residence_type' => 'getNationalityOrResidenceType',
         'subdivision_of_origin' => 'getSubdivisionOfOrigin',
@@ -290,7 +284,6 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
         $this->setIfExists('full_name', $data ?? [], null);
         $this->setIfExists('given_name', $data ?? [], null);
         $this->setIfExists('family_name', $data ?? [], null);
-        $this->setIfExists('date_of_birth', $data ?? [], null);
         $this->setIfExists('document_number', $data ?? [], null);
         $this->setIfExists('nationality_or_residence_type', $data ?? [], null);
         $this->setIfExists('subdivision_of_origin', $data ?? [], null);
@@ -324,21 +317,6 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     {
         $invalidProperties = [];
 
-        if ($this->container['full_name'] === null) {
-            $invalidProperties[] = "'full_name' can't be null";
-        }
-        if ($this->container['given_name'] === null) {
-            $invalidProperties[] = "'given_name' can't be null";
-        }
-        if ($this->container['family_name'] === null) {
-            $invalidProperties[] = "'family_name' can't be null";
-        }
-        if ($this->container['document_number'] === null) {
-            $invalidProperties[] = "'document_number' can't be null";
-        }
-        if ($this->container['nationality_or_residence_type'] === null) {
-            $invalidProperties[] = "'nationality_or_residence_type' can't be null";
-        }
         return $invalidProperties;
     }
 
@@ -357,7 +335,7 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets full_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFullName()
     {
@@ -367,14 +345,21 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets full_name
      *
-     * @param string $full_name Full name from Tribunal Electoral records.
+     * @param string|null $full_name Full name from Tribunal Electoral records.
      *
      * @return self
      */
     public function setFullName($full_name)
     {
         if (is_null($full_name)) {
-            throw new \InvalidArgumentException('non-nullable full_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'full_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('full_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['full_name'] = $full_name;
 
@@ -384,7 +369,7 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets given_name
      *
-     * @return string
+     * @return string|null
      */
     public function getGivenName()
     {
@@ -394,14 +379,21 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets given_name
      *
-     * @param string $given_name Given name(s) from Tribunal Electoral records.
+     * @param string|null $given_name Given name(s) from Tribunal Electoral records.
      *
      * @return self
      */
     public function setGivenName($given_name)
     {
         if (is_null($given_name)) {
-            throw new \InvalidArgumentException('non-nullable given_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'given_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('given_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['given_name'] = $given_name;
 
@@ -411,7 +403,7 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets family_name
      *
-     * @return string
+     * @return string|null
      */
     public function getFamilyName()
     {
@@ -421,14 +413,21 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets family_name
      *
-     * @param string $family_name Family name(s) from Tribunal Electoral records.
+     * @param string|null $family_name Family name(s) from Tribunal Electoral records.
      *
      * @return self
      */
     public function setFamilyName($family_name)
     {
         if (is_null($family_name)) {
-            throw new \InvalidArgumentException('non-nullable family_name cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'family_name');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('family_name', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['family_name'] = $family_name;
 
@@ -436,43 +435,9 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     }
 
     /**
-     * Gets date_of_birth
-     *
-     * @return \DateTime|null
-     */
-    public function getDateOfBirth()
-    {
-        return $this->container['date_of_birth'];
-    }
-
-    /**
-     * Sets date_of_birth
-     *
-     * @param \DateTime|null $date_of_birth Verified date of birth from Tribunal Electoral records.
-     *
-     * @return self
-     */
-    public function setDateOfBirth($date_of_birth)
-    {
-        if (is_null($date_of_birth)) {
-            array_push($this->openAPINullablesSetToNull, 'date_of_birth');
-        } else {
-            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
-            $index = array_search('date_of_birth', $nullablesSetToNull);
-            if ($index !== FALSE) {
-                unset($nullablesSetToNull[$index]);
-                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
-            }
-        }
-        $this->container['date_of_birth'] = $date_of_birth;
-
-        return $this;
-    }
-
-    /**
      * Gets document_number
      *
-     * @return string
+     * @return string|null
      */
     public function getDocumentNumber()
     {
@@ -482,14 +447,21 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets document_number
      *
-     * @param string $document_number The matched personal identity cédula (Cédula de Identidad Personal) number from Tribunal Electoral records.              On output, Trinsic applies the same normalization as for lookup input. Structure is always {firstSegment}-{libro}-{tomo}: libro is one to four digits and tomo is one to six digits, separated by hyphens.              Citizen category and format: - Born in Panama format: {province}-{libro}-{tomo} ({province} is official code 1 through 13). Examples   8-1234-12345, 4-56-789, 12-12-12345. - Panamanian born abroad format: PE-{libro}-{tomo}. Example PE-1234-12345. - Foreign national with cédula format: E-{libro}-{tomo}. Examples E-1234-12345, E-8-102017. - Naturalized citizen format: N-{libro}-{tomo}. Example N-1234-12345. - Pre-2006 civil registry (AV) format: {province}AV-{libro}-{tomo}. Example 10AV-1234-12345. - Indigenous (PI) format: {province}PI-{libro}-{tomo}. Example 1PI-1234-12345.
+     * @param string|null $document_number The matched personal identity cédula (Cédula de Identidad Personal) number from Tribunal Electoral records.              On output, Trinsic applies the same normalization as for lookup input. Structure is always {firstSegment}-{libro}-{tomo}: libro is one to four digits and tomo is one to six digits, separated by hyphens.              Citizen category and format: - Born in Panama format: {province}-{libro}-{tomo} ({province} is official code 1 through 13). Examples   8-1234-12345, 4-56-789, 12-12-12345. - Panamanian born abroad format: PE-{libro}-{tomo}. Example PE-1234-12345. - Foreign national with cédula format: E-{libro}-{tomo}. Examples E-1234-12345, E-8-102017. - Naturalized citizen format: N-{libro}-{tomo}. Example N-1234-12345. - Pre-2006 civil registry (AV) format: {province}AV-{libro}-{tomo}. Example 10AV-1234-12345. - Indigenous (PI) format: {province}PI-{libro}-{tomo}. Example 1PI-1234-12345.
      *
      * @return self
      */
     public function setDocumentNumber($document_number)
     {
         if (is_null($document_number)) {
-            throw new \InvalidArgumentException('non-nullable document_number cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'document_number');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('document_number', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['document_number'] = $document_number;
 
@@ -499,7 +471,7 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Gets nationality_or_residence_type
      *
-     * @return string
+     * @return string|null
      */
     public function getNationalityOrResidenceType()
     {
@@ -509,14 +481,21 @@ class PanamaCedulaProviderOutput implements ModelInterface, ArrayAccess, \JsonSe
     /**
      * Sets nationality_or_residence_type
      *
-     * @param string $nationality_or_residence_type Inferred from DocumentNumber. Values are nationality or residence category.              Possible values: - BornInPanama - ForeignNational - BornAbroad - Naturalized - LegacyNumber - Indigenous - Unknown (we were unable to determine the category)
+     * @param string|null $nationality_or_residence_type Inferred from DocumentNumber. Values are nationality or residence category.              Possible values: - BornInPanama - ForeignNational - BornAbroad - Naturalized - LegacyNumber - Indigenous - Unknown (we were unable to determine the category)
      *
      * @return self
      */
     public function setNationalityOrResidenceType($nationality_or_residence_type)
     {
         if (is_null($nationality_or_residence_type)) {
-            throw new \InvalidArgumentException('non-nullable nationality_or_residence_type cannot be null');
+            array_push($this->openAPINullablesSetToNull, 'nationality_or_residence_type');
+        } else {
+            $nullablesSetToNull = $this->getOpenAPINullablesSetToNull();
+            $index = array_search('nationality_or_residence_type', $nullablesSetToNull);
+            if ($index !== FALSE) {
+                unset($nullablesSetToNull[$index]);
+                $this->setOpenAPINullablesSetToNull($nullablesSetToNull);
+            }
         }
         $this->container['nationality_or_residence_type'] = $nationality_or_residence_type;
 
